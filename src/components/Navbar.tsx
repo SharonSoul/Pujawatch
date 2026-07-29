@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
+import { motion, AnimatePresence } from "motion/react";
 
 const NAV_LINKS = [
   { href: "#about", label: "About" },
@@ -23,10 +24,19 @@ export function Navbar() {
 
   const close = useCallback(() => setOpen(false), []);
 
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
   return (
     <header
       className={`fixed top-0 inset-x-0 z-40 h-16 transition-colors duration-300 ${
-        scrolled ? "bg-cream/90 backdrop-blur-sm" : "bg-transparent"
+        scrolled || open ? "bg-cream/95 backdrop-blur-sm" : "bg-cream/80"
       }`}
     >
       <nav className="mx-auto flex h-full max-w-7xl items-center justify-between px-6 lg:px-8">
@@ -58,14 +68,14 @@ export function Navbar() {
         </div>
 
         <button
-          className="flex h-9 w-9 items-center justify-center rounded-sm md:hidden"
           onClick={() => setOpen(!open)}
+          className="relative z-50 flex h-10 w-10 items-center justify-center md:hidden"
           aria-label="Toggle menu"
         >
           <span className="relative h-3 w-5">
             <span
-              className={`absolute left-0 top-0 h-px w-5 bg-espresso transition-all duration-300 ${
-                open ? "translate-y-1.5 rotate-45" : ""
+              className={`absolute left-0 h-px w-5 bg-espresso transition-all duration-300 ${
+                open ? "top-1.5 rotate-45" : "top-0"
               }`}
             />
             <span
@@ -74,37 +84,79 @@ export function Navbar() {
               }`}
             />
             <span
-              className={`absolute left-0 top-3 h-px w-5 bg-espresso transition-all duration-300 ${
-                open ? "-translate-y-1.5 -rotate-45" : ""
+              className={`absolute left-0 h-px w-5 bg-espresso transition-all duration-300 ${
+                open ? "top-1.5 -rotate-45" : "top-3"
               }`}
             />
           </span>
         </button>
       </nav>
 
-      {open && (
-        <div className="border-t border-rule bg-cream md:hidden">
-          <div className="flex flex-col gap-1 px-6 py-4">
-            {NAV_LINKS.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                onClick={close}
-                className="py-3 font-label text-[13px] uppercase tracking-[0.16em] text-warm-gray transition-colors hover:text-espresso"
-              >
-                {l.label}
-              </Link>
-            ))}
-            <a
-              href="#book"
-              onClick={close}
-              className="mt-2 inline-flex h-10 items-center justify-center rounded-sm bg-espresso px-6 font-label text-[12px] uppercase tracking-[0.14em] text-cream transition-all duration-300 active:translate-y-px active:scale-[0.98]"
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-cream md:hidden"
+          >
+            <div className="flex flex-col items-center gap-2">
+              {NAV_LINKS.map((l, i) => (
+                <motion.div
+                  key={l.href}
+                  initial={{ opacity: 0, y: 32 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 16 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.08 * i,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                >
+                  <Link
+                    href={l.href}
+                    onClick={close}
+                    className="block font-display text-5xl font-light tracking-[0.03em] text-espresso transition-colors hover:text-warm-gray"
+                  >
+                    {l.label}
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 16 }}
+              transition={{ duration: 0.5, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-12"
             >
-              Book a Session
-            </a>
-          </div>
-        </div>
-      )}
+              <a
+                href="#book"
+                onClick={close}
+                className="inline-flex h-12 items-center rounded-sm bg-espresso px-10 font-label text-[13px] font-medium uppercase tracking-[0.16em] text-cream transition-all duration-300 active:translate-y-px active:scale-[0.98]"
+              >
+                Book a Session
+              </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4, delay: 0.5 }}
+              className="absolute bottom-10 flex items-center gap-3"
+            >
+              <span className="block h-px w-10 bg-rule" />
+              <span className="font-label text-[9px] uppercase tracking-[0.28em] text-rule">
+                PW  CONSULT
+              </span>
+              <span className="block h-px w-10 bg-rule" />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
