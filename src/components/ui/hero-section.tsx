@@ -25,8 +25,8 @@ function DeckCardItem({ item }: { item: DeckCard }) {
           <h4 className="font-display text-2xl tracking-[0.04em] text-espresso sm:text-3xl">
             {item.val}
           </h4>
-          <div className="mb-1 h-[2px] w-20 overflow-hidden rounded-full bg-rule">
-            <div className="h-full w-[60%] bg-espresso" />
+            <div className="mb-1 h-[2px] w-20 overflow-hidden rounded-full bg-rule">
+            <div className="h-full w-[60%] bg-gold" />
           </div>
         </div>
       ) : item.type === "data" ? (
@@ -119,7 +119,7 @@ export function HeroSection() {
   ];
 
   const textOutlineStyle = {
-    WebkitTextStroke: "1.5px var(--espresso)",
+    WebkitTextStroke: "1px var(--espresso)",
     WebkitTextFillColor: "transparent",
   } as React.CSSProperties;
 
@@ -134,13 +134,13 @@ export function HeroSection() {
       >
         <div className="flex min-w-0 flex-1 flex-col justify-between pb-12 md:pb-8">
           <div className="flex items-center gap-3">
-            <div className="relative h-2.5 w-2.5 rounded-full bg-espresso">
-              <div className="absolute inset-0 animate-ping rounded-full bg-espresso opacity-30" />
+            <div className="relative h-2.5 w-2.5 rounded-full bg-gold">
+              <div className="absolute inset-0 animate-ping rounded-full bg-gold opacity-30" />
             </div>
           </div>
 
           <div className="max-w-4xl lg:-translate-y-8">
-            <h1 className="font-label text-[clamp(2.5rem,9.5vw,11.5rem)] font-black uppercase leading-[0.87] tracking-tighter text-espresso">
+            <h1 className="font-display text-[clamp(2.5rem,9.5vw,12rem)] font-bold uppercase leading-[0.84] tracking-[0.02em] text-espresso">
               PUJA
               <br />
               <span style={textOutlineStyle}>WATCH</span>

@@ -6,7 +6,7 @@ import { HeroSection } from "@/components/ui/hero-section";
 import { TextHoverEffect, FooterBackgroundGradient } from "@/components/ui/text-hover-effect";
 
 /* ------------------------------------------------------------------ */
-/*  Reveal (scales up as hero scales out)                              */
+/*  Reveal (fades up as hero scrolls out)                              */
 /* ------------------------------------------------------------------ */
 
 interface StageProps {
@@ -15,12 +15,12 @@ interface StageProps {
 
 function RevealStage({ scrollYProgress }: StageProps) {
   const reduce = useReducedMotion();
-  const scale = reduce ? 1 : useTransform(scrollYProgress, [0, 1], [0.8, 1]);
-  const rotate = reduce ? 0 : useTransform(scrollYProgress, [0, 1], [5, 0]);
+  const opacity = reduce ? 1 : useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const y = reduce ? 0 : useTransform(scrollYProgress, [0, 1], [80, 0]);
 
   return (
     <motion.section
-      style={{ scale, rotate }}
+      style={{ opacity, y }}
       className="relative h-dvh bg-espresso"
     >
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgb(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgb(255,255,255,0.04)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_70%_50%_at_50%_50%,#000_45%,transparent_100%)]" />
@@ -54,7 +54,7 @@ const PROCESS_STEPS = [
 
 function ProcessSection() {
   return (
-    <section className="bg-cream py-24 lg:py-40">
+    <section id="process" className="bg-cream py-24 lg:py-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -67,8 +67,8 @@ function ProcessSection() {
               During the call, a five-step process.
             </h2>
             <div className="flex items-center gap-3">
-              <span className="block h-px w-10 bg-rule" />
-              <span className="font-label text-[9px] uppercase tracking-[0.28em] text-rule">METHOD</span>
+              <span className="block h-px w-10 bg-gold" />
+              <span className="font-label text-[9px] uppercase tracking-[0.28em] text-gold">METHOD</span>
             </div>
           </div>
         </motion.div>
@@ -106,7 +106,7 @@ const SERVICE_AREAS = [
 
 function ServicesSection() {
   return (
-    <section className="bg-mid-bg py-32 lg:py-40">
+    <section id="services" className="bg-mid-bg py-32 lg:py-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -385,13 +385,13 @@ export function LandingPage() {
     offset: ["start start", "end end"],
   });
   const reduce = useReducedMotion();
-  const heroScale = reduce ? 1 : useTransform(scrollYProgress, [0, 1], [1, 0.8]);
-  const heroRotate = reduce ? 0 : useTransform(scrollYProgress, [0, 1], [0, -5]);
+  const heroScale = reduce ? 1 : useTransform(scrollYProgress, [0, 1], [1, 0.85]);
+  const heroOpacity = reduce ? 1 : useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   return (
     <>
       <div ref={container} className="relative h-[200vh]">
-        <motion.section style={{ scale: heroScale, rotate: heroRotate }} className="sticky top-0 h-dvh overflow-hidden">
+        <motion.section style={{ scale: heroScale, opacity: heroOpacity }} className="sticky top-0 h-dvh overflow-hidden">
           <HeroSection />
         </motion.section>
         <RevealStage scrollYProgress={scrollYProgress} />

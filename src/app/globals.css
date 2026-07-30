@@ -3,6 +3,7 @@
 :root {
   --cream: #fffdf6;
   --espresso: #362923;
+  --gold: #f7e38b;
   --warm-gray: #8a7e74;
   --mid-bg: #f9f6ee;
   --rule: #eae4d6;
@@ -11,6 +12,7 @@
 @theme inline {
   --color-cream: var(--cream);
   --color-espresso: var(--espresso);
+  --color-gold: var(--gold);
   --color-warm-gray: var(--warm-gray);
   --color-mid-bg: var(--mid-bg);
   --color-rule: var(--rule);

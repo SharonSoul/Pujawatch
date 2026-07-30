@@ -91,7 +91,7 @@ export const TextHoverEffect = ({
         lengthAdjust="spacingAndGlyphs"
         strokeWidth="1.5"
         className="fill-transparent font-bold"
-        style={{ opacity: hovered ? 0.7 : 0, fontSize: 210, fontFamily: "sans-serif", stroke: "#362923" }}
+        style={{ opacity: hovered ? 0.7 : 0, fontSize: 210, fontFamily: "var(--font-cormorant), serif", stroke: "#362923" }}
       >
         {text}
       </text>
@@ -104,7 +104,7 @@ export const TextHoverEffect = ({
         lengthAdjust="spacingAndGlyphs"
         strokeWidth="1.5"
         className="fill-transparent font-bold"
-        style={{ stroke: "#362923", fontSize: 210, fontFamily: "sans-serif" }}
+        style={{ stroke: "#362923", fontSize: 210, fontFamily: "var(--font-cormorant), serif" }}
         initial={{ strokeDashoffset: 2000, strokeDasharray: 2000 }}
         animate={{
           strokeDashoffset: 0,
@@ -128,7 +128,7 @@ export const TextHoverEffect = ({
         strokeWidth="1.5"
         mask="url(#textMask)"
         className="fill-transparent font-bold"
-        style={{ fontSize: 210, fontFamily: "sans-serif" }}
+        style={{ fontSize: 210, fontFamily: "var(--font-cormorant), serif" }}
       >
         {text}
       </text>
