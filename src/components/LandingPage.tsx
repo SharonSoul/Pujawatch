@@ -82,7 +82,7 @@ function ProcessSection() {
               transition={{ duration: 0.5, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
               className="group bg-cream p-6 transition-colors hover:bg-mid-bg lg:p-8"
             >
-              <span className="font-display text-5xl font-light tracking-[0.02em] text-warm-gray/50">{s.num}</span>
+              <span className="font-display text-5xl font-light tracking-[0.02em] text-gold/50">{s.num}</span>
               <h3 className="mt-4 font-display text-xl font-medium tracking-[0.02em] text-espresso">{s.title}</h3>
               <p className="mt-3 font-body text-sm leading-relaxed text-warm-gray">{s.body}</p>
             </motion.div>
@@ -134,7 +134,7 @@ function ServicesSection() {
               transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
               className={`group bg-cream p-8 transition-shadow duration-300 hover:shadow-[0_0_0_1px_var(--espresso)] lg:p-10 ${i === 0 ? "lg:col-span-2" : ""}`}
             >
-              <span className="font-display text-4xl font-light tracking-[0.02em] text-warm-gray/40">{String(i + 1).padStart(2, "0")}</span>
+              <span className="font-display text-4xl font-light tracking-[0.02em] text-gold/40">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="mt-3 font-display text-xl font-medium tracking-[0.02em] text-espresso">{area.title}</h3>
               <ul className="mt-5 flex flex-col gap-3">
                 {area.items.map((item) => (
@@ -197,7 +197,7 @@ function PricingSection() {
                 <p className={`mt-5 font-body leading-relaxed ${s.featured ? "text-cream/55" : "text-warm-gray"}`}>{s.desc}</p>
               </div>
               <a href="#book" className={`mt-8 inline-flex h-11 items-center gap-2 self-start rounded-sm px-6 font-label text-[11px] uppercase tracking-[0.14em] transition-all duration-300 active:translate-y-px active:scale-[0.98] ${s.featured ? "bg-cream text-espresso hover:bg-espresso hover:text-cream" : "bg-espresso text-cream hover:bg-cream hover:text-espresso"}`}>
-                Select <span>&rarr;</span>
+                Select <span className="text-gold">&rarr;</span>
               </a>
             </motion.div>
           ))}
@@ -244,7 +244,7 @@ function AboutSection() {
             <motion.p initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
               Born and raised in Dallas, Puja Dharod is a Texan Gujarati who earned her B.S. in Advertising and Business from UT Austin. She serves as Vice President of Investments at SSCP, spanning investing, real estate, lease negotiations, financial management, business growth, branding, and strategic planning.
             </motion.p>
-            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.08 }} className="my-4 border-l-2 border-cream/20 py-2 pl-6">
+            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.08 }} className="my-4 border-l-2 border-gold py-2 pl-6">
               <p className="font-display text-xl italic leading-relaxed text-cream">Her name means &ldquo;to pray,&rdquo; and she believes prayers can be answered through compassion, generosity, and action.</p>
             </motion.div>
             <motion.p initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.12 }}>
@@ -291,7 +291,7 @@ function EducationSection() {
         <div className="grid gap-px bg-rule sm:grid-cols-2 lg:grid-cols-4">
           {CREDENTIALS.map((c, i) => (
             <motion.div key={c.prog} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }} className="group bg-cream p-6 transition-colors hover:bg-mid-bg lg:p-7">
-              <span className="font-label text-[10px] uppercase tracking-[0.2em] text-espresso">{c.year}</span>
+              <span className="font-label text-[10px] uppercase tracking-[0.2em] text-gold">{c.year}</span>
               <h4 className="mt-2 font-display text-sm font-medium leading-snug tracking-[0.02em] text-espresso">{c.inst}</h4>
               <p className="mt-1 font-body text-xs leading-relaxed text-warm-gray">{c.prog}</p>
             </motion.div>
