@@ -67,8 +67,8 @@ function ProcessSection() {
               During the call, a five-step process.
             </h2>
             <div className="flex items-center gap-3">
-              <span className="block h-px w-10 bg-gold" />
-              <span className="font-label text-[9px] uppercase tracking-[0.28em] text-gold">METHOD</span>
+              <span className="block h-px w-10 bg-rule" />
+              <span className="font-label text-[9px] uppercase tracking-[0.28em] text-rule">METHOD</span>
             </div>
           </div>
         </motion.div>
@@ -82,7 +82,7 @@ function ProcessSection() {
               transition={{ duration: 0.5, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
               className="group bg-cream p-6 transition-colors hover:bg-mid-bg lg:p-8"
             >
-              <span className="font-display text-5xl font-light tracking-[0.02em] text-gold/50">{s.num}</span>
+              <span className="font-display text-5xl font-light tracking-[0.02em] text-warm-gray/50">{s.num}</span>
               <h3 className="mt-4 font-display text-xl font-medium tracking-[0.02em] text-espresso">{s.title}</h3>
               <p className="mt-3 font-body text-sm leading-relaxed text-warm-gray">{s.body}</p>
             </motion.div>
@@ -134,7 +134,7 @@ function ServicesSection() {
               transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
               className={`group bg-cream p-8 transition-shadow duration-300 hover:shadow-[0_0_0_1px_var(--espresso)] lg:p-10 ${i === 0 ? "lg:col-span-2" : ""}`}
             >
-              <span className="font-display text-4xl font-light tracking-[0.02em] text-gold/40">{String(i + 1).padStart(2, "0")}</span>
+              <span className="font-display text-4xl font-light tracking-[0.02em] text-warm-gray/40">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="mt-3 font-display text-xl font-medium tracking-[0.02em] text-espresso">{area.title}</h3>
               <ul className="mt-5 flex flex-col gap-3">
                 {area.items.map((item) => (
@@ -192,12 +192,12 @@ function PricingSection() {
               <div>
                 <div className="flex items-baseline justify-between gap-4">
                   <h3 className={`font-display text-2xl font-light tracking-[0.03em] ${s.featured ? "text-cream" : "text-espresso"}`}>{s.name}</h3>
-                  <span className="shrink-0 font-display text-3xl font-light tracking-[0.02em] text-espresso">{s.price}</span>
+                  <span className={`shrink-0 font-display text-3xl font-light tracking-[0.02em] ${s.featured ? "text-gold" : "text-espresso"}`}>{s.price}</span>
                 </div>
                 <p className={`mt-5 font-body leading-relaxed ${s.featured ? "text-cream/55" : "text-warm-gray"}`}>{s.desc}</p>
               </div>
               <a href="#book" className={`mt-8 inline-flex h-11 items-center gap-2 self-start rounded-sm px-6 font-label text-[11px] uppercase tracking-[0.14em] transition-all duration-300 active:translate-y-px active:scale-[0.98] ${s.featured ? "bg-cream text-espresso hover:bg-espresso hover:text-cream" : "bg-espresso text-cream hover:bg-cream hover:text-espresso"}`}>
-                Select <span className="text-gold">&rarr;</span>
+                Select <span className={s.featured ? "text-gold" : ""}>&rarr;</span>
               </a>
             </motion.div>
           ))}
@@ -291,7 +291,7 @@ function EducationSection() {
         <div className="grid gap-px bg-rule sm:grid-cols-2 lg:grid-cols-4">
           {CREDENTIALS.map((c, i) => (
             <motion.div key={c.prog} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }} className="group bg-cream p-6 transition-colors hover:bg-mid-bg lg:p-7">
-              <span className="font-label text-[10px] uppercase tracking-[0.2em] text-gold">{c.year}</span>
+              <span className="font-label text-[10px] uppercase tracking-[0.2em] text-espresso">{c.year}</span>
               <h4 className="mt-2 font-display text-sm font-medium leading-snug tracking-[0.02em] text-espresso">{c.inst}</h4>
               <p className="mt-1 font-body text-xs leading-relaxed text-warm-gray">{c.prog}</p>
             </motion.div>
