@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect } from "react";
+import Link from "next/link";
 import gsap from "gsap";
 
 /* ------------------------------------------------------------------ */
@@ -149,10 +150,15 @@ export function HeroSection() {
               Gain clarity. Make stronger decisions. Create a life and business
               that reflect what you are truly capable of.
             </p>
+            <p className="mt-5 max-w-lg font-body text-sm leading-relaxed text-warm-gray/60">
+              Puja offers personalized one-on-one strategy sessions for
+              individuals who are ready to move forward with greater
+              confidence, direction, and intention.
+            </p>
           </div>
 
-          <a
-            href="#book"
+          <Link
+            href="/book"
             ref={ctaRef}
             className="group mt-8 flex w-fit items-center gap-6 md:mt-0 lg:-translate-y-20"
           >
@@ -176,7 +182,7 @@ export function HeroSection() {
             <span className="font-label text-[11px] font-medium uppercase tracking-[0.2em] text-espresso">
               Book a Session
             </span>
-          </a>
+          </Link>
         </div>
 
         <div className="z-20 flex w-full flex-shrink-0 flex-col gap-4 md:w-80 lg:w-96">

@@ -60,15 +60,15 @@ export function Navbar() {
                 {l.label}
               </Link>
             ))}
-            <a
-              href="#book"
-              className="inline-flex h-9 items-center rounded-sm bg-espresso px-5 font-label text-[11px] uppercase tracking-[0.14em] text-cream transition-all duration-300 hover:bg-cream hover:text-espresso active:translate-y-px active:scale-[0.98]"
-            >
-              Book a Session
-            </a>
-          </div>
+          <Link
+            href="/book"
+            className="inline-flex h-9 items-center rounded-sm bg-espresso px-5 font-label text-[11px] uppercase tracking-[0.14em] text-cream transition-all duration-300 hover:bg-cream hover:text-espresso active:translate-y-px active:scale-[0.98]"
+          >
+            Book a Session
+          </Link>
+        </div>
 
-          <button
+        <button
             onClick={() => setOpen(!open)}
             className="relative z-50 flex h-10 w-10 items-center justify-center md:hidden"
             aria-label="Toggle menu"
@@ -134,13 +134,13 @@ export function Navbar() {
               transition={{ duration: 0.5, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="mt-8"
             >
-              <a
-                href="#book"
+              <Link
+                href="/book"
                 onClick={close}
                 className="inline-flex h-12 items-center rounded-sm bg-espresso px-10 font-label text-[13px] font-medium uppercase tracking-[0.16em] text-cream transition-all duration-300 active:translate-y-px active:scale-[0.98]"
               >
                 Book a Session
-              </a>
+              </Link>
             </motion.div>
 
             <motion.div

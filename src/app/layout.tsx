@@ -22,9 +22,9 @@ const nunitoSans = Nunito_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "PujaWatch | Business & Life Strategy Consulting",
+  title: "PujaWatch | Business & Life Strategy Consultant",
   description:
-    "Gain clarity. Make stronger decisions. Create a life and business that reflect what you are truly capable of. Book a private session with Puja Dharod.",
+    "Gain clarity. Make stronger decisions. Create a life and business that reflect what you are truly capable of.",
   keywords: [
     "business strategy consulting",
     "life coach",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     "PujaWatch",
   ],
   openGraph: {
-    title: "PujaWatch | Business & Life Strategy Consulting",
+    title: "PujaWatch | Business & Life Strategy Consultant",
     description:
       "Gain clarity. Make stronger decisions. Create a life and business that reflect what you are truly capable of.",
     type: "website",
