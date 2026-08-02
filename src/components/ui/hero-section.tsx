@@ -15,9 +15,9 @@ interface DeckCard {
   type: "progress" | "data" | "text";
 }
 
-function DeckCardItem({ item }: { item: DeckCard }) {
+function DeckCardItem({ item, mobile }: { item: DeckCard; mobile?: boolean }) {
   return (
-    <div className="command-cell border-2 border-red-600 bg-cream p-6 sm:p-7 backdrop-blur-sm">
+    <div className={`border-2 border-red-600 bg-cream p-6 sm:p-7 backdrop-blur-sm ${mobile ? "" : "command-cell"}`}>
       <span className="font-label block text-[9px] uppercase tracking-[0.24em] !text-red-600">
         {item.id} &mdash; {item.title}
       </span>
@@ -122,30 +122,30 @@ export function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative flex min-h-dvh w-full flex-col overflow-hidden bg-cream selection:bg-espresso selection:text-espresso"
+      className="relative flex w-full flex-col overflow-hidden bg-cream selection:bg-espresso selection:text-espresso"
     >
       <div
         ref={revealRef}
-        className="relative z-10 flex w-full min-h-dvh flex-col gap-4 pt-16 pb-6 px-5 md:flex-row md:items-stretch md:gap-10 md:p-14 md:pt-24 md:pb-12 lg:p-20"
+        className="relative z-10 flex w-full flex-col px-5 pt-14 pb-16 md:min-h-dvh md:flex-row md:items-stretch md:gap-10 md:px-14 md:pt-24 md:pb-12 lg:px-20"
       >
-        <div className="flex min-w-0 flex-1 flex-col justify-between pb-8 md:pb-8">
+        <div className="flex min-w-0 flex-1 flex-col justify-center md:justify-between md:pb-8">
           <div className="flex items-center gap-3">
             <div className="relative h-2.5 w-2.5 rounded-full bg-gold">
               <div className="absolute inset-0 animate-ping rounded-full bg-gold opacity-30" />
             </div>
           </div>
 
-          <div className="max-w-4xl md:flex-1 md:flex md:flex-col md:justify-center lg:-translate-y-8">
-            <h1 className="font-display text-[clamp(3.8rem,17vw,7rem)] font-bold uppercase leading-[0.82] tracking-[0.02em] text-espresso md:text-[clamp(2.5rem,9.5vw,12rem)] md:leading-[0.84]">
+          <div className="mt-14 md:mt-0 md:flex-1 md:flex md:flex-col md:justify-center lg:-translate-y-8">
+            <h1 className="font-display text-[clamp(4rem,18vw,7.5rem)] font-bold uppercase leading-[0.82] tracking-[0.02em] text-espresso md:text-[clamp(2.5rem,9.5vw,12rem)] md:leading-[0.84]">
               PUJA
               <br />
               <span>WATCH</span>
             </h1>
-            <p className="mt-6 font-body text-[12px] uppercase leading-relaxed tracking-[0.3em] text-warm-gray/60 md:mt-8 md:text-[13px]">
+            <p className="mt-5 max-w-xs font-body text-[12px] uppercase leading-relaxed tracking-[0.28em] text-warm-gray/60 md:mt-8 md:max-w-none md:text-[13px] md:tracking-[0.3em]">
               Gain clarity. Make stronger decisions. Create a life and business
               that reflect what you are truly capable of.
             </p>
-            <p className="mt-4 max-w-lg font-body text-sm leading-relaxed text-warm-gray/60 md:mt-5">
+            <p className="mt-4 max-w-sm font-body text-sm leading-relaxed text-warm-gray/60 md:mt-5 md:max-w-lg">
               Puja offers personalized one-on-one strategy sessions for
               individuals who are ready to move forward with greater
               confidence, direction, and intention.
@@ -155,7 +155,7 @@ export function HeroSection() {
           <Link
             href="/book"
             ref={ctaRef}
-            className="group mt-6 flex w-fit items-center gap-6 md:mt-0 lg:-translate-y-20"
+            className="group mt-10 flex w-fit items-center gap-6 md:mt-0 lg:-translate-y-20"
           >
             <div className="flex h-14 w-14 items-center justify-center rounded-full border border-rule transition-all duration-500 group-hover:bg-espresso">
               <svg
@@ -180,7 +180,8 @@ export function HeroSection() {
           </Link>
         </div>
 
-        <div className="z-20 flex w-full flex-shrink-0 flex-col gap-3 md:gap-4 md:w-80 lg:w-96">
+        {/* Desktop-only cards in right column */}
+        <div className="z-20 hidden flex-shrink-0 flex-col gap-4 md:flex md:w-80 lg:w-96">
           {cards.map((item) => (
             <DeckCardItem key={item.id} item={item} />
           ))}
