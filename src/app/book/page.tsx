@@ -11,7 +11,7 @@ export default function BookPage() {
           <h1 className="font-display text-4xl font-light leading-[1.1] tracking-[0.02em] text-espresso lg:text-5xl">
             Book a Session
           </h1>
-          <p className="mx-auto mt-4 max-w-lg font-body leading-relaxed text-warm-gray">
+          <p className="mx-auto mt-4 max-w-lg font-body leading-relaxed !text-red-600">
             Select a date and time below. You will receive a confirmation
             email with all the details.
           </p>

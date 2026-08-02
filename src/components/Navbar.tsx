@@ -5,10 +5,10 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 
 const NAV_LINKS = [
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#process", label: "Process" },
-  { href: "#sessions", label: "Sessions" },
+  { href: "#about", label: "About", nonCopy: true },
+  { href: "#services", label: "Services", nonCopy: true },
+  { href: "#process", label: "Process", nonCopy: true },
+  { href: "#sessions", label: "Sessions", nonCopy: true },
 ];
 
 export function Navbar() {
@@ -46,8 +46,8 @@ export function Navbar() {
             className="flex items-center gap-3 text-espresso no-underline"
             onClick={close}
           >
-            <img src="/logo.png" alt="PujaWatch" className="h-8 w-8 object-contain" />
-            <span className="font-display text-xl tracking-[0.12em]">PujaWatch</span>
+            <img src="/wings_logo.png" alt="PujaWatch" className="h-10 w-auto" />
+            <span className="uppercase text-espresso" style={{ fontFamily: "var(--font-wordmark)", fontWeight: 300, fontSize: 15, letterSpacing: "0.18em" }}>PujaWatch</span>
           </Link>
 
           <div className="hidden items-center gap-8 md:flex">
@@ -55,7 +55,7 @@ export function Navbar() {
               <Link
                 key={l.href}
                 href={l.href}
-                className="font-label text-[11px] uppercase tracking-[0.16em] text-warm-gray transition-colors hover:text-espresso"
+                className={`font-label text-[11px] uppercase tracking-[0.16em] transition-colors hover:!text-red-800 ${l.nonCopy ? "!text-red-600" : "text-warm-gray hover:text-espresso"}`}
               >
                 {l.label}
               </Link>
@@ -71,7 +71,7 @@ export function Navbar() {
         <button
             onClick={() => setOpen(!open)}
             className="relative z-50 flex h-10 w-10 items-center justify-center md:hidden"
-            aria-label="Toggle menu"
+            aria-label="Toggle menu (non-copy)"
           >
             <span className="relative h-3 w-5">
               <span
@@ -119,10 +119,10 @@ export function Navbar() {
                   <Link
                     href={l.href}
                     onClick={close}
-                    className="block py-2 font-display text-4xl font-light tracking-[0.03em] text-espresso transition-colors hover:text-warm-gray"
-                  >
-                    {l.label}
-                  </Link>
+                     className={`block py-2 font-display text-4xl font-light tracking-[0.03em] transition-colors ${l.nonCopy ? "!text-red-600 hover:!text-red-800" : "text-espresso hover:text-warm-gray"}`}
+                   >
+                     {l.label}
+                   </Link>
                 </motion.div>
               ))}
             </div>
@@ -151,7 +151,7 @@ export function Navbar() {
               className="absolute bottom-10 flex items-center gap-3"
             >
               <span className="block h-px w-10 bg-rule" />
-              <span className="font-label text-[9px] uppercase tracking-[0.28em] text-rule">
+              <span className="font-label text-[9px] uppercase tracking-[0.28em] !text-red-600">
                 PW  CONSULT
               </span>
               <span className="block h-px w-10 bg-rule" />

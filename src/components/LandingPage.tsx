@@ -4,7 +4,7 @@ import { useScroll, useTransform, motion, MotionValue, useReducedMotion } from "
 import { useRef } from "react";
 import Link from "next/link";
 import { HeroSection } from "@/components/ui/hero-section";
-import { TextHoverEffect, FooterBackgroundGradient } from "@/components/ui/text-hover-effect";
+import { FooterBackgroundGradient } from "@/components/ui/text-hover-effect";
 
 /* ------------------------------------------------------------------ */
 /*  Reveal (fades up as hero scrolls out)                              */
@@ -79,11 +79,11 @@ function ProcessSection() {
             </h2>
             <div className="flex items-center gap-3">
               <span className="block h-px w-10 bg-rule" />
-              <span className="font-label text-[9px] uppercase tracking-[0.28em] text-rule">METHOD</span>
+              <span className="font-label text-[9px] uppercase tracking-[0.28em] !text-red-600">METHOD</span>
             </div>
           </div>
         </motion.div>
-        <div className="grid gap-px bg-rule lg:grid-cols-5">
+        <div className="flex flex-col">
           {PROCESS_STEPS.map((step, i) => (
             <motion.div
               key={step}
@@ -91,12 +91,12 @@ function ProcessSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
-              className="group flex items-center gap-4 bg-cream p-6 transition-colors hover:bg-mid-bg lg:p-8"
+              className="group flex items-center gap-5 border-b border-rule py-6 transition-colors hover:bg-mid-bg last:border-b-0 lg:gap-8 lg:py-7"
             >
-              <span className="font-display text-5xl font-light tracking-[0.02em] text-warm-gray/50">
+              <span className="min-w-14 shrink-0 font-display text-3xl font-light tracking-[0.02em] text-warm-gray/40 lg:text-4xl">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="font-display text-xl font-medium tracking-[0.02em] text-espresso">
+              <h3 className="font-display text-lg font-medium leading-snug tracking-[0.02em] text-espresso lg:text-2xl">
                 {step}
               </h3>
             </motion.div>
@@ -138,7 +138,7 @@ function ServicesSection() {
             </h2>
             <div className="flex items-center gap-3">
               <span className="block h-px w-10 bg-rule" />
-              <span className="font-label text-[9px] uppercase tracking-[0.28em] text-rule">AREAS</span>
+              <span className="font-label text-[9px] uppercase tracking-[0.28em] !text-red-600">AREAS</span>
             </div>
           </div>
         </motion.div>
@@ -201,7 +201,7 @@ function PricingSection() {
             </h2>
             <div className="flex items-center gap-3">
               <span className="block h-px w-10 bg-rule" />
-              <span className="font-label text-[9px] uppercase tracking-[0.28em] text-rule">TIERS</span>
+              <span className="font-label text-[9px] uppercase tracking-[0.28em] !text-red-600">TIERS</span>
             </div>
           </div>
         </motion.div>
@@ -252,8 +252,8 @@ function PricingSection() {
                     : "bg-espresso text-cream hover:bg-gold hover:text-espresso"
                 }`}
               >
-                Select{" "}
-                <span className={s.featured ? "text-gold" : ""}>&rarr;</span>
+                <span className="!text-red-600">Select{" "}
+                <span className={s.featured ? "!text-red-600" : "!text-red-600"}>&rarr;</span></span>
               </Link>
             </motion.div>
           ))}
@@ -295,7 +295,7 @@ function AboutSection() {
             </h2>
             <div className="flex items-center gap-3">
               <span className="block h-px w-10 bg-cream/15" />
-              <span className="font-label text-[9px] uppercase tracking-[0.28em] text-cream/15">BIO</span>
+              <span className="font-label text-[9px] uppercase tracking-[0.28em] !text-red-600">BIO</span>
             </div>
           </div>
         </motion.div>
@@ -413,17 +413,17 @@ function AboutSection() {
               <div
                 className="aspect-[4/5] w-full bg-cream/5"
                 role="img"
-                aria-label="Portrait of Puja Dharod"
+                aria-label="Portrait of Puja Dharod (non-copy)"
               >
                 <div className="flex h-full flex-col items-center justify-center gap-3">
-                  <span className="font-display text-6xl italic text-espresso/25">P</span>
-                  <span className="font-label text-[10px] uppercase tracking-[0.2em] text-cream/15">
+                  <span className="font-display text-6xl italic !text-red-600">P</span>
+                  <span className="font-label text-[10px] uppercase tracking-[0.2em] !text-red-600">
                     Professional Portrait
                   </span>
                 </div>
               </div>
-              <p className="mt-4 font-label text-[10px] uppercase tracking-[0.18em] text-cream/15">
-                Puja Dharod
+              <p className="mt-4 font-label text-[10px] uppercase tracking-[0.18em] !text-red-600">
+                Puja Dharod (non-copy caption)
               </p>
             </div>
           </motion.div>
@@ -463,7 +463,7 @@ function EducationSection() {
             </h2>
             <div className="flex items-center gap-3">
               <span className="block h-px w-10 bg-rule" />
-              <span className="font-label text-[9px] uppercase tracking-[0.28em] text-rule">CRED</span>
+              <span className="font-label text-[9px] uppercase tracking-[0.28em] !text-red-600">CRED</span>
             </div>
           </div>
         </motion.div>
@@ -574,7 +574,7 @@ function FooterSection() {
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-10 sm:grid-cols-3">
           <div>
-            <h4 className="font-label text-[11px] font-medium uppercase tracking-[0.18em] text-warm-gray">
+            <h4 className="font-label text-[11px] font-medium uppercase tracking-[0.18em] !text-red-600">
               Navigation
             </h4>
             <div className="mt-4 flex flex-col gap-2">
@@ -582,27 +582,27 @@ function FooterSection() {
                 <a
                   key={l}
                   href={`#${l.toLowerCase()}`}
-                  className="font-body text-sm text-warm-gray transition-colors hover:text-espresso"
+                  className="font-body text-sm !text-red-600 transition-colors hover:text-red-800"
                 >
                   {l}
                 </a>
               ))}
               <Link
                 href="/book"
-                className="font-body text-sm text-warm-gray transition-colors hover:text-espresso"
+                className="font-body text-sm !text-red-600 transition-colors hover:text-red-800"
               >
                 Book
               </Link>
             </div>
           </div>
           <div>
-            <h4 className="font-label text-[11px] font-medium uppercase tracking-[0.18em] text-warm-gray">
+            <h4 className="font-label text-[11px] font-medium uppercase tracking-[0.18em] !text-red-600">
               Connect
             </h4>
             <div className="mt-4">
               <a
                 href="mailto:puja@pujawatch.com"
-                className="font-body text-sm text-warm-gray transition-colors hover:text-espresso"
+                className="font-body text-sm !text-red-600 transition-colors hover:text-red-800"
               >
                 puja@pujawatch.com
               </a>
@@ -623,18 +623,20 @@ function FooterSection() {
 
         <div className="mt-8 flex items-center gap-3 border-t border-rule pt-6">
           <span className="block h-px w-10 bg-warm-gray/60" />
-          <span className="font-label text-[9px] uppercase tracking-[0.28em] text-warm-gray/60">
+          <span className="font-label text-[9px] uppercase tracking-[0.28em] !text-red-600">
             PW - {y}
           </span>
         </div>
-        <span className="mt-2 block font-label text-[10px] uppercase tracking-[0.16em] text-warm-gray/50">
+        <span className="mt-2 block font-label text-[10px] uppercase tracking-[0.16em] !text-red-600">
           &copy; {y} PujaWatch. All rights reserved.
         </span>
       </div>
 
       <div className="w-full overflow-hidden">
-        <div className="h-64 w-full">
-          <TextHoverEffect text="PujaWatch" />
+        <div className="flex h-64 w-full items-center justify-center">
+          <span className="font-display text-[clamp(4rem,12vw,14rem)] font-bold uppercase leading-none tracking-[0.02em] text-espresso">
+            PujaWatch
+          </span>
         </div>
       </div>
     </footer>

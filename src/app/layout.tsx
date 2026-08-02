@@ -2,17 +2,17 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Montserrat, Nunito_Sans } from "next/font/google";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
+const wordmark = Cormorant_Garamond({
+  variable: "--font-wordmark",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
+  weight: ["300"],
 });
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
 });
 
 const nunitoSans = Nunito_Sans({
@@ -49,7 +49,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${montserrat.variable} ${nunitoSans.variable} antialiased`}
+      className={`${wordmark.variable} ${montserrat.variable} ${nunitoSans.variable} antialiased`}
     >
       <body className="font-body text-espresso bg-cream min-h-dvh">
         {children}

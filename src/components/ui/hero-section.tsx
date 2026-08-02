@@ -17,17 +17,17 @@ interface DeckCard {
 
 function DeckCardItem({ item }: { item: DeckCard }) {
   return (
-    <div className="command-cell border border-rule bg-cream p-6 sm:p-7 backdrop-blur-sm">
-      <span className="font-label block text-[9px] uppercase tracking-[0.24em] text-warm-gray/50">
+    <div className="command-cell border-2 border-red-600 bg-cream p-6 sm:p-7 backdrop-blur-sm">
+      <span className="font-label block text-[9px] uppercase tracking-[0.24em] !text-red-600">
         {item.id} &mdash; {item.title}
       </span>
       {item.type === "progress" ? (
         <div className="mt-2 flex items-end justify-between">
-          <h4 className="font-display text-2xl tracking-[0.04em] text-espresso sm:text-3xl">
+          <h4 className="font-display text-2xl tracking-[0.04em] !text-red-600 sm:text-3xl">
             {item.val}
           </h4>
-            <div className="mb-1 h-[2px] w-20 overflow-hidden rounded-full bg-rule">
-            <div className="h-full w-[60%] bg-gold" />
+            <div className="mb-1 h-[2px] w-20 overflow-hidden rounded-full bg-red-600">
+            <div className="h-full w-[60%] bg-red-600" />
           </div>
         </div>
       ) : item.type === "data" ? (
@@ -37,17 +37,17 @@ function DeckCardItem({ item }: { item: DeckCard }) {
             { label: "30-Minute Clarity Call", val: "$222" },
           ].map((row) => (
             <div key={row.label}>
-              <div className="flex justify-between font-label text-[10px] uppercase tracking-[0.14em] text-warm-gray">
+              <div className="flex justify-between font-label text-[10px] uppercase tracking-[0.14em] !text-red-600">
                 <span>{row.label}</span>
-                <span className="text-espresso">{row.val}</span>
+                <span className="!text-red-600">{row.val}</span>
               </div>
             </div>
           ))}
         </div>
       ) : (
-        <h3 className="mt-3 font-body text-sm leading-snug text-warm-gray">
+        <h3 className="mt-3 font-body text-sm leading-snug !text-red-600">
           Direct, practical guidance from{" "}
-          <span className="italic text-espresso">real-world experience</span>.
+          <span className="italic !text-red-600">real-world experience</span>.
         </h3>
       )}
     </div>
@@ -119,11 +119,6 @@ export function HeroSection() {
     { id: "003", title: "Approach", val: "Strategy", type: "text" },
   ];
 
-  const textOutlineStyle = {
-    WebkitTextStroke: "1px var(--espresso)",
-    WebkitTextFillColor: "transparent",
-  } as React.CSSProperties;
-
   return (
     <section
       ref={containerRef}
@@ -131,26 +126,26 @@ export function HeroSection() {
     >
       <div
         ref={revealRef}
-        className="relative z-10 flex w-full min-h-dvh flex-col gap-8 pt-24 pb-12 px-6 md:flex-row md:items-stretch md:gap-10 md:p-14 lg:p-20"
+        className="relative z-10 flex w-full min-h-dvh flex-col gap-4 pt-16 pb-6 px-5 md:flex-row md:items-stretch md:gap-10 md:p-14 md:pt-24 md:pb-12 lg:p-20"
       >
-        <div className="flex min-w-0 flex-1 flex-col justify-between pb-12 md:pb-8">
+        <div className="flex min-w-0 flex-1 flex-col justify-between pb-8 md:pb-8">
           <div className="flex items-center gap-3">
             <div className="relative h-2.5 w-2.5 rounded-full bg-gold">
               <div className="absolute inset-0 animate-ping rounded-full bg-gold opacity-30" />
             </div>
           </div>
 
-          <div className="max-w-4xl lg:-translate-y-8">
-            <h1 className="font-display text-[clamp(2.5rem,9.5vw,12rem)] font-bold uppercase leading-[0.84] tracking-[0.02em] text-espresso">
+          <div className="max-w-4xl md:flex-1 md:flex md:flex-col md:justify-center lg:-translate-y-8">
+            <h1 className="font-display text-[clamp(3.8rem,17vw,7rem)] font-bold uppercase leading-[0.82] tracking-[0.02em] text-espresso md:text-[clamp(2.5rem,9.5vw,12rem)] md:leading-[0.84]">
               PUJA
               <br />
-              <span style={textOutlineStyle}>WATCH</span>
+              <span>WATCH</span>
             </h1>
-            <p className="mt-10 font-body text-[13px] uppercase leading-relaxed tracking-[0.3em] text-warm-gray/60 md:mt-8">
+            <p className="mt-6 font-body text-[12px] uppercase leading-relaxed tracking-[0.3em] text-warm-gray/60 md:mt-8 md:text-[13px]">
               Gain clarity. Make stronger decisions. Create a life and business
               that reflect what you are truly capable of.
             </p>
-            <p className="mt-5 max-w-lg font-body text-sm leading-relaxed text-warm-gray/60">
+            <p className="mt-4 max-w-lg font-body text-sm leading-relaxed text-warm-gray/60 md:mt-5">
               Puja offers personalized one-on-one strategy sessions for
               individuals who are ready to move forward with greater
               confidence, direction, and intention.
@@ -160,7 +155,7 @@ export function HeroSection() {
           <Link
             href="/book"
             ref={ctaRef}
-            className="group mt-8 flex w-fit items-center gap-6 md:mt-0 lg:-translate-y-20"
+            className="group mt-6 flex w-fit items-center gap-6 md:mt-0 lg:-translate-y-20"
           >
             <div className="flex h-14 w-14 items-center justify-center rounded-full border border-rule transition-all duration-500 group-hover:bg-espresso">
               <svg
@@ -185,7 +180,7 @@ export function HeroSection() {
           </Link>
         </div>
 
-        <div className="z-20 flex w-full flex-shrink-0 flex-col gap-4 md:w-80 lg:w-96">
+        <div className="z-20 flex w-full flex-shrink-0 flex-col gap-3 md:gap-4 md:w-80 lg:w-96">
           {cards.map((item) => (
             <DeckCardItem key={item.id} item={item} />
           ))}
