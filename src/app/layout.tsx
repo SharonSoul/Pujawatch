@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Montserrat, Nunito_Sans } from "next/font/google";
+import { Gantari, Montserrat, Nunito_Sans } from "next/font/google";
 import "./globals.css";
 
-const wordmark = Cormorant_Garamond({
-  variable: "--font-wordmark",
+const gantari = Gantari({
+  variable: "--font-gantari",
   subsets: ["latin"],
-  weight: ["300"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600"],
   style: ["normal", "italic"],
 });
 
@@ -49,7 +49,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${wordmark.variable} ${montserrat.variable} ${nunitoSans.variable} antialiased`}
+      className={`${gantari.variable} ${montserrat.variable} ${nunitoSans.variable} antialiased`}
     >
       <body className="font-body text-espresso bg-cream min-h-dvh">
         {children}

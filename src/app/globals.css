@@ -17,9 +17,10 @@
   --color-warm-gray: var(--warm-gray);
   --color-mid-bg: var(--mid-bg);
   --color-rule: var(--rule);
-  --font-display: var(--font-montserrat);
-  --font-label: var(--font-montserrat);
-  --font-body: var(--font-nunito);
+  --font-display: var(--font-gantari);
+  --font-label: var(--font-gantari);
+  --font-body: var(--font-montserrat);
+  --font-accent: var(--font-nunito);
 }
 
 * {

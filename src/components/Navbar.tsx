@@ -47,7 +47,7 @@ export function Navbar() {
             onClick={close}
           >
             <img src="/wings_logo.png" alt="PujaWatch" className="h-10 w-auto" />
-            <span className="uppercase text-espresso" style={{ fontFamily: "var(--font-wordmark)", fontWeight: 300, fontSize: 15, letterSpacing: "0.18em" }}>PujaWatch</span>
+            <span className="font-display text-[15px] font-light uppercase tracking-[0.18em] text-espresso">PujaWatch</span>
           </Link>
 
           <div className="hidden items-center gap-8 md:flex">
