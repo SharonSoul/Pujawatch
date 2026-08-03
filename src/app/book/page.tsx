@@ -11,7 +11,7 @@ export default function BookPage() {
           <h1 className="font-display text-4xl font-light leading-[1.1] tracking-[0.02em] text-espresso lg:text-5xl">
             Book a Session
           </h1>
-          <p className="mx-auto mt-4 max-w-lg font-body leading-relaxed !text-red-600">
+          <p className="mx-auto mt-4 max-w-lg font-body leading-relaxed text-warm-gray">
             Select a date and time below. You will receive a confirmation
             email with all the details.
           </p>
@@ -20,7 +20,7 @@ export default function BookPage() {
         <CalendlyEmbed url={CALENDLY_URL} />
 
         <div className="mx-auto mt-16 max-w-lg border-t border-rule pt-10 text-center">
-          <h3 className="font-label text-[11px] font-medium uppercase tracking-[0.18em] text-warm-gray">
+          <h3 className="font-accent text-[11px] font-medium uppercase tracking-[0.18em] text-warm-gray">
             Important Information
           </h3>
           <p className="mt-3 font-body text-sm leading-relaxed text-warm-gray/70">

@@ -4,60 +4,6 @@ import React, { useRef, useEffect } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 
-/* ------------------------------------------------------------------ */
-/*  Right-deck card                                                    */
-/* ------------------------------------------------------------------ */
-
-interface DeckCard {
-  id: string;
-  title: string;
-  val: string;
-  type: "progress" | "data" | "text";
-}
-
-function DeckCardItem({ item, mobile }: { item: DeckCard; mobile?: boolean }) {
-  return (
-    <div className={`border-2 border-red-600 bg-cream p-6 sm:p-7 backdrop-blur-sm ${mobile ? "" : "command-cell"}`}>
-      <span className="font-label block text-[9px] uppercase tracking-[0.24em] !text-red-600">
-        {item.id} &mdash; {item.title}
-      </span>
-      {item.type === "progress" ? (
-        <div className="mt-2 flex items-end justify-between">
-          <h4 className="font-display text-2xl tracking-[0.04em] !text-red-600 sm:text-3xl">
-            {item.val}
-          </h4>
-            <div className="mb-1 h-[2px] w-20 overflow-hidden rounded-full bg-red-600">
-            <div className="h-full w-[60%] bg-red-600" />
-          </div>
-        </div>
-      ) : item.type === "data" ? (
-        <div className="mt-4 flex flex-col gap-3">
-          {[
-            { label: "60-Minute Power Session", val: "$444" },
-            { label: "30-Minute Clarity Call", val: "$222" },
-          ].map((row) => (
-            <div key={row.label}>
-              <div className="flex justify-between font-label text-[10px] uppercase tracking-[0.14em] !text-red-600">
-                <span>{row.label}</span>
-                <span className="!text-red-600">{row.val}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <h3 className="mt-3 font-body text-sm leading-snug !text-red-600">
-          Direct, practical guidance from{" "}
-          <span className="italic !text-red-600">real-world experience</span>.
-        </h3>
-      )}
-    </div>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  Hero section                                                       */
-/* ------------------------------------------------------------------ */
-
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const revealRef = useRef<HTMLDivElement>(null);
@@ -76,15 +22,6 @@ export function HeroSection() {
           ease: "expo.out",
         }
       );
-
-      gsap.from(".command-cell", {
-        x: 60,
-        opacity: 0,
-        stagger: 0.1,
-        duration: 1.5,
-        ease: "power4.out",
-        delay: 1,
-      });
 
       const handleMouseMove = (e: MouseEvent) => {
         if (!ctaRef.current) return;
@@ -113,12 +50,6 @@ export function HeroSection() {
     return () => ctx.revert();
   }, []);
 
-  const cards: DeckCard[] = [
-    { id: "001", title: "Booking", val: "Open", type: "progress" },
-    { id: "002", title: "Session Tiers", val: "Details", type: "data" },
-    { id: "003", title: "Approach", val: "Strategy", type: "text" },
-  ];
-
   return (
     <section
       ref={containerRef}
@@ -126,7 +57,7 @@ export function HeroSection() {
     >
       <div
         ref={revealRef}
-        className="relative z-10 flex w-full flex-col px-5 pt-14 pb-16 md:min-h-dvh md:flex-row md:items-stretch md:gap-10 md:px-14 md:pt-24 md:pb-12 lg:px-20"
+        className="relative z-10 flex w-full flex-col px-5 pt-14 pb-16 md:min-h-dvh md:flex-row md:items-center md:px-14 md:pt-24 md:pb-12 lg:px-20"
       >
         <div className="flex min-w-0 flex-1 flex-col justify-center md:justify-between md:pb-8">
           <div className="flex items-center gap-3">
@@ -136,19 +67,19 @@ export function HeroSection() {
           </div>
 
           <div className="mt-14 md:mt-0 md:flex-1 md:flex md:flex-col md:justify-center lg:-translate-y-8">
-            <h1 className="font-display text-[clamp(4rem,18vw,7.5rem)] font-bold uppercase leading-[0.82] tracking-[0.02em] text-espresso md:text-[clamp(2.5rem,9.5vw,12rem)] md:leading-[0.84]">
+            <h1 className="font-display text-[clamp(4rem,18vw,7.5rem)] font-bold uppercase leading-[0.82] tracking-[0.02em] text-espresso md:text-[clamp(1.75rem,6.5vw,8.5rem)] md:leading-[0.84]">
               PUJA
               <br />
               <span>WATCH</span>
             </h1>
-            <p className="mt-2 font-body text-[13px] font-light uppercase tracking-[0.24em] text-warm-gray/70 md:mt-3 md:text-sm md:tracking-[0.28em]">
+            <p className="mt-2 font-accent text-[13px] font-light uppercase tracking-[0.24em] text-warm-gray/70 md:mt-3 md:text-sm md:tracking-[0.28em]">
               Business &amp; Life Strategy Consultant
             </p>
-            <p className="mt-5 max-w-xs font-body text-[12px] uppercase leading-relaxed tracking-[0.28em] text-warm-gray/60 md:mt-8 md:max-w-none md:text-[13px] md:tracking-[0.3em]">
-              Gain clarity. Make stronger decisions. Create a life and business
+            <p className="mt-5 max-w-xs font-body text-[12px] uppercase leading-relaxed tracking-[0.28em] text-espresso md:mt-8 md:max-w-xl md:text-[13px] md:leading-relaxed md:tracking-[0.3em]">
+              Gain clarity.<br className="hidden md:inline" /> Make stronger decisions.<br className="hidden md:inline" /> Create a life and business
               that reflect what you are truly capable of.
             </p>
-            <p className="mt-4 max-w-sm font-body text-sm leading-relaxed text-warm-gray/60 md:mt-5 md:max-w-lg">
+            <p className="mt-4 max-w-sm font-body text-sm leading-relaxed text-espresso md:mt-5 md:max-w-lg">
               Puja offers personalized one-on-one strategy sessions for
               individuals who are ready to move forward with greater
               confidence, direction, and intention.
@@ -183,11 +114,16 @@ export function HeroSection() {
           </Link>
         </div>
 
-        {/* Desktop-only cards in right column */}
-        <div className="z-20 hidden flex-shrink-0 flex-col gap-4 md:flex md:w-80 lg:w-96">
-          {cards.map((item) => (
-            <DeckCardItem key={item.id} item={item} />
-          ))}
+        {/* Portrait image — desktop only */}
+        <div className="hidden md:flex md:w-[45%] lg:w-[50%] shrink-0 items-end justify-end">
+          <img
+            src="/hero-portrait.jpg"
+            alt="Puja Dharod"
+            className="h-[calc(100dvh-6rem)] w-full object-cover object-top"
+            style={{
+              filter: "drop-shadow(12px 12px 24px rgba(59, 38, 35, 0.45))",
+            }}
+          />
         </div>
       </div>
     </section>

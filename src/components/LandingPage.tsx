@@ -29,19 +29,19 @@ function RevealStage({ scrollYProgress }: StageProps) {
         <h2 className="max-w-3xl font-display text-4xl font-light leading-[1.08] tracking-[0.03em] text-cream lg:text-5xl">
           One-on-One Business &amp; Life Strategy Consulting:
         </h2>
-        <p className="mt-5 max-w-xl font-body text-base leading-relaxed text-cream/45">
+        <p className="mt-5 max-w-xl font-body text-lg leading-relaxed text-cream/45">
           These private sessions are designed to help you gain clarity, work
           through a challenge, make an important decision, or create a
           practical plan for your next move.
         </p>
-        <p className="mt-4 max-w-xl font-body text-base leading-relaxed text-cream/45">
+        <p className="mt-4 max-w-xl font-body text-lg leading-relaxed text-cream/45">
           You can bring any area of your business or life that you want to
           improve. Whether you are building something new, navigating a
           transition, feeling stuck, or simply know you are capable of more,
           Puja will provide direct and personalized guidance based on your
           goals, challenges, and circumstances.
         </p>
-        <p className="mt-4 max-w-xl font-body text-base leading-relaxed text-cream/45">
+        <p className="mt-4 max-w-xl font-body text-lg leading-relaxed text-cream/45">
           You will leave your session with a stronger sense of direction,
           honest feedback, and three to five specific action steps you can
           begin implementing immediately.
@@ -56,11 +56,11 @@ function RevealStage({ scrollYProgress }: StageProps) {
 /* ------------------------------------------------------------------ */
 
 const PROCESS_STEPS = [
-  "Define the real issue",
-  "Identify what is not working",
-  "Challenge assumptions or avoidance",
-  "Decide on the strategy",
-  "Build 3-5 specific action steps",
+  { num: "1", title: "Define the real issue", desc: "We cut through the surface-level noise and identify the core problem that's really holding you back." },
+  { num: "2", title: "Identify what is not working", desc: "A clear-eyed look at current patterns, systems, and assumptions that are blocking progress." },
+  { num: "3", title: "Challenge assumptions or avoidance", desc: "Honest feedback on blind spots, limiting beliefs, and the stories you tell yourself." },
+  { num: "4", title: "Decide on the strategy", desc: "Together we map the most direct path forward, weighing trade-offs with real-world pragmatism." },
+  { num: "5", title: "Build 3-5 specific action steps", desc: "You leave with a concrete, sequenced list of moves you can begin executing immediately." },
 ];
 
 function ProcessSection() {
@@ -79,26 +79,30 @@ function ProcessSection() {
             </h2>
             <div className="flex items-center gap-3">
               <span className="block h-px w-10 bg-rule" />
-              <span className="font-label text-[9px] uppercase tracking-[0.28em] !text-red-600">METHOD</span>
+              <span className="font-accent text-[9px] uppercase tracking-[0.28em] text-rule">METHOD</span>
             </div>
           </div>
         </motion.div>
-        <div className="flex flex-col">
+
+        <div className="grid gap-6 lg:grid-cols-5">
           {PROCESS_STEPS.map((step, i) => (
             <motion.div
-              key={step}
-              initial={{ opacity: 0, y: 24 }}
+              key={step.title}
+              initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
-              className="group flex items-center gap-5 border-b border-rule py-6 transition-colors hover:bg-mid-bg last:border-b-0 lg:gap-8 lg:py-7"
+              transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              className="group flex flex-col"
             >
-              <span className="min-w-14 shrink-0 font-display text-3xl font-light tracking-[0.02em] text-warm-gray/40 lg:text-4xl">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3 className="font-display text-lg font-medium leading-snug tracking-[0.02em] text-espresso lg:text-2xl">
-                {step}
+              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-espresso text-cream">
+                <span className="font-display text-xl font-semibold">{step.num}</span>
+              </div>
+              <h3 className="font-display text-lg font-semibold leading-snug tracking-[0.02em] text-espresso">
+                {step.title}
               </h3>
+              <p className="mt-2 font-body text-sm leading-relaxed !text-red-600">
+                {step.desc}
+              </p>
             </motion.div>
           ))}
         </div>
@@ -123,6 +127,9 @@ const SERVICE_AREAS = [
 ];
 
 function ServicesSection() {
+  const left = SERVICE_AREAS.slice(0, 4);
+  const right = SERVICE_AREAS.slice(4, 8);
+
   return (
     <section id="services" className="bg-mid-bg py-32 lg:py-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -138,28 +145,53 @@ function ServicesSection() {
             </h2>
             <div className="flex items-center gap-3">
               <span className="block h-px w-10 bg-rule" />
-              <span className="font-label text-[9px] uppercase tracking-[0.28em] !text-red-600">AREAS</span>
+              <span className="font-accent text-[9px] uppercase tracking-[0.28em] text-rule">AREAS</span>
             </div>
           </div>
         </motion.div>
-        <div className="grid gap-4 sm:grid-cols-2">
-          {SERVICE_AREAS.map((area, i) => (
-            <motion.div
-              key={area}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
-              className="group flex items-center gap-3 bg-cream p-6 transition-shadow duration-300 hover:shadow-[0_0_0_1px_var(--espresso)] lg:p-7"
-            >
-              <span className="font-display text-3xl font-light tracking-[0.02em] text-warm-gray/40">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span className="font-display text-base font-medium leading-snug tracking-[0.02em] text-espresso">
-                {area}
-              </span>
-            </motion.div>
-          ))}
+
+        <div className="grid gap-6 lg:grid-cols-2">
+          {/* Left column: 1-4 */}
+          <div className="flex flex-col gap-4">
+            {left.map((area, i) => (
+              <motion.div
+                key={area}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                className="group flex items-center gap-4 bg-cream p-6 transition-shadow duration-300 hover:shadow-[0_0_0_1px_var(--espresso)] lg:p-7"
+              >
+                <span className="shrink-0 font-display text-3xl font-light tracking-[0.02em] text-warm-gray/40">
+                  {i + 1}
+                </span>
+                <span className="font-display text-base font-medium leading-snug tracking-[0.02em] text-espresso">
+                  {area}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Right column: 5-8 */}
+          <div className="flex flex-col gap-4">
+            {right.map((area, i) => (
+              <motion.div
+                key={area}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: (i + 4) * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                className="group flex items-center gap-4 bg-cream p-6 transition-shadow duration-300 hover:shadow-[0_0_0_1px_var(--espresso)] lg:p-7"
+              >
+                <span className="shrink-0 font-display text-3xl font-light tracking-[0.02em] text-warm-gray/40">
+                  {i + 5}
+                </span>
+                <span className="font-display text-base font-medium leading-snug tracking-[0.02em] text-espresso">
+                  {area}
+                </span>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -172,16 +204,14 @@ function ServicesSection() {
 
 const SESSIONS = [
   {
-    name: "60-Minute Power Session",
-    price: "$444",
-    desc: "A deeper strategy session for clients who want time to fully explore their situation, work through multiple factors, and develop a detailed plan of action.",
-    featured: true,
-  },
-  {
     name: "30-Minute Clarity Call",
     price: "$222",
     desc: "A focused strategy session for clients who want guidance on a specific question, challenge, decision, or goal.",
-    featured: false,
+  },
+  {
+    name: "60-Minute Power Session",
+    price: "$444",
+    desc: "A deeper strategy session for clients who want time to fully explore their situation, work through multiple factors, and develop a detailed plan of action.",
   },
 ];
 
@@ -201,11 +231,11 @@ function PricingSection() {
             </h2>
             <div className="flex items-center gap-3">
               <span className="block h-px w-10 bg-rule" />
-              <span className="font-label text-[9px] uppercase tracking-[0.28em] !text-red-600">TIERS</span>
+              <span className="font-accent text-[9px] uppercase tracking-[0.28em] text-rule">TIERS</span>
             </div>
           </div>
         </motion.div>
-        <div className="grid gap-6 lg:grid-cols-[4fr,3fr]">
+         <div className="grid gap-6">
           {SESSIONS.map((s, i) => (
             <motion.div
               key={s.name}
@@ -213,47 +243,27 @@ function PricingSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className={`group flex h-full flex-col justify-between p-10 transition-shadow duration-300 ${
-                s.featured
-                  ? "bg-espresso hover:shadow-[0_0_0_1px_var(--espresso)]"
-                  : "bg-mid-bg hover:shadow-[0_0_0_1px_var(--espresso)]"
-              }`}
+              className="group flex h-full flex-col justify-between bg-espresso p-10 transition-shadow duration-300 hover:shadow-[0_0_0_1px_var(--espresso)]"
             >
               <div>
-                <div className="flex items-baseline justify-between gap-4">
-                  <h3
-                    className={`font-display text-2xl font-light tracking-[0.03em] ${
-                      s.featured ? "text-cream" : "text-espresso"
-                    }`}
-                  >
-                    {s.name}
-                  </h3>
-                  <span
-                    className={`shrink-0 font-display text-3xl font-light tracking-[0.02em] ${
-                      s.featured ? "text-gold" : "text-espresso"
-                    }`}
-                  >
-                    {s.price}
+                <h3 className="font-display text-2xl font-light tracking-[0.03em] text-cream">
+                  {s.name}
+                </h3>
+                <div className="mt-3 flex items-baseline gap-1">
+                  <span className="font-accent text-base font-light text-gold">$</span>
+                  <span className="font-display text-4xl font-light tracking-[0.02em] text-cream">
+                    {s.price.replace("$", "")}
                   </span>
                 </div>
-                <p
-                  className={`mt-5 font-body leading-relaxed ${
-                    s.featured ? "text-cream/55" : "text-warm-gray"
-                  }`}
-                >
+                <p className="mt-5 font-body text-base leading-relaxed text-cream/55">
                   {s.desc}
                 </p>
               </div>
               <Link
                 href="/book"
-                className={`mt-8 inline-flex h-11 items-center gap-2 self-start rounded-sm px-6 font-label text-[11px] uppercase tracking-[0.14em] transition-all duration-300 active:translate-y-px active:scale-[0.98] ${
-                  s.featured
-                    ? "bg-cream text-espresso hover:bg-gold hover:text-espresso"
-                    : "bg-espresso text-cream hover:bg-gold hover:text-espresso"
-                }`}
+                className="mt-8 inline-flex h-11 items-center gap-2 self-start rounded-sm bg-cream px-6 font-label text-[11px] uppercase tracking-[0.14em] text-espresso transition-all duration-300 hover:bg-gold active:translate-y-px active:scale-[0.98]"
               >
-                <span className="!text-red-600">Select{" "}
-                <span className={s.featured ? "!text-red-600" : "!text-red-600"}>&rarr;</span></span>
+                Book a Session <span>&rarr;</span>
               </Link>
             </motion.div>
           ))}
@@ -263,7 +273,7 @@ function PricingSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-8 font-body text-sm leading-relaxed text-warm-gray"
+          className="mt-8 font-body text-base leading-relaxed text-warm-gray"
         >
           Both sessions provide the same personalized approach. Choose the
           amount of time based on how deeply you would like to explore your
@@ -281,7 +291,6 @@ function PricingSection() {
 function AboutSection() {
   return (
     <section id="about" className="relative bg-espresso py-24 lg:py-40">
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgb(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgb(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_40%,#000_40%,transparent_100%)]" />
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -289,144 +298,116 @@ function AboutSection() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="mb-16 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <h2 className="max-w-lg font-display text-4xl font-light leading-[1.06] tracking-[0.03em] text-cream lg:text-5xl">
+          <div className="mb-16 flex flex-col gap-4">
+            <h2 className="font-display text-4xl font-light leading-[1.06] tracking-[0.03em] text-cream lg:text-5xl">
               About Puja
             </h2>
             <div className="flex items-center gap-3">
               <span className="block h-px w-10 bg-cream/15" />
-              <span className="font-label text-[9px] uppercase tracking-[0.28em] !text-red-600">BIO</span>
+              <span className="font-accent text-[9px] uppercase tracking-[0.28em] text-cream/15">BIO</span>
             </div>
           </div>
         </motion.div>
-        <div className="grid gap-16 lg:grid-cols-[5fr,3fr] lg:gap-20">
-          <div className="flex flex-col gap-7 font-body leading-relaxed text-cream/55">
-            <motion.p
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              Born and raised in Dallas, Puja Dharod is a Texan Gujarati who
-              earned her undergraduate degree from The University of Texas at
-              Austin.
-            </motion.p>
 
-            <motion.p
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.06 }}
-            >
-              She currently serves as Vice President of Investments at SSCP,
-              where her work spans investing, real estate acquisitions and
-              management, lease negotiations, financial management, business
-              growth, marketing, brand strategy, strategic planning, and
-              high-level decision-making.
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              Puja&rsquo;s commitment to helping others began while she was
-              still in high school. After witnessing a team member within her
-              family&rsquo;s restaurant business experience a devastating
-              personal hardship, she founded the Puja Foundation in 2011.
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.14 }}
-            >
-              The Puja Foundation is a nonprofit organization that provides
-              financial assistance to team members and their families facing
-              catastrophic and unexpected life events.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.18 }}
-              className="my-4 border-l-2 border-gold py-2 pl-6"
-            >
-              <p className="font-display text-xl italic leading-relaxed text-cream">
-                She chose the name Puja Foundation because her name means
-                &ldquo;to pray,&rdquo; and she wanted the organization to
-                represent the belief that prayers can be answered through
-                compassion, generosity, and action.
-              </p>
-            </motion.div>
-
-            <motion.p
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.22 }}
-            >
-              Since its founding, the foundation has supported families across
-              companies including Cicis Pizza, Applebee&rsquo;s, Sonic
-              Drive-In, Roy&rsquo;s Restaurants, Corner Bakery, and
-              Logan&rsquo;s Roadhouse.
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.26 }}
-            >
-              Through her experience in business, investing, real estate,
-              marketing, leadership, and philanthropy, Puja has developed a
-              strong ability to identify opportunities, negotiate effectively,
-              build brands, evaluate risk, solve complex problems, and guide
-              others through important decisions.
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              As a Business &amp; Life Strategy Consultant, Puja brings that
-              real-world experience into every session. Her approach is honest,
-              practical, and personal. She helps clients gain clarity,
-              recognize their blind spots, make stronger decisions, and create
-              realistic strategies for moving forward in business, career,
-              money, confidence, personal growth, and life.
-            </motion.p>
-          </div>
-          <motion.div
+        <div className="mx-auto max-w-4xl flex flex-col gap-7 font-body text-lg leading-relaxed text-cream/55">
+          <motion.p
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="hidden lg:block"
+            transition={{ duration: 0.5 }}
           >
-            <div className="sticky top-24">
-              <div
-                className="aspect-[4/5] w-full bg-cream/5"
-                role="img"
-                aria-label="Portrait of Puja Dharod (non-copy)"
-              >
-                <div className="flex h-full flex-col items-center justify-center gap-3">
-                  <span className="font-display text-6xl italic !text-red-600">P</span>
-                  <span className="font-label text-[10px] uppercase tracking-[0.2em] !text-red-600">
-                    Professional Portrait
-                  </span>
-                </div>
-              </div>
-              <p className="mt-4 font-label text-[10px] uppercase tracking-[0.18em] !text-red-600">
-                Puja Dharod (non-copy caption)
-              </p>
-            </div>
-          </motion.div>
+            Born and raised in Dallas, Puja Dharod is a Texan Gujarati who
+            earned her undergraduate degree from The University of Texas at
+            Austin.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.06 }}
+          >
+            She currently serves as Vice President of Investments at SSCP,
+            where her work spans investing, real estate acquisitions and
+            management, lease negotiations, financial management, business
+            growth, marketing, brand strategy, strategic planning, and
+            high-level decision-making.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            Puja&rsquo;s commitment to helping others began while she was
+            still in high school. After witnessing a team member within her
+            family&rsquo;s restaurant business experience a devastating
+            personal hardship, she founded the Puja Foundation in 2011.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.14 }}
+          >
+            The Puja Foundation is a nonprofit organization that provides
+            financial assistance to team members and their families facing
+            catastrophic and unexpected life events.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.18 }}
+            className="font-display text-xl italic leading-relaxed text-cream"
+          >
+            She chose the name Puja Foundation because her name means
+            &ldquo;to pray,&rdquo; and she wanted the organization to
+            represent the belief that prayers can be answered through
+            compassion, generosity, and action.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.22 }}
+          >
+            Since its founding, the foundation has supported families across
+            companies including Cicis Pizza, Applebee&rsquo;s, Sonic
+            Drive-In, Roy&rsquo;s Restaurants, Corner Bakery, and
+            Logan&rsquo;s Roadhouse.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.26 }}
+          >
+            Through her experience in business, investing, real estate,
+            marketing, leadership, and philanthropy, Puja has developed a
+            strong ability to identify opportunities, negotiate effectively,
+            build brands, evaluate risk, solve complex problems, and guide
+            others through important decisions.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            As a Business &amp; Life Strategy Consultant, Puja brings that
+            real-world experience into every session. Her approach is honest,
+            practical, and personal. She helps clients gain clarity,
+            recognize their blind spots, make stronger decisions, and create
+            realistic strategies for moving forward in business, career,
+            money, confidence, personal growth, and life.
+          </motion.p>
         </div>
       </div>
     </section>
@@ -458,12 +439,12 @@ function EducationSection() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="mb-16 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <h2 className="max-w-lg font-display text-4xl font-light leading-[1.06] tracking-[0.03em] text-espresso lg:text-5xl">
+            <h2 className="font-display text-4xl font-light leading-[1.06] tracking-[0.03em] text-espresso lg:text-5xl lg:whitespace-nowrap">
               Education and Professional Development
             </h2>
             <div className="flex items-center gap-3">
               <span className="block h-px w-10 bg-rule" />
-              <span className="font-label text-[9px] uppercase tracking-[0.28em] !text-red-600">CRED</span>
+              <span className="font-accent text-[9px] uppercase tracking-[0.28em] text-rule">CRED</span>
             </div>
           </div>
         </motion.div>
@@ -478,7 +459,7 @@ function EducationSection() {
           <h3 className="font-display text-2xl font-light tracking-[0.03em] text-espresso">
             The University of Texas at Austin
           </h3>
-          <p className="mt-1 font-body text-sm leading-relaxed text-warm-gray">
+          <p className="mt-1 font-body text-base leading-relaxed text-warm-gray">
             B.S. in Advertising and Business, 2016
           </p>
         </motion.div>
@@ -494,7 +475,7 @@ function EducationSection() {
           </h3>
         </motion.div>
 
-        <div className="mt-8 grid gap-px bg-rule sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3">
           {CERTIFICATES.map((c, i) => (
             <motion.div
               key={c.prog}
@@ -502,15 +483,15 @@ function EducationSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
-              className="group bg-cream p-6 transition-colors hover:bg-mid-bg lg:p-7"
+              className="group border border-rule p-6 transition-colors hover:bg-mid-bg lg:p-7"
             >
               <span className="font-label text-[10px] uppercase tracking-[0.2em] text-espresso">
                 {c.year}
               </span>
-              <h4 className="mt-2 font-display text-sm font-medium leading-snug tracking-[0.02em] text-espresso">
+              <h4 className="mt-2 font-display text-base font-medium leading-snug tracking-[0.02em] text-espresso">
                 {c.inst}
               </h4>
-              <p className="mt-1 font-body text-xs leading-relaxed text-warm-gray">
+              <p className="mt-1 font-body text-sm leading-relaxed text-warm-gray">
                 {c.prog}
               </p>
             </motion.div>
@@ -536,7 +517,9 @@ function CTASection() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <h2 className="font-display text-4xl font-light leading-[1.1] tracking-[0.02em] text-cream lg:text-5xl">
-            Ready to Make Your Next Move?
+            Ready to Make
+            <br />
+            Your Next Move?
           </h2>
           <p className="mx-auto mt-5 max-w-xl font-body text-lg leading-relaxed text-cream/45">
             Book a private session with Puja to gain clarity, receive honest
@@ -574,42 +557,42 @@ function FooterSection() {
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-10 sm:grid-cols-3">
           <div>
-            <h4 className="font-label text-[11px] font-medium uppercase tracking-[0.18em] !text-red-600">
+            <h4 className="font-accent text-[11px] font-medium uppercase tracking-[0.18em] text-warm-gray">
               Navigation
             </h4>
             <div className="mt-4 flex flex-col gap-2">
-              {["About", "Services", "Sessions"].map((l) => (
+              {["About", "Services", "Process"].map((l) => (
                 <a
                   key={l}
                   href={`#${l.toLowerCase()}`}
-                  className="font-body text-sm !text-red-600 transition-colors hover:text-red-800"
+                  className="font-body text-sm text-warm-gray transition-colors hover:text-espresso"
                 >
                   {l}
                 </a>
               ))}
               <Link
                 href="/book"
-                className="font-body text-sm !text-red-600 transition-colors hover:text-red-800"
+                className="font-body text-sm text-warm-gray transition-colors hover:text-espresso"
               >
                 Book
               </Link>
             </div>
           </div>
           <div>
-            <h4 className="font-label text-[11px] font-medium uppercase tracking-[0.18em] !text-red-600">
+            <h4 className="font-accent text-[11px] font-medium uppercase tracking-[0.18em] text-warm-gray">
               Connect
             </h4>
             <div className="mt-4">
               <a
                 href="mailto:puja@pujawatch.com"
-                className="font-body text-sm !text-red-600 transition-colors hover:text-red-800"
+                className="font-body text-sm text-warm-gray transition-colors hover:text-espresso"
               >
                 puja@pujawatch.com
               </a>
             </div>
           </div>
           <div>
-            <h4 className="font-label text-[11px] font-medium uppercase tracking-[0.18em] text-warm-gray">
+            <h4 className="font-accent text-[11px] font-medium uppercase tracking-[0.18em] text-warm-gray">
               Important Information
             </h4>
             <p className="mt-4 font-body text-xs leading-relaxed text-warm-gray/60">
@@ -623,21 +606,25 @@ function FooterSection() {
 
         <div className="mt-8 flex items-center gap-3 border-t border-rule pt-6">
           <span className="block h-px w-10 bg-warm-gray/60" />
-          <span className="font-label text-[9px] uppercase tracking-[0.28em] !text-red-600">
+          <span className="font-accent text-[9px] uppercase tracking-[0.28em] text-warm-gray/60">
             PW - {y}
           </span>
         </div>
-        <span className="mt-2 block font-label text-[10px] uppercase tracking-[0.16em] !text-red-600">
+        <span className="mt-2 block font-accent text-[10px] uppercase tracking-[0.16em] text-warm-gray/50">
           &copy; {y} PujaWatch. All rights reserved.
         </span>
       </div>
 
-      <div className="w-full overflow-hidden">
-        <div className="flex h-64 w-full items-center justify-center">
-          <span className="font-display text-[clamp(4rem,12vw,14rem)] font-bold uppercase leading-none tracking-[0.02em] text-espresso">
-            PujaWatch
-          </span>
-        </div>
+      <div className="mt-8 flex w-full items-center justify-center pb-8">
+        <Link
+          href="/test-hero"
+          className="inline-flex h-10 items-center rounded-sm bg-espresso px-6 font-label text-[11px] uppercase tracking-[0.16em] text-cream transition-all duration-300 hover:bg-gold hover:text-espresso"
+        >
+          Test Hero
+        </Link>
+      </div>
+      <div className="flex w-full items-center justify-center pb-8">
+        <img src="/wings_logo.png" alt="PujaWatch" className="h-20 w-auto md:h-28" />
       </div>
     </footer>
   );
