@@ -141,6 +141,9 @@ export function HeroSection() {
               <br />
               <span>WATCH</span>
             </h1>
+            <p className="mt-2 font-body text-[13px] font-light uppercase tracking-[0.24em] text-warm-gray/70 md:mt-3 md:text-sm md:tracking-[0.28em]">
+              Business &amp; Life Strategy Consultant
+            </p>
             <p className="mt-5 max-w-xs font-body text-[12px] uppercase leading-relaxed tracking-[0.28em] text-warm-gray/60 md:mt-8 md:max-w-none md:text-[13px] md:tracking-[0.3em]">
               Gain clarity. Make stronger decisions. Create a life and business
               that reflect what you are truly capable of.
