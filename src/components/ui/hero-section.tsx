@@ -11,18 +11,14 @@ export function HeroSection() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Blur-in reveal
       gsap.fromTo(
         revealRef.current,
-        { filter: "blur(24px)", opacity: 0, scale: 1.02 },
-        {
-          filter: "blur(0px)",
-          opacity: 1,
-          scale: 1,
-          duration: 2.2,
-          ease: "expo.out",
-        }
+        { filter: "blur(16px)", opacity: 0 },
+        { filter: "blur(0px)", opacity: 1, duration: 2, ease: "expo.out" }
       );
 
+      // Magnetic mouse-follow on CTA
       const handleMouseMove = (e: MouseEvent) => {
         if (!ctaRef.current) return;
         const rect = ctaRef.current.getBoundingClientRect();
@@ -53,52 +49,65 @@ export function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative flex w-full flex-col overflow-hidden bg-cream selection:bg-espresso selection:text-espresso"
+      className="relative flex min-h-dvh w-full overflow-hidden bg-espresso"
     >
+      {/* Background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url(/hero-bg.png)" }}
+      />
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-espresso/45" />
+
+      {/* Content */}
       <div
         ref={revealRef}
-        className="relative z-10 flex w-full flex-col px-5 pt-14 pb-16 md:min-h-dvh md:flex-row md:items-center md:px-14 md:pt-24 md:pb-12 lg:px-20"
+        className="relative z-10 flex w-full flex-col justify-center px-6 md:px-14 lg:px-20"
       >
-        <div className="flex min-w-0 flex-1 flex-col justify-center md:justify-between md:pb-8">
-          <div className="flex items-center gap-3">
+        <div className="max-w-xl lg:max-w-2xl">
+          {/* Pulsing dot */}
+          <div className="mb-8 flex items-center gap-3">
             <div className="relative h-2.5 w-2.5 rounded-full bg-gold">
               <div className="absolute inset-0 animate-ping rounded-full bg-gold opacity-30" />
             </div>
           </div>
 
-          <div className="mt-14 md:mt-0 md:flex-1 md:flex md:flex-col md:justify-center lg:-translate-y-8">
-            <h1 className="font-display text-[clamp(4rem,18vw,7.5rem)] font-bold uppercase leading-[0.82] tracking-[0.02em] text-espresso md:text-[clamp(1.75rem,6.5vw,8.5rem)] md:leading-[0.84]">
-              PUJA
-              <br />
-              <span>WATCH</span>
-            </h1>
-            <p className="mt-2 font-accent text-[13px] font-light uppercase tracking-[0.24em] text-warm-gray/70 md:mt-3 md:text-sm md:tracking-[0.28em]">
-              Business &amp; Life Strategy Consultant
-            </p>
-            <p className="mt-5 max-w-xs font-body text-[12px] uppercase leading-relaxed tracking-[0.28em] text-espresso md:mt-8 md:max-w-xl md:text-[13px] md:leading-relaxed md:tracking-[0.3em]">
-              Gain clarity.<br className="hidden md:inline" /> Make stronger decisions.<br className="hidden md:inline" /> Create a life and business
-              that reflect what you are truly capable of.
-            </p>
-            <p className="mt-4 max-w-sm font-body text-sm leading-relaxed text-espresso md:mt-5 md:max-w-lg">
-              Puja offers personalized one-on-one strategy sessions for
-              individuals who are ready to move forward with greater
-              confidence, direction, and intention.
-            </p>
-          </div>
+          {/* Title — refined, not bold */}
+          <h1 className="font-display text-[clamp(2.6rem,9vw,6rem)] font-light uppercase leading-[0.88] tracking-[0.06em] text-cream">
+            Puja
+            <br />
+            <span>Watch</span>
+          </h1>
 
+          <p className="mt-4 font-accent text-sm font-light uppercase tracking-[0.24em] text-cream/70">
+            Business &amp; Life Strategy Consultant
+          </p>
+
+          <p className="mt-6 max-w-md font-body text-sm uppercase leading-relaxed tracking-[0.28em] text-cream/60 md:text-[13px]">
+            Gain clarity.<br />Make stronger decisions.<br />Create a life and business that<br />
+            reflect what you are truly capable of.
+          </p>
+
+          <p className="mt-4 max-w-md font-body text-base leading-relaxed text-cream/50">
+            Puja offers personalized one-on-one strategy sessions for
+            individuals who are ready to move forward with greater
+            confidence, direction, and intention.
+          </p>
+
+          {/* Magnetic CTA */}
           <Link
             href="/book"
             ref={ctaRef}
-            className="group mt-10 flex w-fit items-center gap-6 md:mt-0 lg:-translate-y-20"
+            className="group mt-10 inline-flex w-fit items-center gap-6"
           >
-            <div className="flex h-14 w-14 items-center justify-center rounded-full border border-rule transition-all duration-500 group-hover:bg-espresso">
+            <div className="flex h-14 w-14 items-center justify-center rounded-full border border-cream/20 transition-all duration-500 group-hover:bg-cream">
               <svg
                 width="18"
                 height="18"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="stroke-espresso transition-colors duration-500 group-hover:stroke-cream"
+                className="stroke-cream transition-colors duration-500 group-hover:stroke-espresso"
               >
                 <path
                   d="M7 17L17 7M17 7H8M17 7V16"
@@ -108,22 +117,10 @@ export function HeroSection() {
                 />
               </svg>
             </div>
-            <span className="font-label text-[11px] font-medium uppercase tracking-[0.2em] text-espresso">
+            <span className="font-label text-[11px] font-medium uppercase tracking-[0.2em] text-cream">
               Book a Session
             </span>
           </Link>
-        </div>
-
-        {/* Portrait image — desktop only */}
-        <div className="hidden md:flex md:w-[45%] lg:w-[50%] shrink-0 items-end justify-end">
-          <img
-            src="/hero-portrait.jpg"
-            alt="Puja Dharod"
-            className="h-[calc(100dvh-6rem)] w-full object-cover object-top"
-            style={{
-              filter: "drop-shadow(12px 12px 24px rgba(59, 38, 35, 0.45))",
-            }}
-          />
         </div>
       </div>
     </section>
