@@ -25,30 +25,31 @@ function RevealStage({ scrollYProgress }: StageProps) {
       style={{ opacity, y }}
       className="relative h-dvh bg-espresso"
     >
-      {/* No grid background — clean */}
       <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-6 lg:px-8">
-        {/* Full-width title */}
-        <h2 className="w-full font-display text-[clamp(2.8rem,8vw,6rem)] font-light leading-[1.06] tracking-[0.03em] text-cream">
-          One-on-One Business &amp; Life Strategy Consulting:
+        <h2 className="w-full font-display text-[clamp(2.2rem,6vw,4.5rem)] font-light leading-[1.08] tracking-[0.03em] text-cream">
+          Private Business &amp; Life Strategy Sessions
         </h2>
-        {/* Centered, readable paragraphs */}
+        <p className="mt-3 font-accent text-sm uppercase tracking-[0.24em] text-gold md:text-base">
+          Every meaningful change begins with a decision.
+        </p>
         <div className="mt-8 max-w-3xl space-y-5">
-          <p className="font-body text-base leading-relaxed text-cream/75">
-            These private sessions are designed to help you gain clarity, work
-            through a challenge, make an important decision, or create a
-            practical plan for your next move.
+          <p className="font-body text-base leading-relaxed text-cream/80">
+            These private one-on-one strategy sessions are designed to help you
+            gain clarity, make confident decisions, and create a plan for
+            moving forward with purpose.
           </p>
-          <p className="font-body text-base leading-relaxed text-cream/75">
-            You can bring any area of your business or life that you want to
-            improve. Whether you are building something new, navigating a
-            transition, feeling stuck, or simply know you are capable of more,
-            Puja will provide direct and personalized guidance based on your
-            goals, challenges, and circumstances.
+          <p className="font-body text-base leading-relaxed text-cream/80">
+            Whether you&rsquo;re building a business, navigating a major life
+            transition, feeling stuck, or striving for your next level of
+            growth, every session is tailored to your unique goals and
+            circumstances. Together, we&rsquo;ll challenge your problem, uncover
+            new opportunities, and develop a strategy that aligns with the life
+            you want to create.
           </p>
-          <p className="font-body text-base leading-relaxed text-cream/75">
-            You will leave your session with a stronger sense of direction,
-            honest feedback, and three to five specific action steps you can
-            begin implementing immediately.
+          <p className="font-body text-base leading-relaxed text-cream/80">
+            You&rsquo;ll leave with greater clarity, honest feedback, and three
+            to five actionable next steps you can begin implementing
+            immediately.
           </p>
         </div>
       </div>
@@ -61,11 +62,11 @@ function RevealStage({ scrollYProgress }: StageProps) {
 /* ------------------------------------------------------------------ */
 
 const PROCESS_STEPS = [
-  { num: "1", title: "Define the real issue", desc: "We cut through the surface-level noise and identify the core problem that's really holding you back." },
-  { num: "2", title: "Identify what is not working", desc: "A clear-eyed look at current patterns, systems, and assumptions that are blocking progress." },
-  { num: "3", title: "Challenge assumptions or avoidance", desc: "Honest feedback on blind spots, limiting beliefs, and the stories you tell yourself." },
-  { num: "4", title: "Decide on the strategy", desc: "Together we map the most direct path forward, weighing trade-offs with real-world pragmatism." },
-  { num: "5", title: "Build 3–5 specific action steps", desc: "You leave with a concrete, sequenced list of moves you can begin executing immediately." },
+  { num: "1", title: "Define the real issue" },
+  { num: "2", title: "Identify what is not working" },
+  { num: "3", title: "Challenge assumptions or avoidance" },
+  { num: "4", title: "Decide on the strategy" },
+  { num: "5", title: "Build 3–5 specific action steps" },
 ];
 
 function ProcessSection() {
@@ -151,7 +152,7 @@ function ProcessSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-            className="group relative flex shrink-0 flex-col justify-between bg-espresso p-8
+            className="group relative flex shrink-0 flex-col justify-between bg-espresso p-8 sm:p-10 min-h-[220px] sm:min-h-[240px]
                        w-[calc((100vw-3rem)/1.25)]
                        md:w-[calc(((100vw-max(2rem,(100vw-80rem)/2+2rem))-48px)/2.25)]
                        lg:w-[calc(((100vw-max(2rem,(100vw-80rem)/2+2rem))-72px)/3.25)]"
@@ -167,20 +168,17 @@ function ProcessSection() {
                 <span className="font-display text-sm font-light text-cream/60">{step.num}</span>
               </div>
 
-              <h3 className="font-display text-xl font-light leading-snug tracking-[0.02em] text-cream">
+              <h3 className="font-display text-xl font-light leading-snug tracking-[0.02em] text-cream sm:text-2xl">
                 {step.title}
               </h3>
-              <p className="mt-4 font-body text-sm leading-relaxed text-cream/55">
-                {step.desc}
-              </p>
             </div>
 
             {/* Gold accent line — expands on hover */}
-            <div className="mt-10 h-px w-12 bg-gold/50 transition-all duration-500 group-hover:w-full" />
+            <div className="mt-8 h-px w-12 bg-gold/50 transition-all duration-500 group-hover:w-full" />
           </motion.div>
         ))}
 
-        {/* Trailing spacer so last card doesn't sit flush against viewport edge */}
+        {/* Trailing spacer */}
         <div className="w-12 shrink-0 lg:w-20" />
       </div>
     </section>
@@ -188,7 +186,7 @@ function ProcessSection() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  What you can bring                                                 */
+/*  What you can bring (Brown background, 1-line header)              */
 /* ------------------------------------------------------------------ */
 
 const SERVICE_AREAS = [
@@ -207,7 +205,7 @@ function ServicesSection() {
   const right = SERVICE_AREAS.slice(4, 8);
 
   return (
-    <section id="services" className="bg-mid-bg py-32 lg:py-40">
+    <section id="services" className="bg-espresso py-28 lg:py-36">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -215,18 +213,18 @@ function ServicesSection() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          {/* Full-width title */}
-          <div className="mb-16">
-            <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-warm-gray/50">
+          {/* Header on 1 clean line across */}
+          <div className="mb-14">
+            <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-cream/35">
               Areas
             </span>
-            <h2 className="mt-3 w-full font-display text-[clamp(2.4rem,6vw,5rem)] font-light leading-[1.06] tracking-[0.03em] text-espresso">
+            <h2 className="mt-3 font-display text-2xl font-light tracking-[0.03em] text-cream sm:text-3xl lg:text-4xl whitespace-nowrap overflow-hidden text-ellipsis">
               What You Can Bring to a Session
             </h2>
           </div>
         </motion.div>
 
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid gap-4 lg:grid-cols-2">
           {/* Left column: 1-4 */}
           <div className="flex flex-col gap-4">
             {left.map((area, i) => (
@@ -236,12 +234,12 @@ function ServicesSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
-                className="group flex items-center gap-4 bg-cream p-6 transition-shadow duration-300 hover:shadow-[0_0_0_1px_var(--espresso)] lg:p-7"
+                className="group flex items-center gap-5 border border-cream/10 bg-[rgba(255,255,255,0.03)] p-6 transition-all duration-300 hover:border-gold/40 hover:bg-[rgba(255,255,255,0.06)] lg:p-7"
               >
-                <span className="shrink-0 font-display text-3xl font-light tracking-[0.02em] text-warm-gray/40">
+                <span className="shrink-0 font-display text-2xl font-light tracking-[0.02em] text-gold/60">
                   {i + 1}
                 </span>
-                <span className="font-display text-base font-medium leading-snug tracking-[0.02em] text-espresso">
+                <span className="font-display text-base font-normal leading-snug tracking-[0.02em] text-cream">
                   {area}
                 </span>
               </motion.div>
@@ -257,12 +255,12 @@ function ServicesSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: (i + 4) * 0.07, ease: [0.16, 1, 0.3, 1] }}
-                className="group flex items-center gap-4 bg-cream p-6 transition-shadow duration-300 hover:shadow-[0_0_0_1px_var(--espresso)] lg:p-7"
+                className="group flex items-center gap-5 border border-cream/10 bg-[rgba(255,255,255,0.03)] p-6 transition-all duration-300 hover:border-gold/40 hover:bg-[rgba(255,255,255,0.06)] lg:p-7"
               >
-                <span className="shrink-0 font-display text-3xl font-light tracking-[0.02em] text-warm-gray/40">
+                <span className="shrink-0 font-display text-2xl font-light tracking-[0.02em] text-gold/60">
                   {i + 5}
                 </span>
-                <span className="font-display text-base font-medium leading-snug tracking-[0.02em] text-espresso">
+                <span className="font-display text-base font-normal leading-snug tracking-[0.02em] text-cream">
                   {area}
                 </span>
               </motion.div>
@@ -362,7 +360,7 @@ function PricingSection() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  About Puja + Education combined                                    */
+/*  About Puja + Education (Exact order from copy)                     */
 /* ------------------------------------------------------------------ */
 
 const CERTIFICATES = [
@@ -376,11 +374,12 @@ const CERTIFICATES = [
 ];
 
 const ABOUT_PARAGRAPHS = [
-  "Born and raised in Dallas, Puja Dharod is a Texan Gujarati who earned her undergraduate degree from The University of Texas at Austin (B.S. in Advertising and Business, 2016).",
+  "Born and raised in Dallas, Puja Dharod is a Texan Gujarati who earned her undergraduate degree from The University of Texas at Austin.",
   "She currently serves as Vice President of Investments at SSCP, where her work spans investing, real estate acquisitions and management, lease negotiations, financial management, business growth, marketing, brand strategy, strategic planning, and high-level decision-making.",
   "Puja\u2019s commitment to helping others began while she was still in high school. After witnessing a team member within her family\u2019s restaurant business experience a devastating personal hardship, she founded the Puja Foundation in 2011.",
   "The Puja Foundation is a nonprofit organization that provides financial assistance to team members and their families facing catastrophic and unexpected life events.",
-  "Since its founding, the foundation has supported families across companies including Cici\u2019s Pizza, Applebee\u2019s, Sonic Drive-In, Roy\u2019s Restaurants, Corner Bakery, and Logan\u2019s Roadhouse.",
+  "She chose the name Puja Foundation because her name means \u201Cto pray,\u201D and she wanted the organization to represent the belief that prayers can be answered through compassion, generosity, and action.",
+  "Since its founding, the foundation has supported families across companies including Cicis Pizza, Applebee\u2019s, Sonic Drive-In, Roy\u2019s Restaurants, Corner Bakery, and Logan\u2019s Roadhouse.",
   "Through her experience in business, investing, real estate, marketing, leadership, and philanthropy, Puja has developed a strong ability to identify opportunities, negotiate effectively, build brands, evaluate risk, solve complex problems, and guide others through important decisions.",
   "As a Business & Life Strategy Consultant, Puja brings that real-world experience into every session. Her approach is honest, practical, and personal. She helps clients gain clarity, recognize their blind spots, make stronger decisions, and create realistic strategies for moving forward in business, career, money, confidence, personal growth, and life.",
 ];
@@ -406,31 +405,15 @@ function AboutSection() {
           </h2>
         </motion.div>
 
-        {/* Quote callout */}
-        <motion.blockquote
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-14 border-l-2 border-gold pl-8"
-        >
-          <p className="font-display text-xl font-light italic leading-relaxed text-cream">
-            She chose the name Puja Foundation because her name means &ldquo;to
-            pray,&rdquo; and she wanted the organization to represent the belief
-            that prayers can be answered through compassion, generosity, and
-            action.
-          </p>
-        </motion.blockquote>
-
-        {/* Uniform paragraphs */}
-        <div className="grid gap-5 font-body text-base leading-relaxed text-cream/80 lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6">
+        {/* Paragraphs in exact linear order */}
+        <div className="space-y-6 max-w-4xl font-body text-base leading-relaxed text-cream/80 sm:text-lg">
           {ABOUT_PARAGRAPHS.map((para, i) => (
             <motion.p
               key={i}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.06 }}
+              transition={{ duration: 0.45, delay: i * 0.04 }}
             >
               {para}
             </motion.p>
@@ -440,7 +423,7 @@ function AboutSection() {
         {/* Divider */}
         <div className="my-20 h-px w-full bg-cream/10" />
 
-        {/* Education — combined, no section title */}
+        {/* Education — combined */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -451,7 +434,6 @@ function AboutSection() {
           <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-cream/30">
             Education &amp; Credentials
           </span>
-          {/* College listed inline — no extra heading above it */}
           <p className="mt-4 font-display text-xl font-light tracking-[0.03em] text-cream">
             The University of Texas at Austin &mdash;{" "}
             <span className="font-body text-base font-light text-cream/60">
@@ -574,10 +556,10 @@ function FooterSection() {
             </h4>
             <div className="mt-4">
               <a
-                href="mailto:pdharod@sscpmanagement.com"
+                href="mailto:puja@pujawatch.com"
                 className="font-body text-sm text-warm-gray transition-colors hover:text-espresso"
               >
-                pdharod@sscpmanagement.com
+                puja@pujawatch.com
               </a>
             </div>
           </div>

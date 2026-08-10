@@ -72,26 +72,23 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Title — refined, not bold */}
+          {/* Title */}
           <h1 className="font-display text-[clamp(2.6rem,9vw,6rem)] font-light uppercase leading-[0.88] tracking-[0.06em] text-cream">
             Puja
             <br />
             <span>Watch</span>
           </h1>
 
-          <p className="mt-4 font-accent text-sm font-light uppercase tracking-[0.24em] text-cream/70">
-            Business &amp; Life Strategy Consultant
+          <p className="mt-8 max-w-lg font-body text-sm uppercase leading-relaxed tracking-[0.28em] text-cream/70 md:text-[14px]">
+            GAIN CLARITY.<br />
+            OVERCOME YOURSELF.<br />
+            CREATE THE LIFE YOU&rsquo;RE CAPABLE OF.
           </p>
 
-          <p className="mt-6 max-w-md font-body text-sm uppercase leading-relaxed tracking-[0.28em] text-cream/60 md:text-[13px]">
-            Gain clarity.<br />Make stronger decisions.<br />Create a life and business that<br />
-            reflect what you are truly capable of.
-          </p>
-
-          <p className="mt-4 max-w-md font-body text-base leading-relaxed text-cream/50">
+          <p className="mt-5 max-w-md font-body text-base leading-relaxed text-cream/60">
             Puja offers personalized one-on-one strategy sessions for
-            individuals who are ready to move forward with greater
-            confidence, direction, and intention.
+            individuals who are ready to think bigger, make stronger decisions,
+            and move forward with confidence.
           </p>
 
           {/* Magnetic CTA */}

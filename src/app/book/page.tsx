@@ -19,31 +19,27 @@ const SESSION_DETAILS = [
 
 const WHAT_TO_INCLUDE = [
   {
-    label: "Your Name",
-    detail: "So Puja can address you personally.",
+    label: "Your Full Name",
+    detail: "Please provide your first and last name.",
   },
   {
-    label: "Your Email Address",
-    detail: "Where your confirmation and any follow-up will be sent.",
-  },
-  {
-    label: "Session Type",
-    detail: "Let Puja know whether you'd like the 30-Minute Clarity Call ($222) or the 60-Minute Power Session ($444).",
+    label: "Session",
+    detail: "30-Minute Clarity Call ($222) or 60-Minute Power Session ($444)",
   },
   {
     label: "What You'd Like to Focus On",
     detail:
-      "Briefly describe the main topic, challenge, or goal you'd like to address. There's no need to write an essay — a few sentences is enough to help Puja prepare.",
+      "A brief overview of the topics, questions, challenges, or goals you want to cover during our time together.",
   },
   {
-    label: "Any Relevant Context",
+    label: "Anything Helpful for Puja to Know Before the Session (Optional)",
     detail:
-      "Optional: share any background that would help Puja understand your situation before the session (e.g., industry, current role, specific decisions you're weighing).",
+      "Any background context, current business status, or specific circumstances that would help Puja prepare for your call.",
   },
   {
-    label: "Your Availability",
+    label: "2–3 Available Times (Central Time)",
     detail:
-      "Provide 2–3 windows of time that work for you, including your timezone. Puja will confirm a time that works.",
+      "A few dates and time windows that work best for your schedule in US Central Time (CT).",
   },
 ];
 
@@ -52,7 +48,7 @@ export default function BookPage() {
     <>
       <Navbar />
       <main className="min-h-dvh bg-cream">
-        {/* Hero strip */}
+        {/* Hero Header */}
         <section className="bg-espresso px-6 pt-32 pb-20 md:px-14 lg:px-20">
           <motion.div
             initial={{ opacity: 0, y: 32 }}
@@ -71,10 +67,10 @@ export default function BookPage() {
             <h1 className="font-display text-4xl font-light leading-[1.06] tracking-[0.03em] text-cream lg:text-6xl">
               Let&rsquo;s Work Together
             </h1>
-            <p className="mt-5 max-w-xl font-body text-base leading-relaxed text-cream/55">
-              To book a private session with Puja, send an email with the
-              details below. Puja will review your message personally and
-              confirm your session within 1–2 business days.
+            <p className="mt-5 max-w-2xl font-body text-base leading-relaxed text-cream/75 sm:text-lg">
+              To book a private session with Puja, email the details below.
+              Every inquiry is reviewed personally, and you&rsquo;ll receive a
+              response within 1–2 business days.
             </p>
           </motion.div>
         </section>
@@ -88,17 +84,20 @@ export default function BookPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="font-display text-2xl font-light tracking-[0.03em] text-espresso">
+              <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-warm-gray/50">
+                Tiers
+              </span>
+              <h2 className="mt-2 font-display text-3xl font-light tracking-[0.03em] text-espresso lg:text-4xl">
                 Choose Your Session
               </h2>
-              <p className="mt-2 font-body text-sm leading-relaxed text-warm-gray">
-                Both sessions provide the same personalized approach. Choose the
-                amount of time based on how deeply you would like to explore
-                your situation.
+              <p className="mt-3 max-w-2xl font-body text-base leading-relaxed text-warm-gray">
+                Both sessions offer the same personalized experience. Choose
+                the session length that best fits the depth of guidance
+                you&rsquo;re looking for.
               </p>
             </motion.div>
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            <div className="mt-10 grid gap-6 sm:grid-cols-2">
               {SESSION_DETAILS.map((s, i) => (
                 <motion.div
                   key={s.name}
@@ -106,20 +105,22 @@ export default function BookPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="flex flex-col bg-espresso p-8"
+                  className="flex flex-col justify-between bg-espresso p-8 sm:p-10"
                 >
-                  <h3 className="font-display text-xl font-light tracking-[0.03em] text-cream">
-                    {s.name}
-                  </h3>
-                  <div className="mt-3 flex items-baseline gap-1">
-                    <span className="font-accent text-base font-light text-gold">$</span>
-                    <span className="font-display text-4xl font-light tracking-[0.02em] text-cream">
-                      {s.price.replace("$", "")}
-                    </span>
+                  <div>
+                    <h3 className="font-display text-2xl font-light tracking-[0.03em] text-cream">
+                      {s.name}
+                    </h3>
+                    <div className="mt-4 flex items-baseline gap-1">
+                      <span className="font-accent text-base font-light text-gold">$</span>
+                      <span className="font-display text-4xl font-light tracking-[0.02em] text-cream">
+                        {s.price.replace("$", "")}
+                      </span>
+                    </div>
+                    <p className="mt-4 font-body text-sm leading-relaxed text-cream/60">
+                      {s.desc}
+                    </p>
                   </div>
-                  <p className="mt-4 font-body text-sm leading-relaxed text-cream/55">
-                    {s.desc}
-                  </p>
                 </motion.div>
               ))}
             </div>
@@ -135,27 +136,26 @@ export default function BookPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="font-display text-2xl font-light tracking-[0.03em] text-espresso">
-                What to Include in Your Email
+              <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-warm-gray/50">
+                Instructions
+              </span>
+              <h2 className="mt-2 font-display text-3xl font-light tracking-[0.03em] text-espresso lg:text-4xl">
+                Please include the following in your email:
               </h2>
-              <p className="mt-2 font-body text-sm leading-relaxed text-warm-gray">
-                Please include the following details when you reach out, so Puja
-                can prepare for your session.
-              </p>
             </motion.div>
 
-            <div className="mt-10 flex flex-col gap-0 divide-y divide-rule">
+            <div className="mt-10 flex flex-col divide-y divide-rule/60 border-y border-rule/60">
               {WHAT_TO_INCLUDE.map((item, i) => (
                 <motion.div
                   key={item.label}
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.45, delay: i * 0.07 }}
-                  className="flex flex-col gap-1 py-6 sm:flex-row sm:gap-10"
+                  transition={{ duration: 0.45, delay: i * 0.06 }}
+                  className="flex flex-col gap-2 py-6 sm:flex-row sm:gap-10 sm:items-baseline"
                 >
-                  <div className="w-full shrink-0 sm:w-52">
-                    <span className="font-label text-[11px] font-semibold uppercase tracking-[0.18em] text-espresso">
+                  <div className="w-full shrink-0 sm:w-72">
+                    <span className="font-display text-base font-medium tracking-[0.01em] text-espresso">
                       {item.label}
                     </span>
                   </div>
@@ -178,20 +178,19 @@ export default function BookPage() {
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
               <h2 className="font-display text-3xl font-light tracking-[0.03em] text-cream lg:text-4xl">
-                Ready to Book?
+                Ready to Get Started?
               </h2>
-              <p className="mx-auto mt-4 max-w-md font-body text-sm leading-relaxed text-cream/55">
-                Send Puja an email with the details above and she will get back
-                to you within 1–2 business days to confirm your session.
+              <p className="mx-auto mt-4 max-w-md font-body text-sm leading-relaxed text-cream/60">
+                Click below to open your email client with the details pre-filled.
               </p>
               <a
-                href="mailto:pdharod@sscpmanagement.com?subject=Session%20Booking%20Request&body=Hi%20Puja%2C%0A%0AI%20would%20like%20to%20book%20a%20session%20with%20you.%0A%0AName%3A%0ASession%20Type%3A%20(30-Minute%20Clarity%20Call%20%2F%2060-Minute%20Power%20Session)%0AWhat%20I%20want%20to%20focus%20on%3A%0ARelevant%20context%3A%0AAvailability%3A%0A%0AThank%20you!"
+                href="mailto:puja@pujawatch.com?subject=Private%20Session%20Booking%20Request&body=Hi%20Puja%2C%0A%0AI%20would%20like%20to%20book%20a%20private%20strategy%20session%20with%20you.%0A%0A1.%20Your%20Full%20Name%3A%0A%0A2.%20Session%3A%20%5B30-Minute%20Clarity%20Call%20(%24222)%20%2F%2060-Minute%20Power%20Session%20(%24444)%5D%0A%0A3.%20What%20You'd%20Like%20to%20Focus%20On%3A%0A%0A4.%20Anything%20Helpful%20for%20Puja%20to%20Know%20Before%20the%20Session%20(Optional)%3A%0A%0A5.%202%E2%80%933%20Available%20Times%20(Central%20Time)%3A%0A%0AThank%20you!"
                 className="mt-10 inline-flex h-12 items-center gap-3 rounded-sm bg-gold px-8 font-label text-[12px] font-medium uppercase tracking-[0.16em] text-espresso transition-all duration-300 hover:bg-cream active:translate-y-px active:scale-[0.98]"
               >
                 Contact Me &rarr;
               </a>
-              <p className="mt-6 font-body text-xs text-cream/30">
-                pdharod@sscpmanagement.com
+              <p className="mt-6 font-body text-sm text-cream/40">
+                puja@pujawatch.com
               </p>
             </motion.div>
           </div>
