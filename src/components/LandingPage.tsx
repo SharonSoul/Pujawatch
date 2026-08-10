@@ -218,7 +218,7 @@ function ServicesSection() {
             <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-cream/35">
               Areas
             </span>
-            <h2 className="mt-3 font-display text-2xl font-light tracking-[0.03em] text-cream sm:text-3xl lg:text-4xl whitespace-nowrap overflow-hidden text-ellipsis">
+            <h2 className="mt-3 font-display text-[clamp(1.65rem,4.2vw,3.75rem)] font-light leading-none tracking-[0.02em] text-cream">
               What You Can Bring to a Session
             </h2>
           </div>
