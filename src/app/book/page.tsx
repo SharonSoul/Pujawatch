@@ -67,10 +67,11 @@ export default function BookPage() {
             <h1 className="font-display text-4xl font-light leading-[1.06] tracking-[0.03em] text-cream lg:text-6xl">
               Let&rsquo;s Work Together
             </h1>
-            <p className="mt-5 max-w-2xl font-body text-base leading-relaxed text-cream/75 sm:text-lg">
-              To book a private session with Puja, email the details below.
-              Every inquiry is reviewed personally, and you&rsquo;ll receive a
-              response within 1–2 business days.
+            {/* Exactly 2 lines on desktop */}
+            <p className="mt-5 max-w-3xl font-body text-base leading-relaxed text-cream/75 sm:text-lg">
+              To book a private session with Puja, email the details below. Every
+              inquiry is reviewed personally, and you&rsquo;ll receive a response
+              within 1–2 business days.
             </p>
           </motion.div>
         </section>
@@ -83,6 +84,7 @@ export default function BookPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
+              className="text-center"
             >
               <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-warm-gray/50">
                 Tiers
@@ -90,10 +92,8 @@ export default function BookPage() {
               <h2 className="mt-2 font-display text-3xl font-light tracking-[0.03em] text-espresso lg:text-4xl">
                 Choose Your Session
               </h2>
-              <p className="mt-3 max-w-2xl font-body text-base leading-relaxed text-warm-gray">
-                Both sessions offer the same personalized experience. Choose
-                the session length that best fits the depth of guidance
-                you&rsquo;re looking for.
+              <p className="mx-auto mt-3 max-w-4xl font-body text-base leading-relaxed text-warm-gray lg:whitespace-nowrap">
+                Both sessions offer the same personalized experience. Choose the session length that best fits the depth of guidance you&rsquo;re looking for.
               </p>
             </motion.div>
 
@@ -112,7 +112,7 @@ export default function BookPage() {
                       {s.name}
                     </h3>
                     <div className="mt-4 flex items-baseline gap-1">
-                      <span className="font-accent text-base font-light text-gold">$</span>
+                      <span className="font-sans text-4xl font-light text-gold">$</span>
                       <span className="font-display text-4xl font-light tracking-[0.02em] text-cream">
                         {s.price.replace("$", "")}
                       </span>
@@ -139,8 +139,9 @@ export default function BookPage() {
               <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-warm-gray/50">
                 Instructions
               </span>
-              <h2 className="mt-2 font-display text-3xl font-light tracking-[0.03em] text-espresso lg:text-4xl">
-                Please include the following in your email:
+              {/* Header on 1 single line on desktop/tablet */}
+              <h2 className="mt-2 font-display text-xl sm:text-2xl lg:text-[1.7rem] font-light tracking-[0.02em] text-espresso sm:whitespace-nowrap">
+                Please email <a href="mailto:puja@pujawatch.com" className="underline underline-offset-4 hover:text-gold transition-colors">puja@pujawatch.com</a> and include the following in your email:
               </h2>
             </motion.div>
 

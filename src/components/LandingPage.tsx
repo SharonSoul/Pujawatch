@@ -26,7 +26,8 @@ function RevealStage({ scrollYProgress }: StageProps) {
       className="relative h-dvh bg-espresso"
     >
       <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-6 lg:px-8">
-        <h2 className="w-full font-display text-[clamp(2.2rem,6vw,4.5rem)] font-light leading-[1.08] tracking-[0.03em] text-cream">
+        {/* Header on 1 single line on desktop/tablet, wraps only on mobile */}
+        <h2 className="w-full font-display text-[clamp(1.45rem,3.2vw,3.8rem)] font-light leading-[1.1] tracking-[0.02em] text-cream sm:whitespace-nowrap">
           Private Business &amp; Life Strategy Sessions
         </h2>
         <p className="mt-3 font-accent text-sm uppercase tracking-[0.24em] text-gold md:text-base">
@@ -58,135 +59,76 @@ function RevealStage({ scrollYProgress }: StageProps) {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Process section — During the Call                                  */
+/*  During the Meeting (All 5 boxes in a single horizontal row on desktop) */
 /* ------------------------------------------------------------------ */
 
 const PROCESS_STEPS = [
-  { num: "1", title: "Define the real issue" },
-  { num: "2", title: "Identify what is not working" },
-  { num: "3", title: "Challenge assumptions or avoidance" },
-  { num: "4", title: "Decide on the strategy" },
-  { num: "5", title: "Build 3–5 specific action steps" },
+  { num: "1", title: "Define the real issue." },
+  { num: "2", title: "Identify what is not working." },
+  { num: "3", title: "Challenge assumptions or avoidance." },
+  { num: "4", title: "Decide on the strategy." },
+  { num: "5", title: "Build 3–5 specific action steps." },
 ];
 
 function ProcessSection() {
-  const trackRef = useRef<HTMLDivElement>(null);
-
-  const scroll = (dir: "left" | "right") => {
-    if (!trackRef.current) return;
-    const firstCard = trackRef.current.querySelector<HTMLElement>("[data-card]");
-    const cardW = firstCard?.offsetWidth ?? 400;
-    trackRef.current.scrollBy({
-      left: dir === "right" ? cardW + 24 : -(cardW + 24),
-      behavior: "smooth",
-    });
-  };
-
   return (
-    <section id="process" className="bg-cream py-24 overflow-hidden lg:py-40">
-      {/* Header row: title left, arrows right */}
+    <section id="process" className="bg-cream py-24 lg:py-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-12 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between"
+          className="mb-14"
         >
-          <div>
-            <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-warm-gray/50">
-              Method
-            </span>
-            <h2 className="mt-3 font-display text-4xl font-light leading-[1.06] tracking-[0.03em] text-espresso lg:text-5xl">
-              During the Call
-            </h2>
-            <p className="mt-4 max-w-sm font-body text-sm leading-relaxed text-warm-gray">
-              A structured, five-step approach designed to get to the heart of
-              your situation and leave you with clear next steps.
-            </p>
-          </div>
-
-          {/* Arrow controls */}
-          <div className="flex items-center gap-3 shrink-0">
-            <button
-              onClick={() => scroll("left")}
-              aria-label="Scroll left"
-              className="group flex h-12 w-12 items-center justify-center rounded-full border border-rule transition-colors duration-300 hover:bg-espresso"
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                className="stroke-espresso transition-colors duration-300 group-hover:stroke-cream"
-              >
-                <path d="M19 12H5M5 12L12 19M5 12L12 5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-            <button
-              onClick={() => scroll("right")}
-              aria-label="Scroll right"
-              className="group flex h-12 w-12 items-center justify-center rounded-full border border-rule transition-colors duration-300 hover:bg-espresso"
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                className="stroke-espresso transition-colors duration-300 group-hover:stroke-cream"
-              >
-                <path d="M5 12H19M19 12L12 5M19 12L12 19" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-          </div>
+          <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-warm-gray/50">
+            Method
+          </span>
+          <h2 className="mt-3 font-display text-4xl font-light leading-[1.06] tracking-[0.03em] text-espresso lg:text-5xl">
+            During the Meeting
+          </h2>
+          <p className="mt-4 max-w-sm font-body text-sm leading-relaxed text-warm-gray">
+            A structured, five-step approach designed to get to the heart of
+            your situation and leave you with clear next steps.
+          </p>
         </motion.div>
-      </div>
 
-      {/*
-        Card track: extends all the way to the extreme right of the viewport (100vw).
-        Left padding aligns with max-w-7xl content.
-        Width is calculated so 3 full cards + 20% peek of the 4th card fills the viewport width to the extreme right edge.
-      */}
-      <div
-        ref={trackRef}
-        className="flex w-full gap-6 overflow-x-auto pb-4 pl-6 lg:pl-[calc(max(2rem,(100vw-80rem)/2+2rem))] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        style={{ WebkitOverflowScrolling: "touch" }}
-      >
-        {PROCESS_STEPS.map((step, i) => (
-          <motion.div
-            key={step.title}
-            data-card
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-            className="group relative flex shrink-0 flex-col justify-between bg-espresso p-8 sm:p-10 min-h-[220px] sm:min-h-[240px]
-                       w-[calc((100vw-3rem)/1.25)]
-                       md:w-[calc(((100vw-max(2rem,(100vw-80rem)/2+2rem))-48px)/2.25)]
-                       lg:w-[calc(((100vw-max(2rem,(100vw-80rem)/2+2rem))-72px)/3.25)]"
-          >
-            {/* Large watermark number */}
-            <span className="absolute top-6 right-8 font-display text-7xl font-light text-cream/[0.06] select-none">
-              {step.num}
-            </span>
+        {/* All 5 boxes on a single horizontal row on desktop (lg:grid-cols-5) */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5 lg:gap-3 xl:gap-4">
+          {PROCESS_STEPS.map((step, i) => (
+            <motion.div
+              key={step.title}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              className="group relative flex flex-col justify-between bg-espresso p-7 lg:p-6 xl:p-7 min-h-[220px] transition-all duration-300 hover:bg-[#32201d]"
+            >
+              {/* Large watermark number */}
+              <span className="absolute top-5 right-6 font-display text-6xl font-light text-cream/[0.06] select-none">
+                {step.num}
+              </span>
 
-            <div>
-              {/* Numbered badge */}
-              <div className="mb-6 flex h-9 w-9 items-center justify-center rounded-full border border-cream/15">
-                <span className="font-display text-sm font-light text-cream/60">{step.num}</span>
+              <div>
+                {/* Numbered badge */}
+                <div className="mb-6 flex h-8 w-8 items-center justify-center rounded-full border border-cream/15">
+                  <span className="font-display text-xs font-light text-cream/60">{step.num}</span>
+                </div>
+
+                <h3 className="font-display text-lg font-light leading-snug tracking-[0.02em] text-cream xl:text-xl">
+                  {step.title}
+                </h3>
               </div>
-
-              <h3 className="font-display text-xl font-light leading-snug tracking-[0.02em] text-cream sm:text-2xl">
-                {step.title}
-              </h3>
-            </div>
-
-            {/* Gold accent line — expands on hover */}
-            <div className="mt-8 h-px w-12 bg-gold/50 transition-all duration-500 group-hover:w-full" />
-          </motion.div>
-        ))}
-
-        {/* Trailing spacer */}
-        <div className="w-12 shrink-0 lg:w-20" />
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
 
 /* ------------------------------------------------------------------ */
-/*  What you can bring (Brown background, 1-line header)              */
+/*  What you can bring                                                 */
 /* ------------------------------------------------------------------ */
 
 const SERVICE_AREAS = [
@@ -293,11 +235,13 @@ function PricingSection() {
   return (
     <section id="sessions" className="bg-cream py-32 lg:py-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        {/* Centered header and single-line description */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-14 text-center"
         >
           <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-warm-gray/50">
             Tiers
@@ -305,23 +249,13 @@ function PricingSection() {
           <h2 className="mt-3 font-display text-4xl font-light leading-[1.06] tracking-[0.03em] text-espresso lg:text-5xl">
             Choose Your Session
           </h2>
+          <p className="mx-auto mt-4 max-w-4xl font-body text-base leading-relaxed text-warm-gray lg:whitespace-nowrap">
+            Both sessions provide the same personalized approach. Choose the amount of time based on how deeply you would like to explore your situation.
+          </p>
         </motion.div>
 
-        {/* Descriptor above the cards */}
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          className="mt-5 max-w-2xl font-body text-base leading-relaxed text-warm-gray"
-        >
-          Both sessions provide the same personalized approach. Choose the
-          amount of time based on how deeply you would like to explore your
-          situation.
-        </motion.p>
-
-        {/* Side-by-side cards */}
-        <div className="mt-14 grid gap-6 lg:grid-cols-2">
+        {/* Side-by-side cards with same-size dollar symbol */}
+        <div className="grid gap-6 lg:grid-cols-2">
           {SESSIONS.map((s, i) => (
             <motion.div
               key={s.name}
@@ -336,7 +270,7 @@ function PricingSection() {
                   {s.name}
                 </h3>
                 <div className="mt-4 flex items-baseline gap-1">
-                  <span className="font-body text-lg font-light text-gold">$</span>
+                  <span className="font-sans text-5xl font-light text-gold">$</span>
                   <span className="font-display text-5xl font-light tracking-[0.02em] text-cream">
                     {s.price}
                   </span>
@@ -360,7 +294,7 @@ function PricingSection() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  About Puja + Education (Exact order from copy)                     */
+/*  About Puja + Education (Side-by-side on desktop, vertical stack)   */
 /* ------------------------------------------------------------------ */
 
 const CERTIFICATES = [
@@ -388,88 +322,106 @@ function AboutSection() {
   return (
     <section id="about" className="relative bg-espresso py-24 lg:py-40">
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
-
-        {/* About header */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-16"
-        >
-          <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-cream/30">
-            Bio
-          </span>
-          <h2 className="mt-3 font-display text-4xl font-light leading-[1.06] tracking-[0.03em] text-cream lg:text-5xl">
-            About Puja
-          </h2>
-        </motion.div>
-
-        {/* Paragraphs in exact linear order */}
-        <div className="space-y-6 max-w-4xl font-body text-base leading-relaxed text-cream/80 sm:text-lg">
-          {ABOUT_PARAGRAPHS.map((para, i) => (
-            <motion.p
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: i * 0.04 }}
-            >
-              {para}
-            </motion.p>
-          ))}
-        </div>
-
-        {/* Divider */}
-        <div className="my-20 h-px w-full bg-cream/10" />
-
-        {/* Education — combined */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-10"
-        >
-          <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-cream/30">
-            Education &amp; Credentials
-          </span>
-          <p className="mt-4 font-display text-xl font-light tracking-[0.03em] text-cream">
-            The University of Texas at Austin &mdash;{" "}
-            <span className="font-body text-base font-light text-cream/60">
-              B.S. in Advertising and Business, 2016
-            </span>
-          </p>
-        </motion.div>
-
-        {/* Certificate grid */}
-        <div className="grid gap-px bg-cream/10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {CERTIFICATES.map((c, i) => (
+        {/* On large screens: 2 columns (Left: About bio + College, Right: Credentials boxes arranged vertically) */}
+        <div className="grid gap-16 lg:grid-cols-12 lg:gap-12 xl:gap-16">
+          
+          {/* Left Column: Bio Content */}
+          <div className="lg:col-span-7 xl:col-span-7">
             <motion.div
-              key={c.prog}
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="mb-12"
+            >
+              <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-cream/30">
+                Bio
+              </span>
+              <h2 className="mt-3 font-display text-4xl font-light leading-[1.06] tracking-[0.03em] text-cream lg:text-5xl">
+                About Puja
+              </h2>
+            </motion.div>
+
+            {/* Paragraphs in exact linear order */}
+            <div className="space-y-6 font-body text-base leading-relaxed text-cream/80 sm:text-lg">
+              {ABOUT_PARAGRAPHS.map((para, i) => (
+                <motion.p
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: i * 0.04 }}
+                >
+                  {para}
+                </motion.p>
+              ))}
+            </div>
+
+            {/* University degree */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: i * 0.05 }}
-              className={`flex flex-col bg-espresso p-6 transition-colors duration-300 hover:bg-[rgba(255,255,255,0.04)] lg:p-7${
-                i === CERTIFICATES.length - 1
-                  ? " sm:col-span-2 lg:col-span-3 xl:col-span-2"
-                  : ""
-              }`}
+              transition={{ duration: 0.5 }}
+              className="mt-12 border-t border-cream/10 pt-8"
             >
-              <span className="font-label text-[10px] uppercase tracking-[0.2em] text-gold/70">
-                {c.year}
+              <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-cream/30">
+                Education
               </span>
-              <h4 className="mt-2 font-display text-sm font-medium leading-snug tracking-[0.02em] text-cream">
-                {c.inst}
-              </h4>
-              <p className="mt-1 font-body text-xs leading-relaxed text-cream/50">
-                {c.prog}
+              <p className="mt-3 font-display text-xl font-light tracking-[0.03em] text-cream">
+                The University of Texas at Austin &mdash;{" "}
+                <span className="font-body text-base font-light text-cream/60">
+                  B.S. in Advertising and Business, 2016
+                </span>
               </p>
             </motion.div>
-          ))}
-        </div>
+          </div>
 
+          {/* Right Column: Credentials Boxes arranged vertically on desktop */}
+          <div className="lg:col-span-5 xl:col-span-5">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mb-8"
+            >
+              <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-cream/30">
+                Professional Development
+              </span>
+              <h3 className="mt-2 font-display text-2xl font-light tracking-[0.03em] text-cream">
+                Certificates &amp; Training
+              </h3>
+            </motion.div>
+
+            {/* Vertical stack on desktop, responsive grid on mobile */}
+            <div className="flex flex-col gap-3">
+              {CERTIFICATES.map((c, i) => (
+                <motion.div
+                  key={c.prog}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: i * 0.05 }}
+                  className="flex flex-col justify-between border border-cream/10 bg-[rgba(255,255,255,0.03)] p-5 transition-all duration-300 hover:border-gold/40 hover:bg-[rgba(255,255,255,0.06)]"
+                >
+                  <div className="flex items-center justify-between gap-4">
+                    <h4 className="font-display text-base font-medium leading-snug tracking-[0.02em] text-cream">
+                      {c.inst}
+                    </h4>
+                    <span className="font-label text-[10px] uppercase tracking-[0.2em] text-gold/70 shrink-0">
+                      {c.year}
+                    </span>
+                  </div>
+                  <p className="mt-1 font-body text-sm leading-relaxed text-cream/60">
+                    {c.prog}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
   );

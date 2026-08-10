@@ -66,20 +66,22 @@ export function HeroSection() {
       >
         <div className="max-w-xl lg:max-w-2xl">
           {/* Pulsing dot */}
-          <div className="mb-8 flex items-center gap-3">
+          <div className="mb-6 flex items-center gap-3">
             <div className="relative h-2.5 w-2.5 rounded-full bg-gold">
               <div className="absolute inset-0 animate-ping rounded-full bg-gold opacity-30" />
             </div>
           </div>
 
-          {/* Title */}
-          <h1 className="font-display text-[clamp(2.6rem,9vw,6rem)] font-light uppercase leading-[0.88] tracking-[0.06em] text-cream">
-            Puja
-            <br />
-            <span>Watch</span>
-          </h1>
+          {/* Big Logo replacing PujaWatch text */}
+          <div className="mb-6">
+            <img
+              src="/wings_logo.png"
+              alt="PujaWatch"
+              className="h-28 w-auto md:h-36 lg:h-44 object-contain drop-shadow-md"
+            />
+          </div>
 
-          <p className="mt-8 max-w-lg font-body text-sm uppercase leading-relaxed tracking-[0.28em] text-cream/70 md:text-[14px]">
+          <p className="mt-6 max-w-lg font-body text-sm uppercase leading-relaxed tracking-[0.28em] text-cream/75 md:text-[14px]">
             GAIN CLARITY.<br />
             OVERCOME YOURSELF.<br />
             CREATE THE LIFE YOU&rsquo;RE CAPABLE OF.
