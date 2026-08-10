@@ -23,23 +23,23 @@ function RevealStage({ scrollYProgress }: StageProps) {
   return (
     <motion.section
       style={{ opacity, y }}
-      className="relative h-dvh bg-espresso"
+      className="relative min-h-dvh h-auto py-24 sm:py-0 sm:h-dvh bg-espresso flex items-center"
     >
       <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-6 lg:px-8">
         {/* Header on 1 single line on desktop/tablet, wraps only on mobile */}
-        <h2 className="w-full font-display text-[clamp(1.45rem,3.2vw,3.8rem)] font-light leading-[1.1] tracking-[0.02em] text-cream sm:whitespace-nowrap">
+        <h2 className="w-full font-display text-[clamp(1.45rem,3.2vw,3.8rem)] font-light leading-[1.15] sm:leading-[1.1] tracking-[0.02em] text-cream sm:whitespace-nowrap">
           Private Business &amp; Life Strategy Sessions
         </h2>
-        <p className="mt-3 font-accent text-sm uppercase tracking-[0.24em] text-gold md:text-base">
+        <p className="mt-3 font-accent text-xs sm:text-sm uppercase tracking-[0.24em] text-gold md:text-base">
           Every meaningful change begins with a decision.
         </p>
-        <div className="mt-8 max-w-3xl space-y-5">
-          <p className="font-body text-base leading-relaxed text-cream/80">
+        <div className="mt-6 sm:mt-8 max-w-3xl space-y-4 sm:space-y-5">
+          <p className="font-body text-sm sm:text-base leading-relaxed text-cream/80">
             These private one-on-one strategy sessions are designed to help you
             gain clarity, make confident decisions, and create a plan for
             moving forward with purpose.
           </p>
-          <p className="font-body text-base leading-relaxed text-cream/80">
+          <p className="font-body text-sm sm:text-base leading-relaxed text-cream/80">
             Whether you&rsquo;re building a business, navigating a major life
             transition, feeling stuck, or striving for your next level of
             growth, every session is tailored to your unique goals and
@@ -47,7 +47,7 @@ function RevealStage({ scrollYProgress }: StageProps) {
             new opportunities, and develop a strategy that aligns with the life
             you want to create.
           </p>
-          <p className="font-body text-base leading-relaxed text-cream/80">
+          <p className="font-body text-sm sm:text-base leading-relaxed text-cream/80">
             You&rsquo;ll leave with greater clarity, honest feedback, and three
             to five actionable next steps you can begin implementing
             immediately.
@@ -72,19 +72,19 @@ const PROCESS_STEPS = [
 
 function ProcessSection() {
   return (
-    <section id="process" className="bg-cream py-24 lg:py-40">
+    <section id="process" className="bg-cream py-20 sm:py-28 lg:py-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-14"
+          className="mb-10 sm:mb-14"
         >
           <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-warm-gray/50">
             Method
           </span>
-          <h2 className="mt-3 font-display text-4xl font-light leading-[1.06] tracking-[0.03em] text-espresso lg:text-5xl">
+          <h2 className="mt-3 font-display text-3xl sm:text-4xl font-light leading-[1.06] tracking-[0.03em] text-espresso lg:text-5xl">
             During the Meeting
           </h2>
           <p className="mt-4 max-w-sm font-body text-sm leading-relaxed text-warm-gray">
@@ -102,20 +102,20 @@ function ProcessSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="group relative flex flex-col justify-between bg-espresso p-7 lg:p-6 xl:p-7 min-h-[220px] transition-all duration-300 hover:bg-[#32201d]"
+              className="group relative flex flex-col justify-between bg-espresso p-6 sm:p-7 lg:p-6 xl:p-7 min-h-[180px] sm:min-h-[220px] transition-all duration-300 hover:bg-[#32201d]"
             >
               {/* Large watermark number */}
-              <span className="absolute top-5 right-6 font-display text-6xl font-light text-cream/[0.06] select-none">
+              <span className="absolute top-4 right-5 sm:top-5 sm:right-6 font-display text-5xl sm:text-6xl font-light text-cream/[0.06] select-none">
                 {step.num}
               </span>
 
               <div>
                 {/* Numbered badge */}
-                <div className="mb-6 flex h-8 w-8 items-center justify-center rounded-full border border-cream/15">
+                <div className="mb-5 sm:mb-6 flex h-8 w-8 items-center justify-center rounded-full border border-cream/15">
                   <span className="font-display text-xs font-light text-cream/60">{step.num}</span>
                 </div>
 
-                <h3 className="font-display text-lg font-light leading-snug tracking-[0.02em] text-cream xl:text-xl">
+                <h3 className="font-display text-base sm:text-lg font-light leading-snug tracking-[0.02em] text-cream xl:text-xl">
                   {step.title}
                 </h3>
               </div>
@@ -147,7 +147,7 @@ function ServicesSection() {
   const right = SERVICE_AREAS.slice(4, 8);
 
   return (
-    <section id="services" className="bg-espresso py-28 lg:py-36">
+    <section id="services" className="bg-espresso py-20 sm:py-28 lg:py-36">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -156,19 +156,19 @@ function ServicesSection() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           {/* Header on 1 clean line across */}
-          <div className="mb-14">
+          <div className="mb-10 sm:mb-14">
             <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-cream/35">
               Areas
             </span>
-            <h2 className="mt-3 font-display text-[clamp(1.65rem,4.2vw,3.75rem)] font-light leading-none tracking-[0.02em] text-cream">
+            <h2 className="mt-3 font-display text-[clamp(1.5rem,4vw,3.75rem)] font-light leading-tight sm:leading-none tracking-[0.02em] text-cream">
               What You Can Bring to a Session
             </h2>
           </div>
         </motion.div>
 
-        <div className="grid gap-4 lg:grid-cols-2">
+        <div className="grid gap-3 sm:gap-4 lg:grid-cols-2">
           {/* Left column: 1-4 */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3 sm:gap-4">
             {left.map((area, i) => (
               <motion.div
                 key={area}
@@ -176,12 +176,12 @@ function ServicesSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
-                className="group flex items-center gap-5 border border-cream/10 bg-[rgba(255,255,255,0.03)] p-6 transition-all duration-300 hover:border-gold/40 hover:bg-[rgba(255,255,255,0.06)] lg:p-7"
+                className="group flex items-center gap-4 sm:gap-5 border border-cream/10 bg-[rgba(255,255,255,0.03)] p-5 sm:p-6 transition-all duration-300 hover:border-gold/40 hover:bg-[rgba(255,255,255,0.06)] lg:p-7"
               >
-                <span className="shrink-0 font-display text-2xl font-light tracking-[0.02em] text-gold/60">
+                <span className="shrink-0 font-display text-xl sm:text-2xl font-light tracking-[0.02em] text-gold/60">
                   {i + 1}
                 </span>
-                <span className="font-display text-base font-normal leading-snug tracking-[0.02em] text-cream">
+                <span className="font-display text-sm sm:text-base font-normal leading-snug tracking-[0.02em] text-cream">
                   {area}
                 </span>
               </motion.div>
@@ -189,7 +189,7 @@ function ServicesSection() {
           </div>
 
           {/* Right column: 5-8 */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3 sm:gap-4">
             {right.map((area, i) => (
               <motion.div
                 key={area}
@@ -197,12 +197,12 @@ function ServicesSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: (i + 4) * 0.07, ease: [0.16, 1, 0.3, 1] }}
-                className="group flex items-center gap-5 border border-cream/10 bg-[rgba(255,255,255,0.03)] p-6 transition-all duration-300 hover:border-gold/40 hover:bg-[rgba(255,255,255,0.06)] lg:p-7"
+                className="group flex items-center gap-4 sm:gap-5 border border-cream/10 bg-[rgba(255,255,255,0.03)] p-5 sm:p-6 transition-all duration-300 hover:border-gold/40 hover:bg-[rgba(255,255,255,0.06)] lg:p-7"
               >
-                <span className="shrink-0 font-display text-2xl font-light tracking-[0.02em] text-gold/60">
+                <span className="shrink-0 font-display text-xl sm:text-2xl font-light tracking-[0.02em] text-gold/60">
                   {i + 5}
                 </span>
-                <span className="font-display text-base font-normal leading-snug tracking-[0.02em] text-cream">
+                <span className="font-display text-sm sm:text-base font-normal leading-snug tracking-[0.02em] text-cream">
                   {area}
                 </span>
               </motion.div>
@@ -233,7 +233,7 @@ const SESSIONS = [
 
 function PricingSection() {
   return (
-    <section id="sessions" className="bg-cream py-32 lg:py-40">
+    <section id="sessions" className="bg-cream py-20 sm:py-28 lg:py-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Centered header and single-line description */}
         <motion.div
@@ -241,15 +241,15 @@ function PricingSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-14 text-center"
+          className="mb-10 sm:mb-14 text-center"
         >
           <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-warm-gray/50">
             Tiers
           </span>
-          <h2 className="mt-3 font-display text-4xl font-light leading-[1.06] tracking-[0.03em] text-espresso lg:text-5xl">
+          <h2 className="mt-3 font-display text-3xl sm:text-4xl font-light leading-[1.06] tracking-[0.03em] text-espresso lg:text-5xl">
             Choose Your Session
           </h2>
-          <p className="mx-auto mt-4 max-w-4xl font-body text-base leading-relaxed text-warm-gray lg:whitespace-nowrap">
+          <p className="mx-auto mt-4 max-w-4xl font-body text-sm sm:text-base leading-relaxed text-warm-gray lg:whitespace-nowrap">
             Both sessions provide the same personalized approach. Choose the amount of time based on how deeply you would like to explore your situation.
           </p>
         </motion.div>
@@ -263,25 +263,25 @@ function PricingSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="group flex h-full flex-col justify-between bg-espresso p-10 transition-shadow duration-300 hover:shadow-[0_0_0_2px_var(--espresso)]"
+              className="group flex h-full flex-col justify-between bg-espresso p-7 sm:p-8 lg:p-10 transition-shadow duration-300 hover:shadow-[0_0_0_2px_var(--espresso)]"
             >
               <div>
-                <h3 className="font-display text-2xl font-light tracking-[0.03em] text-cream">
+                <h3 className="font-display text-xl sm:text-2xl font-light tracking-[0.03em] text-cream">
                   {s.name}
                 </h3>
                 <div className="mt-4 flex items-baseline gap-1">
-                  <span className="font-sans text-5xl font-light text-gold">$</span>
-                  <span className="font-display text-5xl font-light tracking-[0.02em] text-cream">
+                  <span className="font-sans text-4xl sm:text-5xl font-light text-gold">$</span>
+                  <span className="font-display text-4xl sm:text-5xl font-light tracking-[0.02em] text-cream">
                     {s.price}
                   </span>
                 </div>
-                <p className="mt-5 font-body text-base leading-relaxed text-cream/60">
+                <p className="mt-4 sm:mt-5 font-body text-sm sm:text-base leading-relaxed text-cream/60">
                   {s.desc}
                 </p>
               </div>
               <MagneticLink
                 href="/book"
-                className="mt-10 inline-flex h-11 items-center gap-2 self-start rounded-sm bg-cream px-6 font-label text-[11px] uppercase tracking-[0.14em] text-espresso transition-all duration-300 hover:bg-gold active:translate-y-px active:scale-[0.98]"
+                className="mt-8 sm:mt-10 inline-flex h-11 items-center gap-2 self-start rounded-sm bg-cream px-6 font-label text-[11px] uppercase tracking-[0.14em] text-espresso transition-all duration-300 hover:bg-gold active:translate-y-px active:scale-[0.98]"
               >
                 Book a Session <span>&rarr;</span>
               </MagneticLink>
@@ -320,10 +320,10 @@ const ABOUT_PARAGRAPHS = [
 
 function AboutSection() {
   return (
-    <section id="about" className="relative bg-espresso py-24 lg:py-40">
+    <section id="about" className="relative bg-espresso py-20 sm:py-28 lg:py-40">
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         {/* On large screens: 2 columns (Left: About bio + College, Right: Credentials boxes arranged vertically) */}
-        <div className="grid gap-16 lg:grid-cols-12 lg:gap-12 xl:gap-16">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-12 xl:gap-16">
           
           {/* Left Column: Bio Content */}
           <div className="lg:col-span-7 xl:col-span-7">
@@ -332,18 +332,18 @@ function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="mb-12"
+              className="mb-8 sm:mb-12"
             >
               <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-cream/30">
                 Bio
               </span>
-              <h2 className="mt-3 font-display text-4xl font-light leading-[1.06] tracking-[0.03em] text-cream lg:text-5xl">
+              <h2 className="mt-3 font-display text-3xl sm:text-4xl font-light leading-[1.06] tracking-[0.03em] text-cream lg:text-5xl">
                 About Puja
               </h2>
             </motion.div>
 
             {/* Paragraphs in exact linear order */}
-            <div className="space-y-6 font-body text-base leading-relaxed text-cream/80 sm:text-lg">
+            <div className="space-y-5 sm:space-y-6 font-body text-sm sm:text-base leading-relaxed text-cream/80 sm:text-lg">
               {ABOUT_PARAGRAPHS.map((para, i) => (
                 <motion.p
                   key={i}
@@ -363,39 +363,39 @@ function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="mt-12 border-t border-cream/10 pt-8"
+              className="mt-10 sm:mt-12 border-t border-cream/10 pt-6 sm:pt-8"
             >
               <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-cream/30">
                 Education
               </span>
-              <p className="mt-3 font-display text-xl font-light tracking-[0.03em] text-cream">
+              <p className="mt-3 font-display text-lg sm:text-xl font-light tracking-[0.03em] text-cream">
                 The University of Texas at Austin &mdash;{" "}
-                <span className="font-body text-base font-light text-cream/60">
+                <span className="font-body text-sm sm:text-base font-light text-cream/60">
                   B.S. in Advertising and Business, 2016
                 </span>
               </p>
             </motion.div>
           </div>
 
-          {/* Right Column: Credentials Boxes arranged vertically on desktop */}
+          {/* Right Column: Credentials Boxes arranged vertically on desktop, responsive grid on mobile/tablet */}
           <div className="lg:col-span-5 xl:col-span-5">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="mb-8"
+              className="mb-6 sm:mb-8"
             >
               <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-cream/30">
                 Professional Development
               </span>
-              <h3 className="mt-2 font-display text-2xl font-light tracking-[0.03em] text-cream">
+              <h3 className="mt-2 font-display text-xl sm:text-2xl font-light tracking-[0.03em] text-cream">
                 Certificates &amp; Training
               </h3>
             </motion.div>
 
             {/* Vertical stack on desktop, responsive grid on mobile */}
-            <div className="flex flex-col gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-col gap-3">
               {CERTIFICATES.map((c, i) => (
                 <motion.div
                   key={c.prog}
@@ -403,17 +403,17 @@ function AboutSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: i * 0.05 }}
-                  className="flex flex-col justify-between border border-cream/10 bg-[rgba(255,255,255,0.03)] p-5 transition-all duration-300 hover:border-gold/40 hover:bg-[rgba(255,255,255,0.06)]"
+                  className="flex flex-col justify-between border border-cream/10 bg-[rgba(255,255,255,0.03)] p-4 sm:p-5 transition-all duration-300 hover:border-gold/40 hover:bg-[rgba(255,255,255,0.06)]"
                 >
-                  <div className="flex items-center justify-between gap-4">
-                    <h4 className="font-display text-base font-medium leading-snug tracking-[0.02em] text-cream">
+                  <div className="flex items-center justify-between gap-3 sm:gap-4">
+                    <h4 className="font-display text-sm sm:text-base font-medium leading-snug tracking-[0.02em] text-cream">
                       {c.inst}
                     </h4>
                     <span className="font-label text-[10px] uppercase tracking-[0.2em] text-gold/70 shrink-0">
                       {c.year}
                     </span>
                   </div>
-                  <p className="mt-1 font-body text-sm leading-relaxed text-cream/60">
+                  <p className="mt-1 font-body text-xs sm:text-sm leading-relaxed text-cream/60">
                     {c.prog}
                   </p>
                 </motion.div>
@@ -433,7 +433,7 @@ function AboutSection() {
 
 function CTASection() {
   return (
-    <section className="bg-cream py-32 lg:py-40">
+    <section className="bg-cream py-20 sm:py-32 lg:py-40">
       <div className="mx-auto max-w-3xl px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -441,12 +441,12 @@ function CTASection() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h2 className="font-display text-4xl font-light leading-[1.1] tracking-[0.02em] text-espresso lg:text-5xl">
+          <h2 className="font-display text-3xl sm:text-4xl font-light leading-[1.1] tracking-[0.02em] text-espresso lg:text-5xl">
             Ready to Make
             <br />
             Your Next Move?
           </h2>
-          <p className="mx-auto mt-5 max-w-xl font-body text-lg leading-relaxed text-warm-gray">
+          <p className="mx-auto mt-4 sm:mt-5 max-w-xl font-body text-base sm:text-lg leading-relaxed text-warm-gray">
             Book a private session with Puja to gain clarity, receive honest
             guidance, and create a practical strategy for moving forward.
           </p>
@@ -459,7 +459,7 @@ function CTASection() {
         >
           <Link
             href="/book"
-            className="mt-10 inline-flex h-12 items-center rounded-sm bg-espresso px-8 font-label text-[12px] font-medium uppercase tracking-[0.16em] text-cream transition-all duration-300 hover:bg-gold hover:text-espresso active:translate-y-px active:scale-[0.98]"
+            className="mt-8 sm:mt-10 inline-flex h-12 items-center rounded-sm bg-espresso px-8 font-label text-[12px] font-medium uppercase tracking-[0.16em] text-cream transition-all duration-300 hover:bg-gold hover:text-espresso active:translate-y-px active:scale-[0.98]"
           >
             Book a Session
           </Link>
@@ -479,7 +479,7 @@ function FooterSection() {
     <footer className="relative overflow-hidden bg-cream pt-12 pb-0">
       <FooterBackgroundGradient />
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid gap-10 sm:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-3 sm:gap-10">
           <div>
             <h4 className="font-accent text-[11px] font-medium uppercase tracking-[0.18em] text-warm-gray">
               Navigation
@@ -540,7 +540,7 @@ function FooterSection() {
       </div>
 
       <div className="mt-8 flex w-full items-center justify-center pb-8">
-        <img src="/wings_logo.png" alt="PujaWatch" className="h-20 w-auto md:h-28" />
+        <img src="/wings_logo.png" alt="PujaWatch" className="h-16 sm:h-20 w-auto md:h-28" />
       </div>
     </footer>
   );

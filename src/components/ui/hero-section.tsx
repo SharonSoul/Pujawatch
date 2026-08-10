@@ -51,43 +51,43 @@ export function HeroSection() {
       ref={containerRef}
       className="relative flex min-h-dvh w-full overflow-hidden bg-espresso"
     >
-      {/* Background image */}
+      {/* Background image — optimized focal point on mobile */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-[position:75%_center] md:bg-center bg-no-repeat"
         style={{ backgroundImage: "url(/hero-bg.png)" }}
       />
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-espresso/45" />
+      {/* Dark overlay for contrast */}
+      <div className="absolute inset-0 bg-espresso/50 md:bg-espresso/45" />
 
       {/* Content */}
       <div
         ref={revealRef}
-        className="relative z-10 flex w-full flex-col justify-center px-6 md:px-14 lg:px-20"
+        className="relative z-10 flex min-h-dvh w-full flex-col justify-center px-6 py-24 md:px-14 md:py-0 lg:px-20"
       >
         <div className="max-w-xl lg:max-w-2xl">
           {/* Pulsing dot */}
-          <div className="mb-6 flex items-center gap-3">
+          <div className="mb-5 sm:mb-6 flex items-center gap-3">
             <div className="relative h-2.5 w-2.5 rounded-full bg-gold">
               <div className="absolute inset-0 animate-ping rounded-full bg-gold opacity-30" />
             </div>
           </div>
 
           {/* Big Logo replacing PujaWatch text */}
-          <div className="mb-6">
+          <div className="mb-4 sm:mb-6">
             <img
               src="/wings_logo.png"
               alt="PujaWatch"
-              className="h-28 w-auto md:h-36 lg:h-44 object-contain drop-shadow-md"
+              className="h-20 w-auto sm:h-28 md:h-36 lg:h-44 object-contain drop-shadow-md"
             />
           </div>
 
-          <p className="mt-6 max-w-lg font-body text-sm uppercase leading-relaxed tracking-[0.28em] text-cream/75 md:text-[14px]">
+          <p className="mt-4 sm:mt-6 max-w-lg font-body text-xs sm:text-sm uppercase leading-relaxed tracking-[0.2em] sm:tracking-[0.28em] text-cream/80 md:text-[14px]">
             GAIN CLARITY.<br />
             OVERCOME YOURSELF.<br />
             CREATE THE LIFE YOU&rsquo;RE CAPABLE OF.
           </p>
 
-          <p className="mt-5 max-w-md font-body text-base leading-relaxed text-cream/60">
+          <p className="mt-4 sm:mt-5 max-w-md font-body text-sm sm:text-base leading-relaxed text-cream/65">
             Puja offers personalized one-on-one strategy sessions for
             individuals who are ready to think bigger, make stronger decisions,
             and move forward with confidence.
@@ -97,16 +97,16 @@ export function HeroSection() {
           <Link
             href="/book"
             ref={ctaRef}
-            className="group mt-10 inline-flex w-fit items-center gap-6"
+            className="group mt-8 sm:mt-10 inline-flex w-fit items-center gap-5 sm:gap-6"
           >
-            <div className="flex h-14 w-14 items-center justify-center rounded-full border border-cream/20 transition-all duration-500 group-hover:bg-cream">
+            <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full border border-cream/20 transition-all duration-500 group-hover:bg-cream">
               <svg
-                width="18"
-                height="18"
+                width="16"
+                height="16"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="stroke-cream transition-colors duration-500 group-hover:stroke-espresso"
+                className="stroke-cream transition-colors duration-500 group-hover:stroke-espresso sm:w-[18px] sm:h-[18px]"
               >
                 <path
                   d="M7 17L17 7M17 7H8M17 7V16"
@@ -116,7 +116,7 @@ export function HeroSection() {
                 />
               </svg>
             </div>
-            <span className="font-label text-[11px] font-medium uppercase tracking-[0.2em] text-cream">
+            <span className="font-label text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.2em] text-cream">
               Book a Session
             </span>
           </Link>
