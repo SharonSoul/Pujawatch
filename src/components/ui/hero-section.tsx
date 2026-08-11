@@ -68,8 +68,8 @@ export function HeroSection() {
         <div className="max-w-xl lg:max-w-2xl">
           {/* Pulsing dot */}
           <div className="mb-4 sm:mb-6 flex items-center gap-3">
-            <div className="relative h-2.5 w-2.5 rounded-full bg-gold">
-              <div className="absolute inset-0 animate-ping rounded-full bg-gold opacity-30" />
+            <div className="relative h-2.5 w-2.5 rounded-full bg-[#cca049]">
+              <div className="absolute inset-0 animate-ping rounded-full bg-[#cca049] opacity-30" />
             </div>
           </div>
 
