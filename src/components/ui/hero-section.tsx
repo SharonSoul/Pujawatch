@@ -53,7 +53,7 @@ export function HeroSection() {
     >
       {/* Background image — adjusted focal point on mobile */}
       <div
-        className="absolute inset-0 bg-cover bg-[position:80%_center] md:bg-[position:35%_center] lg:bg-[position:30%_center] bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-[position:80%_center] md:bg-[position:20%_center] lg:bg-[position:15%_center] xl:bg-[position:10%_center] bg-no-repeat"
         style={{ backgroundImage: "url(/hero-bg.png)" }}
       />
       {/* Dark overlay for contrast */}
@@ -79,7 +79,7 @@ export function HeroSection() {
             <img
               src="/wings_logo.png"
               alt="PujaWatch"
-              className="h-20 w-auto sm:h-24 md:h-28 lg:h-32 object-contain"
+              className="h-20 w-auto sm:h-16 md:h-20 lg:h-24 object-contain"
             />
           </div>
         </div>
