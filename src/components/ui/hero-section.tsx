@@ -74,7 +74,7 @@ export function HeroSection() {
           </div>
 
           {/* Big Logo */}
-          <div className="mb-0 sm:mb-6 mt-3.5 sm:mt-0">
+          <div className="mb-0 sm:mb-6 mt-6 sm:mt-0">
             <img
               src="/wings_logo.png"
               alt="PujaWatch"
