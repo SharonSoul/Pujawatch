@@ -49,7 +49,7 @@ function RevealStage({ scrollYProgress }: StageProps) {
           </p>
           <p className="font-body text-sm sm:text-base leading-relaxed text-cream/80">
             You&rsquo;ll leave with greater clarity, honest feedback, and three
-            to five actionable next steps you can begin implementing
+            to five next steps you can begin implementing
             immediately.
           </p>
         </div>
@@ -102,14 +102,16 @@ function ProcessSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="group relative flex flex-col items-center justify-center text-center bg-espresso p-6 sm:p-7 lg:p-5 xl:p-6 min-h-[170px] sm:min-h-[200px] transition-all duration-300 hover:bg-[#32201d]"
+              className="group relative flex flex-col items-center justify-start text-center bg-espresso p-5 sm:p-6 lg:p-5 pt-6 sm:pt-7 lg:pt-6 min-h-[170px] sm:min-h-[190px] transition-all duration-300 hover:bg-[#32201d]"
             >
-              {/* Centered Large watermark number in background */}
-              <span className="absolute inset-0 flex items-center justify-center font-display text-7xl lg:text-8xl font-light text-cream/[0.05] select-none pointer-events-none">
-                {step.num}
-              </span>
+              {/* Circled number at the top of the box — larger, closer to top */}
+              <div className="mb-3 sm:mb-4 flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-cream/25">
+                <span className="font-display text-sm sm:text-base font-normal text-cream/85">
+                  {step.num}
+                </span>
+              </div>
 
-              <h3 className="relative z-10 font-display text-base sm:text-lg font-light leading-snug tracking-[0.02em] text-cream xl:text-lg">
+              <h3 className="font-display text-base sm:text-lg font-light leading-snug tracking-[0.02em] text-cream xl:text-lg mt-auto mb-auto">
                 {step.title}
               </h3>
             </motion.div>
