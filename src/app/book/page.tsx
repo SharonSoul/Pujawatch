@@ -216,6 +216,7 @@ export default function BookPage() {
               >
                 Contact Me &rarr;
               </a>
+              
               <p className="mt-5 sm:mt-6 font-body text-xs sm:text-sm text-warm-gray/60">
                 puja@pujawatch.com
               </p>
