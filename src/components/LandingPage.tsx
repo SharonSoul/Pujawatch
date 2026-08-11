@@ -102,16 +102,16 @@ function ProcessSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="group relative flex flex-col items-center justify-start text-center bg-espresso p-5 sm:p-6 lg:p-5 pt-6 sm:pt-7 lg:pt-6 min-h-[170px] sm:min-h-[190px] transition-all duration-300 hover:bg-[#32201d]"
+              className="group relative flex flex-col items-center justify-center text-center bg-espresso p-5 sm:p-6 lg:p-4 min-h-[170px] sm:min-h-[195px] transition-all duration-300 hover:bg-[#32201d]"
             >
-              {/* Circled number at the top of the box — larger, closer to top */}
-              <div className="mb-3 sm:mb-4 flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-cream/25">
-                <span className="font-display text-sm sm:text-base font-normal text-cream/85">
+              {/* Circled number at the top */}
+              <div className="mb-3 sm:mb-4 flex h-11 w-11 sm:h-13 sm:w-13 items-center justify-center rounded-full border border-cream/30">
+                <span className="font-display text-base sm:text-lg font-light text-cream">
                   {step.num}
                 </span>
               </div>
 
-              <h3 className="font-display text-base sm:text-lg font-light leading-snug tracking-[0.02em] text-cream xl:text-lg mt-auto mb-auto">
+              <h3 className="font-display text-base sm:text-lg font-light leading-snug tracking-[0.02em] text-cream xl:text-lg">
                 {step.title}
               </h3>
             </motion.div>
@@ -468,53 +468,93 @@ function CTASection() {
 /*  Footer                                                             */
 /* ------------------------------------------------------------------ */
 
-function FooterSection() {
+export function FooterSection({
+  hideNav = false,
+  dark = true,
+}: {
+  hideNav?: boolean;
+  dark?: boolean;
+}) {
   const y = new Date().getFullYear();
   return (
-    <footer className="relative overflow-hidden bg-cream pt-12 pb-0">
-      <FooterBackgroundGradient />
+    <footer
+      className={`relative overflow-hidden pt-12 pb-0 ${
+        dark ? "bg-espresso border-t border-cream/10" : "bg-cream"
+      }`}
+    >
+      {!dark && <FooterBackgroundGradient />}
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid gap-8 sm:grid-cols-3 sm:gap-10">
-          <div>
-            <h4 className="font-accent text-[11px] font-medium uppercase tracking-[0.18em] text-warm-gray">
-              Navigation
-            </h4>
-            <div className="mt-4 flex flex-col gap-2">
-              {["About", "Services", "Process"].map((l) => (
-                <a
-                  key={l}
-                  href={`#${l.toLowerCase()}`}
-                  className="font-body text-sm text-warm-gray transition-colors hover:text-espresso"
-                >
-                  {l}
-                </a>
-              ))}
-              <Link
-                href="/book"
-                className="font-body text-sm text-warm-gray transition-colors hover:text-espresso"
+        <div className={`grid gap-8 ${hideNav ? "sm:grid-cols-2" : "sm:grid-cols-3"} sm:gap-10`}>
+          {!hideNav && (
+            <div>
+              <h4
+                className={`font-accent text-[11px] font-medium uppercase tracking-[0.18em] ${
+                  dark ? "text-cream/40" : "text-warm-gray"
+                }`}
               >
-                Book
-              </Link>
+                Navigation
+              </h4>
+              <div className="mt-4 flex flex-col gap-2">
+                {["About", "Services", "Process"].map((l) => (
+                  <a
+                    key={l}
+                    href={`#${l.toLowerCase()}`}
+                    className={`font-body text-sm transition-colors ${
+                      dark
+                        ? "text-cream/70 hover:text-gold"
+                        : "text-warm-gray hover:text-espresso"
+                    }`}
+                  >
+                    {l}
+                  </a>
+                ))}
+                <Link
+                  href="/book"
+                  className={`font-body text-sm transition-colors ${
+                    dark
+                      ? "text-cream/70 hover:text-gold"
+                      : "text-warm-gray hover:text-espresso"
+                  }`}
+                >
+                  Book
+                </Link>
+              </div>
             </div>
-          </div>
+          )}
           <div>
-            <h4 className="font-accent text-[11px] font-medium uppercase tracking-[0.18em] text-warm-gray">
+            <h4
+              className={`font-accent text-[11px] font-medium uppercase tracking-[0.18em] ${
+                dark ? "text-cream/40" : "text-warm-gray"
+              }`}
+            >
               Connect
             </h4>
             <div className="mt-4">
               <a
                 href="mailto:puja@pujawatch.com"
-                className="font-body text-sm text-warm-gray transition-colors hover:text-espresso"
+                className={`font-body text-sm transition-colors ${
+                  dark
+                    ? "text-cream/80 hover:text-gold"
+                    : "text-warm-gray hover:text-espresso"
+                }`}
               >
                 puja@pujawatch.com
               </a>
             </div>
           </div>
           <div>
-            <h4 className="font-accent text-[11px] font-medium uppercase tracking-[0.18em] text-warm-gray">
+            <h4
+              className={`font-accent text-[11px] font-medium uppercase tracking-[0.18em] ${
+                dark ? "text-cream/40" : "text-warm-gray"
+              }`}
+            >
               Important Information
             </h4>
-            <p className="mt-4 font-body text-xs leading-relaxed text-warm-gray/60">
+            <p
+              className={`mt-4 font-body text-xs leading-relaxed ${
+                dark ? "text-cream/60" : "text-warm-gray/60"
+              }`}
+            >
               Puja provides business and life strategy consulting, general
               financial education, and general investing education. Sessions do
               not include individualized investment recommendations, legal
@@ -523,18 +563,35 @@ function FooterSection() {
           </div>
         </div>
 
-        <div className="mt-8 flex items-center gap-3 border-t border-rule pt-6">
-          <span className="block h-px w-10 bg-warm-gray/60" />
-          <span className="font-accent text-[9px] uppercase tracking-[0.28em] text-warm-gray/60">
+        <div
+          className={`mt-8 flex items-center gap-3 border-t pt-6 ${
+            dark ? "border-cream/10" : "border-rule"
+          }`}
+        >
+          <span
+            className={`block h-px w-10 ${
+              dark ? "bg-cream/40" : "bg-warm-gray/60"
+            }`}
+          />
+          <span
+            className={`font-accent text-[9px] uppercase tracking-[0.28em] ${
+              dark ? "text-cream/50" : "text-warm-gray/60"
+            }`}
+          >
             PW &mdash; {y}
           </span>
         </div>
-        <span className="mt-2 block font-accent text-[10px] uppercase tracking-[0.16em] text-warm-gray/50">
+        <span
+          className={`mt-2 block font-accent text-[10px] uppercase tracking-[0.16em] ${
+            dark ? "text-cream/40" : "text-warm-gray/50"
+          }`}
+        >
           &copy; {y} PujaWatch. All rights reserved.
         </span>
       </div>
 
-      <div className="mt-8 flex w-full items-center justify-center pb-8">
+      {/* Bottom logo strip with initial light cream background */}
+      <div className="mt-12 flex w-full items-center justify-center bg-cream py-8 sm:py-10">
         <img src="/wings_logo.png" alt="PujaWatch" className="h-16 sm:h-20 w-auto md:h-28" />
       </div>
     </footer>
