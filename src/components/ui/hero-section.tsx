@@ -62,8 +62,9 @@ export function HeroSection() {
       {/* Content */}
       <div
         ref={revealRef}
-        className="relative z-10 flex min-h-dvh w-full flex-col justify-center px-6 py-24 md:px-14 md:py-0 lg:px-20"
+        className="relative z-10 flex min-h-dvh w-full flex-col justify-between md:justify-center px-6 pt-32 pb-12 md:px-14 md:py-0 lg:px-20"
       >
+        {/* Top group: Pulsing dot & Logo */}
         <div className="max-w-xl lg:max-w-2xl">
           {/* Pulsing dot */}
           <div className="mb-5 sm:mb-6 flex items-center gap-3">
@@ -72,15 +73,18 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Big Logo replacing PujaWatch text */}
-          <div className="mb-4 sm:mb-6">
+          {/* Big Logo */}
+          <div>
             <img
               src="/wings_logo.png"
               alt="PujaWatch"
               className="h-20 w-auto sm:h-28 md:h-36 lg:h-44 object-contain"
             />
           </div>
+        </div>
 
+        {/* Bottom group on mobile / unified on desktop */}
+        <div className="max-w-xl lg:max-w-2xl mt-auto md:mt-0 pt-10 md:pt-0">
           <p className="mt-4 sm:mt-6 max-w-lg font-body text-xs sm:text-sm uppercase leading-relaxed tracking-[0.2em] sm:tracking-[0.28em] text-cream/80 md:text-[14px]">
             GAIN CLARITY.<br />
             OVERCOME YOURSELF.<br />
@@ -88,9 +92,10 @@ export function HeroSection() {
           </p>
 
           <p className="mt-4 sm:mt-5 max-w-md font-body text-sm sm:text-base leading-relaxed text-cream/65">
-            Puja offers personalized one-on-one strategy sessions for
-            individuals who are ready to think bigger, make stronger decisions,
-            and move forward with confidence.
+            Puja offers personalized one-on-one strategy<br className="sm:hidden" />
+            {" "}sessions for individuals who are ready to<br className="sm:hidden" />
+            {" "}think bigger, make stronger decisions, and<br className="sm:hidden" />
+            {" "}move forward with confidence.
           </p>
 
           {/* Magnetic CTA */}
