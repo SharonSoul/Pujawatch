@@ -20,7 +20,7 @@
   --font-display: var(--font-gantari);
   --font-label: var(--font-gantari);
   --font-body: var(--font-montserrat);
-  --font-accent: var(--font-nunito);
+  --font-accent: var(--font-montserrat);
 }
 
 * {

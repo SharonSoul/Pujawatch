@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Gantari, Montserrat, Nunito_Sans } from "next/font/google";
+import { Gantari, Montserrat } from "next/font/google";
 import "./globals.css";
 
 const gantari = Gantari({
@@ -13,13 +13,6 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
-  display: "swap",
-});
-
-const nunitoSans = Nunito_Sans({
-  variable: "--font-nunito",
-  subsets: ["latin"],
-  weight: ["300", "400"],
   display: "swap",
 });
 
@@ -51,7 +44,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${gantari.variable} ${montserrat.variable} ${nunitoSans.variable} antialiased`}
+      className={`${gantari.variable} ${montserrat.variable} antialiased`}
     >
       <body className="font-body text-espresso bg-cream min-h-dvh">
         {children}
