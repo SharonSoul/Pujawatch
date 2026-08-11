@@ -23,7 +23,7 @@ function RevealStage({ scrollYProgress }: StageProps) {
   return (
     <motion.section
       style={{ opacity, y }}
-      className="relative min-h-dvh h-auto py-24 sm:py-0 sm:h-dvh bg-espresso flex items-center"
+      className="relative min-h-dvh h-auto py-16 sm:py-0 sm:h-dvh bg-espresso flex items-center"
     >
       <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-6 lg:px-8">
         {/* Header on 1 single line on desktop/tablet, wraps only on mobile */}
@@ -72,7 +72,7 @@ const PROCESS_STEPS = [
 
 function ProcessSection() {
   return (
-    <section id="process" className="bg-cream py-20 sm:py-28 lg:py-40">
+    <section id="process" className="bg-cream pt-8 pb-16 sm:pt-14 sm:pb-28 lg:pt-16 lg:pb-36">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -614,10 +614,10 @@ export function LandingPage() {
 
   return (
     <>
-      <div ref={container} className="relative h-[200vh]">
+      <div ref={container} className="relative h-auto sm:h-[200vh]">
         <motion.section
           style={{ scale: heroScale, opacity: heroOpacity }}
-          className="sticky top-0 h-dvh overflow-hidden"
+          className="relative sm:sticky sm:top-0 h-dvh overflow-hidden"
         >
           <HeroSection />
         </motion.section>
