@@ -50,7 +50,7 @@ function RevealStage({ scrollYProgress }: StageProps) {
           </p>
           <p className="font-body text-sm sm:text-base leading-relaxed text-cream/80">
             You&rsquo;ll leave with greater clarity, honest feedback, and three
-            to five next steps you can begin implementing
+            to five next steps you can begin <br></br>implementing
             immediately.
           </p>
         </div>
@@ -58,6 +58,8 @@ function RevealStage({ scrollYProgress }: StageProps) {
     </motion.section>
   );
 }
+
+
 
 /* ------------------------------------------------------------------ */
 /*  During the Meeting (All 5 boxes in a single horizontal row on desktop) */
@@ -223,7 +225,7 @@ const SESSIONS = [
   {
     name: "60-Minute Power Session",
     price: "444",
-    desc: "A deeper strategy session for clients who want time to fully explore their situation, work through multiple factors, and develop a detailed plan of action.",
+    desc: <>A deeper strategy session for clients who want time to fully explore their situation, work through multiple factors, and develop a detailed<br className="hidden lg:inline" /> plan of action.</>,
   },
 ];
 
