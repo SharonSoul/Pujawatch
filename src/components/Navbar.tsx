@@ -5,9 +5,11 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 
 const NAV_LINKS = [
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#process", label: "Process" },
+  { href: "/#about", label: "About" },
+  { href: "/#process", label: "Process" },
+  { href: "/#services", label: "Services" },
+  { href: "/#sessions", label: "Sessions" },
+  { href: "/#bio", label: "Bio" },
 ];
 
 export function Navbar() {

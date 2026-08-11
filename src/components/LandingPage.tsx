@@ -22,6 +22,7 @@ function RevealStage({ scrollYProgress }: StageProps) {
 
   return (
     <motion.section
+      id="about"
       style={{ opacity, y }}
       className="relative min-h-dvh h-auto py-16 sm:py-0 sm:h-dvh bg-espresso flex items-center"
     >
@@ -315,7 +316,7 @@ const ABOUT_PARAGRAPHS = [
 
 function AboutSection() {
   return (
-    <section id="about" className="relative bg-espresso py-14 sm:py-28 lg:py-40">
+    <section id="bio" className="relative bg-espresso py-14 sm:py-28 lg:py-40">
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         {/* On large screens: 2 columns (Left: About bio + College, Right: Credentials boxes arranged vertically) */}
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-12 xl:gap-16">
@@ -454,7 +455,7 @@ function CTASection() {
         >
           <Link
             href="/book"
-            className="mt-8 sm:mt-10 inline-flex h-12 items-center rounded-sm bg-espresso px-8 font-label text-[12px] font-medium uppercase tracking-[0.16em] text-cream transition-all duration-300 hover:bg-gold hover:text-espresso active:translate-y-px active:scale-[0.98]"
+            className="mt-8 sm:mt-10 inline-flex h-12 items-center rounded-sm bg-[#cca049] px-8 font-label text-[12px] font-medium uppercase tracking-[0.16em] text-espresso transition-all duration-300 hover:bg-espresso hover:text-cream active:translate-y-px active:scale-[0.98]"
           >
             Book a Session
           </Link>
@@ -495,29 +496,26 @@ export function FooterSection({
                 Navigation
               </h4>
               <div className="mt-4 flex flex-col gap-2">
-                {["About", "Services", "Process"].map((l) => (
-                  <a
-                    key={l}
-                    href={`#${l.toLowerCase()}`}
+                {[
+                  { label: "About", href: "/#about" },
+                  { label: "Process", href: "/#process" },
+                  { label: "Services", href: "/#services" },
+                  { label: "Sessions", href: "/#sessions" },
+                  { label: "Bio", href: "/#bio" },
+                  { label: "Book", href: "/book" },
+                ].map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
                     className={`font-body text-sm transition-colors ${
                       dark
                         ? "text-cream/70 hover:text-gold"
                         : "text-warm-gray hover:text-espresso"
                     }`}
                   >
-                    {l}
-                  </a>
+                    {item.label}
+                  </Link>
                 ))}
-                <Link
-                  href="/book"
-                  className={`font-body text-sm transition-colors ${
-                    dark
-                      ? "text-cream/70 hover:text-gold"
-                      : "text-warm-gray hover:text-espresso"
-                  }`}
-                >
-                  Book
-                </Link>
               </div>
             </div>
           )}
