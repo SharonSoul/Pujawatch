@@ -62,7 +62,7 @@ export function HeroSection() {
       {/* Content */}
       <div
         ref={revealRef}
-        className="relative z-10 flex min-h-dvh w-full flex-col justify-between md:justify-center px-6 pt-32 pb-12 md:px-14 md:py-0 lg:px-20"
+        className="relative z-10 flex min-h-dvh w-full flex-col justify-between md:justify-center px-6 pt-28 pb-12 md:px-14 md:py-0 lg:px-20"
       >
         {/* Top group: Pulsing dot & Logo */}
         <div className="max-w-xl lg:max-w-2xl">
