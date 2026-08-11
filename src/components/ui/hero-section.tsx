@@ -62,19 +62,19 @@ export function HeroSection() {
       {/* Content */}
       <div
         ref={revealRef}
-        className="relative z-10 flex min-h-dvh w-full flex-col justify-between md:justify-center px-6 pt-28 pb-12 md:px-14 md:py-0 lg:px-20"
+        className="relative z-10 flex min-h-dvh w-full flex-col justify-between pt-28 pb-10 px-6 sm:justify-center sm:py-0 md:px-14 lg:px-20"
       >
-        {/* Top group: Pulsing dot & Logo */}
+        {/* Top block: Dot & Logo — completely independent, at top on mobile */}
         <div className="max-w-xl lg:max-w-2xl">
           {/* Pulsing dot */}
-          <div className="mb-5 sm:mb-6 flex items-center gap-3">
+          <div className="mb-4 sm:mb-6 flex items-center gap-3">
             <div className="relative h-2.5 w-2.5 rounded-full bg-gold">
               <div className="absolute inset-0 animate-ping rounded-full bg-gold opacity-30" />
             </div>
           </div>
 
-          {/* Big Logo */}
-          <div>
+          {/* Big Logo — nudged downwards a little on mobile */}
+          <div className="mb-0 sm:mb-6 mt-3 sm:mt-0">
             <img
               src="/wings_logo.png"
               alt="PujaWatch"
@@ -83,9 +83,9 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Bottom group on mobile / unified on desktop */}
-        <div className="max-w-xl lg:max-w-2xl mt-auto md:mt-0 pt-10 md:pt-0">
-          <p className="mt-4 sm:mt-6 max-w-lg font-body text-xs sm:text-sm uppercase leading-relaxed tracking-[0.2em] sm:tracking-[0.28em] text-cream/80 md:text-[14px]">
+        {/* Bottom block: Text & CTA — completely independent, anchored to bottom on mobile */}
+        <div className="max-w-xl lg:max-w-2xl mt-auto sm:mt-0">
+          <p className="max-w-lg font-body text-xs sm:text-sm uppercase leading-relaxed tracking-[0.2em] sm:tracking-[0.28em] text-cream/80 md:text-[14px]">
             GAIN CLARITY.<br />
             OVERCOME YOURSELF.<br />
             CREATE THE LIFE YOU&rsquo;RE CAPABLE OF.
@@ -102,7 +102,7 @@ export function HeroSection() {
           <Link
             href="/book"
             ref={ctaRef}
-            className="group mt-8 sm:mt-10 inline-flex w-fit items-center gap-5 sm:gap-6"
+            className="group mt-6 sm:mt-10 inline-flex w-fit items-center gap-5 sm:gap-6"
           >
             <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full border border-cream/20 transition-all duration-500 group-hover:bg-cream">
               <svg
