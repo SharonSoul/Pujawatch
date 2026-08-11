@@ -207,7 +207,8 @@ export default function BookPage() {
                 Ready to Get Started?
               </h2>
               <p className="mx-auto mt-3 sm:mt-4 max-w-md font-body text-sm sm:text-base leading-relaxed text-warm-gray">
-                Click below to open your email with the details pre-filled.
+                Click below to open your email with<br />
+                the details pre-filled.
               </p>
               <a
                 href="mailto:puja@pujawatch.com?subject=Private%20Session%20Request&body=Hi%20Puja%2C%0A%0AI%20would%20like%20to%20book%20a%20private%20strategy%20session%20with%20you.%0A%0A1.%20Your%20Full%20Name%3A%0A%0A2.%20Session%3A%0A30-Minute%20Clarity%20Call%20(%24222)%20OR%0A60-Minute%20Power%20Session%20(%24444)%0A%0A3.%202%E2%80%933%20Available%20Times%20(CST)%3A%0A%0A4.%20What%20You'd%20Like%20to%20Focus%20On%3A%0A%0A5.%20Anything%20Helpful%20for%20Puja%20to%20Know%20Before%20the%20Session%20(Optional)%3A%0A%0AThank%20you!"

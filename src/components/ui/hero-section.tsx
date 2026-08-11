@@ -62,7 +62,7 @@ export function HeroSection() {
       {/* Content */}
       <div
         ref={revealRef}
-        className="relative z-10 flex min-h-dvh w-full flex-col justify-between pt-28 pb-10 px-6 sm:justify-center sm:py-0 md:px-14 lg:px-20"
+        className="relative z-10 mx-auto flex min-h-dvh w-full max-w-7xl flex-col justify-between pt-28 pb-10 px-6 sm:justify-center sm:py-0 lg:px-8"
       >
         {/* Top block: Dot & Logo — completely independent, at top on mobile */}
         <div className="max-w-xl lg:max-w-2xl">
@@ -79,7 +79,7 @@ export function HeroSection() {
             <img
               src="/wings_logo.png"
               alt="PujaWatch"
-              className="h-20 w-auto sm:h-28 md:h-36 lg:h-44 object-contain"
+              className="h-20 w-auto sm:h-24 md:h-28 lg:h-32 object-contain"
             />
           </div>
         </div>
