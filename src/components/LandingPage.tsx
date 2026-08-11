@@ -72,14 +72,14 @@ const PROCESS_STEPS = [
 
 function ProcessSection() {
   return (
-    <section id="process" className="bg-cream pt-8 pb-16 sm:pt-14 sm:pb-28 lg:pt-16 lg:pb-36">
+    <section id="process" className="bg-cream py-14 sm:pt-14 sm:pb-28 lg:pt-16 lg:pb-36">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-12 sm:mb-16"
+          className="mb-10 sm:mb-16"
         >
           <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-warm-gray/50">
             Method
@@ -142,7 +142,7 @@ function ServicesSection() {
   const right = SERVICE_AREAS.slice(4, 8);
 
   return (
-    <section id="services" className="bg-espresso py-20 sm:py-28 lg:py-36">
+    <section id="services" className="bg-espresso py-14 sm:py-28 lg:py-36">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -228,7 +228,7 @@ const SESSIONS = [
 
 function PricingSection() {
   return (
-    <section id="sessions" className="bg-cream py-20 sm:py-28 lg:py-40">
+    <section id="sessions" className="bg-cream py-14 sm:py-28 lg:py-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Centered header and responsive description */}
         <motion.div
@@ -315,7 +315,7 @@ const ABOUT_PARAGRAPHS = [
 
 function AboutSection() {
   return (
-    <section id="about" className="relative bg-espresso py-20 sm:py-28 lg:py-40">
+    <section id="about" className="relative bg-espresso py-14 sm:py-28 lg:py-40">
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         {/* On large screens: 2 columns (Left: About bio + College, Right: Credentials boxes arranged vertically) */}
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-12 xl:gap-16">
@@ -428,7 +428,7 @@ function AboutSection() {
 
 function CTASection() {
   return (
-    <section className="bg-cream py-20 sm:py-32 lg:py-40">
+    <section className="bg-cream py-14 sm:py-32 lg:py-40">
       <div className="mx-auto max-w-3xl px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}

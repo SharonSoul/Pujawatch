@@ -32,6 +32,14 @@ export function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
+  const handleLogoClick = (e: React.MouseEvent) => {
+    close();
+    if (typeof window !== "undefined" && window.location.pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <>
       <header
@@ -42,8 +50,8 @@ export function Navbar() {
         <nav className="mx-auto flex h-full max-w-7xl items-center justify-between px-6 lg:px-8">
           <Link
             href="/"
-            className="flex items-center gap-3 text-espresso no-underline"
-            onClick={close}
+            className="flex items-center gap-3 text-espresso no-underline cursor-pointer"
+            onClick={handleLogoClick}
           >
             <img src="/wings_logo.png" alt="PujaWatch" className="h-10 w-auto" />
             <span className="font-display text-[15px] font-light uppercase tracking-[0.18em] text-espresso">PujaWatch</span>
