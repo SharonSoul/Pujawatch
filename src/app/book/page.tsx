@@ -6,41 +6,24 @@ import { Navbar } from "@/components/Navbar";
 
 const SESSION_DETAILS = [
   {
-    name: "30-Minute Clarity Call",
+    name: "30 Minute Clarity Call",
     price: "$222",
     desc: "A focused strategy session for clients who want guidance on a specific question, challenge, decision, or goal.",
   },
   {
-    name: "60-Minute Power Session",
+    name: "60 Minute Power Session",
     price: "$444",
     desc: "A deeper strategy session for clients who want time to fully explore their situation, work through multiple factors, and develop a detailed plan of action.",
   },
 ];
 
 const WHAT_TO_INCLUDE = [
-  {
-    label: "Your Full Name",
-    detail: "Please provide your first and last name.",
-  },
-  {
-    label: "Session",
-    detail: "30-Minute Clarity Call ($222) or 60-Minute Power Session ($444)",
-  },
-  {
-    label: "What You'd Like to Focus On",
-    detail:
-      "A brief overview of the topics, questions, challenges, or goals you want to cover during our time together.",
-  },
-  {
-    label: "Anything Helpful for Puja to Know Before the Session (Optional)",
-    detail:
-      "Any background context, current business status, or specific circumstances that would help Puja prepare for your call.",
-  },
-  {
-    label: "2–3 Available Times (Central Time)",
-    detail:
-      "A few dates and time windows that work best for your schedule in US Central Time (CT).",
-  },
+  "Your Full Name",
+  "Session: 30 Minute Clarity Call ($222) or 60 Minute Power Session ($444)",
+  "2–3 Available Times (Central Standard Time)",
+  "What You'd Like to Focus On",
+  "Anything Helpful for Puja to Know Before the Session (Optional)",
+  
 ];
 
 export default function BookPage() {
@@ -126,9 +109,9 @@ export default function BookPage() {
           </div>
         </section>
 
-        {/* What to include */}
+        {/* What to include — Centered */}
         <section className="border-t border-rule bg-mid-bg px-6 py-16 sm:py-20 md:px-14 lg:px-20">
-          <div className="mx-auto max-w-4xl">
+          <div className="mx-auto max-w-4xl text-center">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -150,24 +133,23 @@ export default function BookPage() {
               </h2>
             </motion.div>
 
-            <div className="mt-8 sm:mt-10 flex flex-col divide-y divide-rule/60 border-y border-rule/60">
+            {/* List without sub-descriptions */}
+            <div className="mx-auto mt-8 sm:mt-10 max-w-2xl flex flex-col divide-y divide-rule/60 border-y border-rule/60 text-left">
               {WHAT_TO_INCLUDE.map((item, i) => (
                 <motion.div
-                  key={item.label}
+                  key={item}
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.45, delay: i * 0.06 }}
-                  className="flex flex-col gap-1.5 sm:gap-2 py-5 sm:py-6 sm:flex-row sm:gap-10 sm:items-baseline"
+                  transition={{ duration: 0.45, delay: i * 0.05 }}
+                  className="flex items-center gap-4 py-4 sm:py-5"
                 >
-                  <div className="w-full shrink-0 sm:w-72">
-                    <span className="font-body text-sm sm:text-base font-semibold text-espresso tracking-normal">
-                      {item.label}
-                    </span>
-                  </div>
-                  <p className="font-body text-xs sm:text-sm leading-relaxed text-warm-gray">
-                    {item.detail}
-                  </p>
+                  <span className="font-accent text-xs sm:text-sm font-semibold text-warm-gray/60 shrink-0 w-6">
+                    {i + 1}.
+                  </span>
+                  <span className="font-body text-sm sm:text-base font-semibold text-espresso tracking-normal">
+                    {item}
+                  </span>
                 </motion.div>
               ))}
             </div>

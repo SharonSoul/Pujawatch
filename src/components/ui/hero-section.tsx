@@ -51,9 +51,9 @@ export function HeroSection() {
       ref={containerRef}
       className="relative flex min-h-dvh w-full overflow-hidden bg-espresso"
     >
-      {/* Background image — optimized focal point on mobile */}
+      {/* Background image — adjusted focal point on mobile */}
       <div
-        className="absolute inset-0 bg-cover bg-[position:75%_center] md:bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-[position:80%_center] md:bg-center bg-no-repeat"
         style={{ backgroundImage: "url(/hero-bg.png)" }}
       />
       {/* Dark overlay for contrast */}
