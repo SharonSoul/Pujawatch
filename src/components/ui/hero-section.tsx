@@ -62,24 +62,23 @@ export function HeroSection() {
       {/* Content */}
       <div
         ref={revealRef}
-        className="relative z-10 flex min-h-dvh w-full flex-col justify-between pt-28 pb-10 px-6 sm:justify-center sm:py-0 md:px-14 lg:px-20"
+        className="relative z-10 flex min-h-dvh w-full flex-col justify-between pt-20 pb-10 px-6 sm:justify-center sm:py-0 md:px-14 lg:px-20"
       >
-        {/* Top block: Dot & Logo — completely independent, at top on mobile */}
-        <div className="max-w-xl lg:max-w-2xl">
-          {/* Pulsing dot */}
-          <div className="mb-4 sm:mb-6 flex items-center gap-3">
+        {/* Top block: Logo on the left, Pulsing dot on top right on mobile */}
+        <div className="max-w-xl lg:max-w-2xl w-full flex flex-row-reverse sm:flex-col items-start justify-between sm:justify-start">
+          {/* Pulsing dot — top right on mobile */}
+          <div className="mb-0 sm:mb-6 flex items-center gap-3 pt-2 sm:pt-0">
             <div className="relative h-2.5 w-2.5 rounded-full bg-[#cca049]">
               <div className="absolute inset-0 animate-ping rounded-full bg-[#cca049] opacity-30" />
             </div>
           </div>
 
-          {/* Big Logo — nudged downwards more on mobile */}
-          <div className="mb-0 sm:mb-6 mt-7 sm:mt-0 "> 
-            
+          {/* Big Logo — moved downwards a bit on mobile */}
+          <div className="mb-0 sm:mb-6 mt-6.5 sm:mt-0">
             <img
               src="/wings_logo.png"
               alt="PujaWatch"
-              className="h-20 w-auto sm:h-28 md:h-36 lg:h-44 object-contain"
+              className="h-24 w-auto sm:h-28 md:h-36 lg:h-44 object-contain"
             />
           </div>
         </div>
