@@ -77,7 +77,7 @@ export function HeroSection() {
             <img
               src="/wings_logo.png"
               alt="PujaWatch"
-              className="h-20 w-auto sm:h-28 md:h-36 lg:h-44 object-contain drop-shadow-md"
+              className="h-20 w-auto sm:h-28 md:h-36 lg:h-44 object-contain"
             />
           </div>
 

@@ -79,7 +79,7 @@ function ProcessSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-10 sm:mb-14"
+          className="mb-12 sm:mb-16"
         >
           <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-warm-gray/50">
             Method
@@ -87,13 +87,13 @@ function ProcessSection() {
           <h2 className="mt-3 font-display text-3xl sm:text-4xl font-light leading-[1.06] tracking-[0.03em] text-espresso lg:text-5xl">
             During the Meeting
           </h2>
-          <p className="mt-4 max-w-sm font-body text-sm leading-relaxed text-warm-gray">
+          <p className="mt-4 max-w-2xl font-body text-base leading-relaxed text-warm-gray">
             A structured, five-step approach designed to get to the heart of
             your situation and leave you with clear next steps.
           </p>
         </motion.div>
 
-        {/* All 5 boxes on a single horizontal row on desktop (lg:grid-cols-5) */}
+        {/* All 5 boxes on a single horizontal row on desktop (lg:grid-cols-5), centered content */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5 lg:gap-3 xl:gap-4">
           {PROCESS_STEPS.map((step, i) => (
             <motion.div
@@ -102,23 +102,16 @@ function ProcessSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="group relative flex flex-col justify-between bg-espresso p-6 sm:p-7 lg:p-6 xl:p-7 min-h-[180px] sm:min-h-[220px] transition-all duration-300 hover:bg-[#32201d]"
+              className="group relative flex flex-col items-center justify-center text-center bg-espresso p-6 sm:p-7 lg:p-5 xl:p-6 min-h-[170px] sm:min-h-[200px] transition-all duration-300 hover:bg-[#32201d]"
             >
-              {/* Large watermark number */}
-              <span className="absolute top-4 right-5 sm:top-5 sm:right-6 font-display text-5xl sm:text-6xl font-light text-cream/[0.06] select-none">
+              {/* Centered Large watermark number in background */}
+              <span className="absolute inset-0 flex items-center justify-center font-display text-7xl lg:text-8xl font-light text-cream/[0.05] select-none pointer-events-none">
                 {step.num}
               </span>
 
-              <div>
-                {/* Numbered badge */}
-                <div className="mb-5 sm:mb-6 flex h-8 w-8 items-center justify-center rounded-full border border-cream/15">
-                  <span className="font-display text-xs font-light text-cream/60">{step.num}</span>
-                </div>
-
-                <h3 className="font-display text-base sm:text-lg font-light leading-snug tracking-[0.02em] text-cream xl:text-xl">
-                  {step.title}
-                </h3>
-              </div>
+              <h3 className="relative z-10 font-display text-base sm:text-lg font-light leading-snug tracking-[0.02em] text-cream xl:text-lg">
+                {step.title}
+              </h3>
             </motion.div>
           ))}
         </div>
@@ -128,7 +121,7 @@ function ProcessSection() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  What you can bring                                                 */
+/*  What We Can Work On                                                */
 /* ------------------------------------------------------------------ */
 
 const SERVICE_AREAS = [
@@ -158,10 +151,10 @@ function ServicesSection() {
           {/* Header on 1 clean line across */}
           <div className="mb-10 sm:mb-14">
             <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-cream/35">
-              Areas
+              POSSIBILITIES
             </span>
             <h2 className="mt-3 font-display text-[clamp(1.5rem,4vw,3.75rem)] font-light leading-tight sm:leading-none tracking-[0.02em] text-cream">
-              What You Can Bring to a Session
+              What We Can Work On
             </h2>
           </div>
         </motion.div>
@@ -235,7 +228,7 @@ function PricingSection() {
   return (
     <section id="sessions" className="bg-cream py-20 sm:py-28 lg:py-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Centered header and single-line description */}
+        {/* Centered header and responsive description */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -249,12 +242,12 @@ function PricingSection() {
           <h2 className="mt-3 font-display text-3xl sm:text-4xl font-light leading-[1.06] tracking-[0.03em] text-espresso lg:text-5xl">
             Choose Your Session
           </h2>
-          <p className="mx-auto mt-4 max-w-4xl font-body text-sm sm:text-base leading-relaxed text-warm-gray lg:whitespace-nowrap">
+          <p className="mx-auto mt-4 max-w-2xl font-body text-sm sm:text-base leading-relaxed text-warm-gray">
             Both sessions provide the same personalized approach. Choose the amount of time based on how deeply you would like to explore your situation.
           </p>
         </motion.div>
 
-        {/* Side-by-side cards with same-size dollar symbol */}
+        {/* Side-by-side cards with same-size and same-color dollar symbol */}
         <div className="grid gap-6 lg:grid-cols-2">
           {SESSIONS.map((s, i) => (
             <motion.div
@@ -270,7 +263,7 @@ function PricingSection() {
                   {s.name}
                 </h3>
                 <div className="mt-4 flex items-baseline gap-1">
-                  <span className="font-sans text-4xl sm:text-5xl font-light text-gold">$</span>
+                  <span className="font-sans text-4xl sm:text-5xl font-light text-cream">$</span>
                   <span className="font-display text-4xl sm:text-5xl font-light tracking-[0.02em] text-cream">
                     {s.price}
                   </span>
