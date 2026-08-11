@@ -62,7 +62,7 @@ export function HeroSection() {
       {/* Content */}
       <div
         ref={revealRef}
-        className="relative z-10 flex min-h-dvh w-full flex-col justify-between pt-20 pb-10 px-6 sm:justify-center sm:py-0 md:px-14 lg:px-20"
+        className="relative z-10 flex min-h-dvh w-full flex-col justify-between pt-28 pb-10 px-6 sm:justify-center sm:py-0 md:px-14 lg:px-20"
       >
         {/* Top block: Logo on the left, Pulsing dot on top right on mobile */}
         <div className="max-w-xl lg:max-w-2xl w-full flex flex-row-reverse sm:flex-col items-start justify-between sm:justify-start">
@@ -73,8 +73,8 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Big Logo */}
-          <div className="mb-0 sm:mb-6 mt-6 sm:mt-0">
+          {/* Big Logo — moved visibly downwards */}
+          <div className="mb-0 sm:mb-6 mt-10 sm:mt-0">
             <img
               src="/wings_logo.png"
               alt="PujaWatch"
