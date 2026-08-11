@@ -6,19 +6,21 @@ const gantari = Gantari({
   variable: "--font-gantari",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
-  style: ["normal", "italic"],
+  display: "swap",
 });
 
 const nunitoSans = Nunito_Sans({
   variable: "--font-nunito",
   subsets: ["latin"],
   weight: ["300", "400"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
