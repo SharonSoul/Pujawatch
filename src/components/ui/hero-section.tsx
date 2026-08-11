@@ -53,7 +53,7 @@ export function HeroSection() {
     >
       {/* Background image — adjusted focal point on mobile */}
       <div
-        className="absolute inset-0 bg-cover bg-[position:80%_center] md:bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-[position:80%_center] md:bg-[position:35%_center] lg:bg-[position:30%_center] bg-no-repeat"
         style={{ backgroundImage: "url(/hero-bg.png)" }}
       />
       {/* Dark overlay for contrast */}
