@@ -12,12 +12,21 @@ export const metadata: Metadata = {
     "Puja Dharod",
     "PujaWatch",
   ],
+  icons: {
+    icon: [
+      { url: "/logo.png" },
+      { url: "/icon.png" },
+    ],
+    apple: "/logo.png",
+    shortcut: "/logo.png",
+  },
   openGraph: {
     title: "PujaWatch | Business & Life Strategy Consultant",
     description:
       "Gain clarity. Make stronger decisions. Create a life and business that reflect what you are truly capable of.",
     type: "website",
     siteName: "PujaWatch",
+    images: ["/logo.png"],
   },
 };
 
