@@ -141,9 +141,6 @@ const SERVICE_AREAS = [
 ];
 
 function ServicesSection() {
-  const left = SERVICE_AREAS.slice(0, 4);
-  const right = SERVICE_AREAS.slice(4, 8);
-
   return (
     <section id="services" className="bg-espresso py-14 sm:py-28 lg:py-36">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -164,48 +161,24 @@ function ServicesSection() {
           </div>
         </motion.div>
 
-        <div className="grid gap-3 sm:gap-4 lg:grid-cols-2">
-          {/* Left column: 1-4 */}
-          <div className="flex flex-col gap-3 sm:gap-4">
-            {left.map((area, i) => (
-              <motion.div
-                key={area}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
-                className="group flex items-center gap-4 sm:gap-5 border border-cream/10 bg-[rgba(255,255,255,0.03)] p-5 sm:p-6 transition-all duration-300 hover:border-gold/40 hover:bg-[rgba(255,255,255,0.06)] lg:p-7"
-              >
-                <span className="shrink-0 font-display text-xl sm:text-2xl font-light tracking-[0.02em] text-gold/60">
-                  {i + 1}
-                </span>
-                <span className="font-display text-sm sm:text-base font-normal leading-snug tracking-[0.02em] text-cream">
-                  {area}
-                </span>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Right column: 5-8 */}
-          <div className="flex flex-col gap-3 sm:gap-4">
-            {right.map((area, i) => (
-              <motion.div
-                key={area}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: (i + 4) * 0.07, ease: [0.16, 1, 0.3, 1] }}
-                className="group flex items-center gap-4 sm:gap-5 border border-cream/10 bg-[rgba(255,255,255,0.03)] p-5 sm:p-6 transition-all duration-300 hover:border-gold/40 hover:bg-[rgba(255,255,255,0.06)] lg:p-7"
-              >
-                <span className="shrink-0 font-display text-xl sm:text-2xl font-light tracking-[0.02em] text-gold/60">
-                  {i + 5}
-                </span>
-                <span className="font-display text-sm sm:text-base font-normal leading-snug tracking-[0.02em] text-cream">
-                  {area}
-                </span>
-              </motion.div>
-            ))}
-          </div>
+        <div className="grid grid-cols-1 gap-3 sm:gap-4 lg:grid-flow-col lg:grid-cols-2 lg:grid-rows-4">
+          {SERVICE_AREAS.map((area, i) => (
+            <motion.div
+              key={area}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+              className="group flex items-center gap-4 sm:gap-5 border border-cream/10 bg-[rgba(255,255,255,0.03)] p-5 sm:p-6 transition-all duration-300 hover:border-gold/40 hover:bg-[rgba(255,255,255,0.06)] lg:p-7"
+            >
+              <span className="shrink-0 font-display text-xl sm:text-2xl font-light tracking-[0.02em] text-gold/60">
+                {i + 1}
+              </span>
+              <span className="font-display text-sm sm:text-base font-normal leading-snug tracking-[0.02em] text-cream">
+                {area}
+              </span>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
@@ -218,13 +191,13 @@ function ServicesSection() {
 
 const SESSIONS = [
   {
-    name: "30-Minute Clarity Call",
-    price: "222",
+    name: "30 Minute Clarity Call",
+    price: "444",
     desc: "A focused strategy session for clients who want guidance on a specific question, challenge, decision, or goal.",
   },
   {
-    name: "60-Minute Power Session",
-    price: "444",
+    name: "60 Minute Power Session",
+    price: "888",
     desc: <>A deeper strategy session for clients who want time to fully explore their situation, work through multiple factors, and develop a detailed<br className="hidden lg:inline" /> plan of action.</>,
   },
 ];
@@ -244,7 +217,7 @@ function PricingSection() {
           <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-warm-gray/50">
             Tiers
           </span>
-          <h2 className="mt-3 font-display text-3xl sm:text-4xl font-light leading-[1.06] tracking-[0.03em] text-espresso lg:text-5xl">
+          <h2 className="mt-3 font-display text-2xl sm:text-4xl font-light leading-[1.06] tracking-[0.03em] text-espresso lg:text-5xl">
             Choose Your Session
           </h2>
           <p className="mx-auto mt-4 max-w-2xl font-body text-sm sm:text-base leading-relaxed text-warm-gray">
@@ -264,7 +237,7 @@ function PricingSection() {
               className="group flex h-full flex-col justify-between bg-espresso p-7 sm:p-8 lg:p-10 transition-shadow duration-300 hover:shadow-[0_0_0_2px_var(--espresso)]"
             >
               <div>
-                <h3 className="font-display text-xl sm:text-2xl font-light tracking-[0.03em] text-cream">
+                <h3 className="font-display text-2xl sm:text-3xl font-light tracking-[0.03em] text-[#cca049]">
                   {s.name}
                 </h3>
                 <div className="mt-4 flex items-baseline gap-1">

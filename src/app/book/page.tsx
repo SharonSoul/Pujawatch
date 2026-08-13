@@ -8,7 +8,7 @@ import { FooterSection } from "@/components/LandingPage";
 const SESSION_DETAILS = [
   {
     name: "30 Minute Clarity Call",
-    price: "$222",
+    price: "$444",
     desc: (
       <>
         A focused strategy session for clients who want guidance on a specific
@@ -18,11 +18,11 @@ const SESSION_DETAILS = [
   },
   {
     name: "60 Minute Power Session",
-    price: "$444",
+    price: "$888",
     desc: (
       <>
         A deeper strategy session for clients who want time to fully explore
-        their situation, work through multiple factors, and develop<br />
+        their situation, work through multiple factors, and develop<br className="sm:hidden" />
         a detailed plan of action.
       </>
     ),
