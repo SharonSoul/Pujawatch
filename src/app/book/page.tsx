@@ -127,8 +127,8 @@ export default function BookPage() {
                       {s.name}
                     </h3>
                     <div className="mt-3 sm:mt-4 flex items-baseline gap-1">
-                      <span className="font-sans text-3xl sm:text-4xl font-light text-cream">$</span>
-                      <span className="font-display text-3xl sm:text-4xl font-light tracking-[0.02em] text-cream">
+                      <span className="font-sans text-xl sm:text-2xl font-light text-cream">$</span>
+                      <span className="font-display text-xl sm:text-2xl font-light tracking-[0.02em] text-cream">
                         {s.price.replace("$", "")}
                       </span>
                     </div>

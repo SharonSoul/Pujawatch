@@ -1,5 +1,18 @@
 import type { Metadata } from "next";
+import { Gantari, Montserrat } from "next/font/google";
 import "./globals.css";
+
+const gantari = Gantari({
+  subsets: ["latin"],
+  weight: "variable",
+  variable: "--font-gantari",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: "variable",
+  variable: "--font-montserrat",
+});
 
 export const metadata: Metadata = {
   title: "PujaWatch | Business & Life Strategy Consultant",
@@ -36,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="antialiased">
+    <html lang="en" className={`antialiased ${gantari.variable} ${montserrat.variable}`}>
       <body className="font-body text-espresso bg-cream min-h-dvh">
         {children}
       </body>

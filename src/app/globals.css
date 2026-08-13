@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Gantari:ital,wght@0,300..700;1,300..700&family=Montserrat:ital,wght@0,300..700;1,300..700&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -18,10 +17,10 @@
   --color-warm-gray: var(--warm-gray);
   --color-mid-bg: var(--mid-bg);
   --color-rule: var(--rule);
-  --font-display: "Gantari", sans-serif;
-  --font-label: "Gantari", sans-serif;
-  --font-body: "Montserrat", sans-serif;
-  --font-accent: "Montserrat", sans-serif;
+  --font-display: var(--font-gantari);
+  --font-label: var(--font-gantari);
+  --font-body: var(--font-montserrat);
+  --font-accent: var(--font-montserrat);
 }
 
 * {

@@ -28,7 +28,7 @@ function RevealStage({ scrollYProgress }: StageProps) {
     >
       <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-6 lg:px-8">
         {/* Header on 1 single line on desktop/tablet, wraps only on mobile */}
-        <h2 className="w-full font-display text-[clamp(1.45rem,3.2vw,3.8rem)] font-light leading-[1.15] sm:leading-[1.1] tracking-[0.02em] text-cream sm:whitespace-nowrap">
+        <h2 className="w-full font-display text-3xl sm:text-4xl font-light leading-[1.06] tracking-[0.03em] text-cream lg:text-5xl">
           Private Business &amp; Life Strategy Sessions
         </h2>
         <p className="mt-3 font-accent text-xs sm:text-sm uppercase tracking-[0.24em] text-gold md:text-base">
@@ -131,13 +131,13 @@ function ProcessSection() {
 
 const SERVICE_AREAS = [
   "Business strategy, growth, and strategic planning",
-  "Branding, marketing, and positioning",
+  "Building wealth, financial confidence, and investing",
   "Real estate acquisitions, lease negotiations, and property management",
+  "Restaurant management and franchising",
   "Career direction and decision-making",
+  "Branding, marketing, and positioning",
   "Leadership, communication, and boundaries",
-  "Confidence, mindset, and personal development",
-  "Money mindset, financial education, and general investing education",
-  "Life transitions, relationships, habits, and leveling up",
+  "Confidence, mindset, personal development, relationships, and life transitions",
 ];
 
 function ServicesSection() {
@@ -155,7 +155,7 @@ function ServicesSection() {
             <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-cream/35">
               POSSIBILITIES
             </span>
-            <h2 className="mt-3 font-display text-[clamp(1.5rem,4vw,3.75rem)] font-light leading-tight sm:leading-none tracking-[0.02em] text-cream">
+            <h2 className="mt-3 font-display text-[clamp(1.5rem,4vw,3.75rem)] font-light leading-tight sm:leading-none tracking-[0.02em] text-cream lg:text-5xl">
               What We Can Work On
             </h2>
           </div>
@@ -241,8 +241,8 @@ function PricingSection() {
                   {s.name}
                 </h3>
                 <div className="mt-4 flex items-baseline gap-1">
-                  <span className="font-sans text-4xl sm:text-5xl font-light text-cream">$</span>
-                  <span className="font-display text-4xl sm:text-5xl font-light tracking-[0.02em] text-cream">
+                  <span className="font-sans text-2xl sm:text-3xl font-light text-cream">$</span>
+                  <span className="font-display text-2xl sm:text-3xl font-light tracking-[0.02em] text-cream">
                     {s.price}
                   </span>
                 </div>
@@ -271,11 +271,10 @@ function PricingSection() {
 const CERTIFICATES = [
   { inst: "Harvard University", prog: "Wealth Management", year: "2024" },
   { inst: "Rice University", prog: "Real Estate and Development", year: "2020" },
-  { inst: "Keith J. Cunningham", prog: "Four-Day MBA Program", year: "2019" },
+  { inst: "Keith J. Cunningham", prog: "MBA Program", year: "2019" },
   { inst: "Dale Carnegie", prog: "Professional Development Program", year: "2019" },
   { inst: "Karrass", prog: "Effective Negotiating", year: "2018" },
-  { inst: "Sonic", prog: "All-Stage Training", year: "2017" },
-  { inst: "Roy\u2019s", prog: "Levels Training Program", year: "2017" },
+
 ];
 
 const ABOUT_PARAGRAPHS = [
@@ -286,7 +285,7 @@ const ABOUT_PARAGRAPHS = [
   "She chose the name Puja Foundation because her name means \u201Cto pray,\u201D and she wanted the organization to represent the belief that prayers can be answered through compassion, generosity, and action.",
   "Since its founding, the foundation has supported families across companies including Cicis Pizza, Applebee\u2019s, Sonic Drive-In, Roy\u2019s Restaurants, Corner Bakery, and Logan\u2019s Roadhouse.",
   "Through her experience in business, investing, real estate, marketing, leadership, and philanthropy, Puja has developed a strong ability to identify opportunities, negotiate effectively, build brands, evaluate risk, solve complex problems, and guide others through important decisions.",
-  "As a Business & Life Strategy Consultant, Puja brings that real-world experience into every session. Her approach is honest, practical, and personal. She helps clients gain clarity, recognize their blind spots, make stronger decisions, and create realistic strategies for moving forward in business, career, money, confidence, personal growth, and life.",
+  "As a Business & Life Strategy Consultant, Puja brings that real-world experience into every session. Her approach is honest, practical, and personal. She helps clients gain clarity, recognize their blind spots, make stronger decisions, and create realistic strategies for moving forward in business, career, financial freedom, confidence, personal growth, and life.",
 ];
 
 function AboutSection() {
@@ -361,7 +360,7 @@ function AboutSection() {
                 Professional Development
               </span>
               <h3 className="mt-2 font-display text-xl sm:text-2xl font-light tracking-[0.03em] text-cream">
-                Certificates &amp; Training
+                Certificates
               </h3>
             </motion.div>
 
