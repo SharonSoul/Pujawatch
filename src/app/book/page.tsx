@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { useState } from "react";
 import { motion } from "motion/react";
 import { Navbar } from "@/components/Navbar";
 import { FooterSection } from "@/components/LandingPage";
@@ -22,41 +22,48 @@ const SESSION_DETAILS = [
     desc: (
       <>
         A deeper strategy session for clients who want time to fully explore
-        their situation, work through multiple factors, and develop a detailed<br className="sm:hidden" />
+        their situation, work through multiple factors, and develop a detailed
         plan of action.
       </>
     ),
   },
 ];
 
-const WHAT_TO_INCLUDE = [
-  {
-    title: "Your Full Name",
-  },
-  {
-    title: "Pick Your Session:",
-    bullets: [
-      "30-Minute Clarity Call ($444)",
-      "60-Minute Power Session ($888)",
-    ],
-  },
-  {
-    title: "2–3 Available Times (CST)",
-  },
-  {
-    title: "What You'd Like to Focus On",
-  },
-  {
-    title: (
-      <>
-        Anything Helpful for Puja to Know<br />
-        Before the Session (Optional)
-      </>
-    ),
-  },
-];
-
 export default function BookPage() {
+  const [name, setName] = useState("");
+  const [session, setSession] = useState("30-Minute Clarity Call ($444)");
+  const [times, setTimes] = useState("");
+  const [focus, setFocus] = useState("");
+  const [notes, setNotes] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = "Private Session Request";
+    const body = `Hi Puja,
+
+I would like to book a private strategy session with you.
+
+1. Your Full Name:
+${name}
+
+2. Session:
+${session}
+
+3. 2–3 Available Times (CST):
+${times}
+
+4. What You'd Like to Focus On:
+${focus}
+
+5. Anything Helpful for Puja to Know Before the Session (Optional):
+${notes || "None"}
+
+Thank you!`;
+
+    const mailtoUrl = `mailto:puja@pujawatch.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoUrl;
+  };
+
   return (
     <>
       <Navbar />
@@ -82,7 +89,7 @@ export default function BookPage() {
             </h1>
             <p className="mx-auto mt-4 sm:mt-5 max-w-xl font-body text-sm sm:text-base leading-relaxed text-cream/80 sm:text-lg">
               To book a private session with Puja,<br />
-              email the details below.
+              fill out the details below.
             </p>
             <p className="mx-auto mt-2 sm:mt-2.5 max-w-lg font-body text-xs sm:text-sm leading-relaxed text-cream/55">
               Every inquiry is reviewed personally, and you&rsquo;ll receive<br />
@@ -91,7 +98,7 @@ export default function BookPage() {
           </motion.div>
         </section>
 
-        {/* Choose session */}
+        {/* Choose session (Tiers info) */}
         <section className="px-6 py-16 sm:py-20 md:px-14 lg:px-20">
           <div className="mx-auto max-w-4xl">
             <motion.div
@@ -120,7 +127,7 @@ export default function BookPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="flex flex-col justify-between bg-espresso p-7 sm:p-8 md:p-10"
+                  className="flex flex-col justify-between bg-espresso p-5 sm:p-6 md:p-8"
                 >
                   <div>
                     <h3 className="font-display text-xl sm:text-2xl font-light tracking-[0.03em] text-[#cca049]">
@@ -142,88 +149,142 @@ export default function BookPage() {
           </div>
         </section>
 
-        {/* What to include — Brown Background */}
-        <section className="border-t border-cream/10 bg-espresso px-6 py-16 sm:py-20 md:px-14 lg:px-20">
-          <div className="mx-auto max-w-4xl text-center">
+        {/* Interactive Booking Form */}
+        <section className="border-t border-cream/10 bg-espresso px-6 py-20 sm:py-28 md:px-14 lg:px-20">
+          <div className="mx-auto max-w-2xl">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
+              className="text-center mb-12 sm:mb-16"
             >
               <span className="font-accent text-[10px] uppercase tracking-[0.3em] text-cream/40">
-                To Book:
+                Booking Request
               </span>
-              <h2 className="mt-2 font-body text-base sm:text-lg font-normal text-cream/90 leading-relaxed">
-                Please include the following in your email:
+              <h2 className="mt-2 font-display text-3xl sm:text-4xl font-light text-cream">
+                Submit Your Details
               </h2>
+              <p className="mx-auto mt-3 max-w-md font-body text-sm text-cream/65">
+                Fill out the fields below, and click submit to generate your pre-filled email booking request.
+              </p>
             </motion.div>
 
-            {/* List without sub-descriptions */}
-            <div className="mx-auto mt-8 sm:mt-10 max-w-2xl flex flex-col divide-y divide-cream/15 border-y border-cream/15 text-left">
-              {WHAT_TO_INCLUDE.map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.45, delay: i * 0.05 }}
-                  className="flex items-start gap-4 py-4 sm:py-5"
-                >
-                  <span className="font-accent text-xs sm:text-sm font-semibold text-cream/50 shrink-0 w-6 pt-0.5">
-                    {i + 1}.
-                  </span>
-                  <div className="flex flex-col gap-1.5">
-                    <span className="font-body text-sm sm:text-base font-semibold text-cream tracking-normal">
-                      {item.title}
-                    </span>
-                    {item.bullets && (
-                      <ul className="mt-1 flex flex-col gap-1 text-xs sm:text-sm font-medium text-cream/80">
-                        {item.bullets.map((bullet) => (
-                          <li key={bullet} className="flex items-center gap-2">
-                            <span className="h-1.5 w-1.5 rounded-full bg-[#cca049] shrink-0" />
-                            <span>{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+            <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
+              {/* Name */}
+              <div className="flex flex-col gap-2 text-left">
+                <label className="font-accent text-[10px] uppercase tracking-[0.2em] text-cream/60">
+                  1. Your Full Name
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="e.g. Sarah Jenkins"
+                  className="w-full rounded-sm border border-cream/15 bg-transparent px-4 py-3 font-body text-sm text-cream transition-all duration-300 placeholder:text-cream/30 focus:border-[#cca049] focus:outline-none"
+                />
+              </div>
+
+              {/* Session Select */}
+              <div className="flex flex-col gap-2 text-left">
+                <label className="font-accent text-[10px] uppercase tracking-[0.2em] text-cream/60">
+                  2. Choose Your Session
+                </label>
+                <div className="grid gap-4 sm:grid-cols-2 mt-1">
+                  <div
+                    onClick={() => setSession("30-Minute Clarity Call ($444)")}
+                    className={`cursor-pointer border p-4 flex flex-col justify-center rounded-sm transition-all duration-300 ${
+                      session === "30-Minute Clarity Call ($444)"
+                        ? "border-[#cca049] bg-cream/5"
+                        : "border-cream/10 bg-transparent hover:border-cream/30"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="font-display text-sm font-light text-cream">30-Minute Clarity Call</span>
+                      <div className={`h-3 w-3 rounded-full border flex items-center justify-center ${session === "30-Minute Clarity Call ($444)" ? "border-[#cca049]" : "border-cream/30"}`}>
+                        {session === "30-Minute Clarity Call ($444)" && <div className="h-1.5 w-1.5 rounded-full bg-[#cca049]" />}
+                      </div>
+                    </div>
+                    <span className="font-body text-xs text-[#cca049] mt-1">$444</span>
                   </div>
-                </motion.div>
-              ))}
-            </div>
+
+                  <div
+                    onClick={() => setSession("60-Minute Power Session ($888)")}
+                    className={`cursor-pointer border p-4 flex flex-col justify-center rounded-sm transition-all duration-300 ${
+                      session === "60-Minute Power Session ($888)"
+                        ? "border-[#cca049] bg-cream/5"
+                        : "border-cream/10 bg-transparent hover:border-cream/30"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="font-display text-sm font-light text-cream">60-Minute Power Session</span>
+                      <div className={`h-3 w-3 rounded-full border flex items-center justify-center ${session === "60-Minute Power Session ($888)" ? "border-[#cca049]" : "border-cream/30"}`}>
+                        {session === "60-Minute Power Session ($888)" && <div className="h-1.5 w-1.5 rounded-full bg-[#cca049]" />}
+                      </div>
+                    </div>
+                    <span className="font-body text-xs text-[#cca049] mt-1">$888</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Times */}
+              <div className="flex flex-col gap-2 text-left">
+                <label className="font-accent text-[10px] uppercase tracking-[0.2em] text-cream/60">
+                  3. 2–3 Available Times (CST)
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={times}
+                  onChange={(e) => setTimes(e.target.value)}
+                  placeholder="e.g. Mon 2pm CST, Wed 10am CST"
+                  className="w-full rounded-sm border border-cream/15 bg-transparent px-4 py-3 font-body text-sm text-cream transition-all duration-300 placeholder:text-cream/30 focus:border-[#cca049] focus:outline-none"
+                />
+              </div>
+
+              {/* Focus Area */}
+              <div className="flex flex-col gap-2 text-left">
+                <label className="font-accent text-[10px] uppercase tracking-[0.2em] text-cream/60">
+                  4. What You'd Like to Focus On
+                </label>
+                <textarea
+                  required
+                  value={focus}
+                  onChange={(e) => setFocus(e.target.value)}
+                  placeholder="e.g. Business growth, lease negotiations, strategic marketing planning..."
+                  className="w-full rounded-sm border border-cream/15 bg-transparent px-4 py-3 font-body text-sm text-cream transition-all duration-300 placeholder:text-cream/30 focus:border-[#cca049] focus:outline-none min-h-[100px] resize-y"
+                />
+              </div>
+
+              {/* Optional Notes */}
+              <div className="flex flex-col gap-2 text-left">
+                <label className="font-accent text-[10px] uppercase tracking-[0.2em] text-cream/60">
+                  5. Anything Helpful for Puja to Know Before the Session (Optional)
+                </label>
+                <textarea
+                  value={notes}
+                  onChange={(e) => setNotes(e.target.value)}
+                  placeholder="Any background information, goals, or notes..."
+                  className="w-full rounded-sm border border-cream/15 bg-transparent px-4 py-3 font-body text-sm text-cream transition-all duration-300 placeholder:text-cream/30 focus:border-[#cca049] focus:outline-none min-h-[100px] resize-y"
+                />
+              </div>
+
+              {/* Submit Button */}
+              <div className="pt-4 text-center">
+                <button
+                  type="submit"
+                  className="inline-flex h-12 items-center justify-center gap-3 rounded-sm bg-[#cca049] px-8 font-label text-[12px] font-medium uppercase tracking-[0.16em] text-espresso transition-all duration-300 hover:bg-cream hover:text-espresso active:translate-y-px active:scale-[0.98] w-full sm:w-auto cursor-pointer"
+                >
+                  Contact Me &rarr;
+                </button>
+                <p className="mt-5 font-body text-xs text-cream/55">
+                  Clicking submits and pre-fills your email to: puja@pujawatch.com
+                </p>
+              </div>
+            </form>
           </div>
         </section>
-
-        {/* CTA */}
-        <section className="bg-cream border-t border-rule px-6 py-20 sm:py-28 md:px-14 lg:px-20">
-          <div className="mx-auto max-w-4xl text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 32 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-light tracking-[0.02em] text-espresso">
-                Ready to Get Started?
-              </h2>
-              <p className="mx-auto mt-3 sm:mt-4 max-w-md font-body text-sm sm:text-base leading-relaxed text-warm-gray">
-                Click below to open your email with<br />
-                the details pre-filled.
-              </p>
-              <a
-                href="mailto:puja@pujawatch.com?subject=Private%20Session%20Request&body=Hi%20Puja%2C%0A%0AI%20would%20like%20to%20book%20a%20private%20strategy%20session%20with%20you.%0A%0A1.%20Your%20Full%20Name%3A%0A%0A2.%20Session%3A%0A30-Minute%20Clarity%20Call%20(%24444)%20OR%0A60-Minute%20Power%20Session%20(%24888)%0A%0A3.%202%E2%80%933%20Available%20Times%20(CST)%3A%0A%0A4.%20What%20You'd%20Like%20to%20Focus%20On%3A%0A%0A5.%20Anything%20Helpful%20for%20Puja%20to%20Know%20Before%20the%20Session%20(Optional)%3A%0A%0AThank%20you!"
-                className="mt-8 sm:mt-10 inline-flex h-12 items-center justify-center gap-3 rounded-sm bg-[#cca049] px-8 font-label text-[12px] font-medium uppercase tracking-[0.16em] text-espresso transition-all duration-300 hover:bg-espresso hover:text-cream active:translate-y-px active:scale-[0.98] w-full sm:w-auto"
-              >
-                Contact Me &rarr;
-              </a>
-              
-              <p className="mt-5 sm:mt-6 font-body text-xs sm:text-sm text-warm-gray/60">
-                puja@pujawatch.com
-              </p>
-            </motion.div>
-          </div>
-        </section>
-
       </main>
       <FooterSection hideNav dark />
     </>

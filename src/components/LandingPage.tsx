@@ -198,7 +198,7 @@ const SESSIONS = [
   {
     name: "60 Minute Power Session",
     price: "888",
-    desc: <>A deeper strategy session for clients who want time to fully explore their situation, work through multiple factors, and develop a detailed<br className="hidden lg:inline" /> plan of action.</>,
+    desc: <>A deeper strategy session for clients who want time to fully explore their situation, work through multiple factors, and develop a detailed plan of action.</>,
   },
 ];
 
@@ -234,7 +234,7 @@ function PricingSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="group flex h-full flex-col justify-between bg-espresso p-7 sm:p-8 md:p-10 transition-shadow duration-300 hover:shadow-[0_0_0_2px_var(--espresso)]"
+              className="group flex h-full flex-col justify-between bg-espresso p-5 sm:p-6 md:p-8 transition-shadow duration-300 hover:shadow-[0_0_0_2px_var(--espresso)]"
             >
               <div>
                 <h3 className="font-display text-xl sm:text-2xl font-light tracking-[0.03em] text-[#cca049]">
@@ -252,7 +252,7 @@ function PricingSection() {
               </div>
               <MagneticLink
                 href="/book"
-                className="mt-8 sm:mt-10 inline-flex h-11 items-center gap-2 self-start rounded-sm bg-cream px-6 font-label text-[11px] uppercase tracking-[0.14em] text-espresso transition-all duration-300 hover:bg-gold active:translate-y-px active:scale-[0.98]"
+                className="mt-5 sm:mt-6 inline-flex h-11 items-center gap-2 self-start rounded-sm bg-cream px-6 font-label text-[11px] uppercase tracking-[0.14em] text-espresso transition-all duration-300 hover:bg-gold active:translate-y-px active:scale-[0.98]"
               >
                 Book a Session <span>&rarr;</span>
               </MagneticLink>
