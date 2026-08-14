@@ -22,8 +22,8 @@ const SESSION_DETAILS = [
     desc: (
       <>
         A deeper strategy session for clients who want time to fully explore
-        their situation, work through multiple factors, and develop<br className="sm:hidden" />
-        a detailed plan of action.
+        their situation, work through multiple factors, and develop a detailed<br className="sm:hidden" />
+        plan of action.
       </>
     ),
   },

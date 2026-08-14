@@ -205,7 +205,7 @@ const SESSIONS = [
 function PricingSection() {
   return (
     <section id="sessions" className="bg-cream py-14 sm:py-28 lg:py-40">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-4xl px-6 lg:px-8">
         {/* Centered header and responsive description */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -234,19 +234,19 @@ function PricingSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="group flex h-full flex-col justify-between bg-espresso p-7 sm:p-8 lg:p-10 transition-shadow duration-300 hover:shadow-[0_0_0_2px_var(--espresso)]"
+              className="group flex h-full flex-col justify-between bg-espresso p-7 sm:p-8 md:p-10 transition-shadow duration-300 hover:shadow-[0_0_0_2px_var(--espresso)]"
             >
               <div>
-                <h3 className="font-display text-2xl sm:text-3xl font-light tracking-[0.03em] text-[#cca049]">
+                <h3 className="font-display text-xl sm:text-2xl font-light tracking-[0.03em] text-[#cca049]">
                   {s.name}
                 </h3>
-                <div className="mt-4 flex items-baseline gap-1">
-                  <span className="font-sans text-2xl sm:text-3xl font-light text-cream">$</span>
-                  <span className="font-display text-2xl sm:text-3xl font-light tracking-[0.02em] text-cream">
+                <div className="mt-3 sm:mt-4 flex items-baseline gap-1">
+                  <span className="font-sans text-xl sm:text-2xl font-light text-cream">$</span>
+                  <span className="font-display text-xl sm:text-2xl font-light tracking-[0.02em] text-cream">
                     {s.price}
                   </span>
                 </div>
-                <p className="mt-4 sm:mt-5 font-body text-sm sm:text-base leading-relaxed text-cream/60">
+                <p className="mt-3 sm:mt-4 font-body text-xs sm:text-sm leading-relaxed text-cream/60">
                   {s.desc}
                 </p>
               </div>
@@ -340,7 +340,7 @@ function AboutSection() {
               <p className="mt-3 font-display text-lg sm:text-xl font-light tracking-[0.03em] text-cream">
                 The University of Texas at Austin &mdash;{" "}
                 <span className="font-body text-sm sm:text-base font-light text-cream/60">
-                  B.S. in Advertising and Business, 2016
+                  B.S. in Marketing and Business, 2016
                 </span>
               </p>
             </motion.div>
