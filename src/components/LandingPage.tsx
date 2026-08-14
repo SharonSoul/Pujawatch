@@ -274,7 +274,6 @@ const CERTIFICATES = [
   { inst: "Keith J. Cunningham", prog: "MBA Program", year: "2019" },
   { inst: "Dale Carnegie", prog: "Professional Development Program", year: "2019" },
   { inst: "Karrass", prog: "Effective Negotiating", year: "2018" },
-
 ];
 
 const ABOUT_PARAGRAPHS = [
