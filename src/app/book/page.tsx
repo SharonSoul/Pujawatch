@@ -87,7 +87,6 @@ Thank you!`;
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="e.g. Sarah Jenkins"
                   className="w-full rounded-sm border border-cream/15 bg-transparent px-4 py-3 font-body text-sm text-cream transition-all duration-300 placeholder:text-cream/30 focus:border-[#cca049] focus:outline-none"
                 />
               </div>
@@ -144,7 +143,6 @@ Thank you!`;
                   required
                   value={times}
                   onChange={(e) => setTimes(e.target.value)}
-                  placeholder="e.g. Mon 2pm CST, Wed 10am CST"
                   className="w-full rounded-sm border border-cream/15 bg-transparent px-4 py-3 font-body text-sm text-cream transition-all duration-300 placeholder:text-cream/30 focus:border-[#cca049] focus:outline-none"
                 />
               </div>
@@ -158,7 +156,6 @@ Thank you!`;
                   required
                   value={focus}
                   onChange={(e) => setFocus(e.target.value)}
-                  placeholder="e.g. Business growth, lease negotiations, strategic marketing planning..."
                   className="w-full rounded-sm border border-cream/15 bg-transparent px-4 py-3 font-body text-sm text-cream transition-all duration-300 placeholder:text-cream/30 focus:border-[#cca049] focus:outline-none min-h-[100px] resize-y"
                 />
               </div>
@@ -171,7 +168,6 @@ Thank you!`;
                 <textarea
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
-                  placeholder="Any background information, goals, or notes..."
                   className="w-full rounded-sm border border-cream/15 bg-transparent px-4 py-3 font-body text-sm text-cream transition-all duration-300 placeholder:text-cream/30 focus:border-[#cca049] focus:outline-none min-h-[100px] resize-y"
                 />
               </div>
