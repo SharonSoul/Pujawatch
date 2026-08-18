@@ -36,7 +36,7 @@ function RevealStage({ scrollYProgress }: StageProps) {
         </p>
         <div className="mt-6 sm:mt-8 max-w-3xl space-y-4 sm:space-y-5">
           <p className="font-body text-sm sm:text-base leading-relaxed text-cream/80">
-            These private one-on-one strategy sessions are designed to help you
+            These private one-on-one strategy sessions are designed to help women
             gain clarity, make confident decisions, and create a plan for
             moving forward with purpose.
           </p>
@@ -44,9 +44,9 @@ function RevealStage({ scrollYProgress }: StageProps) {
             Whether you&rsquo;re building a business, navigating a major life
             transition, feeling stuck, or striving for your next level of
             growth, every session is tailored to your unique goals and
-            circumstances. Together, we&rsquo;ll challenge your problem, uncover
-            new opportunities, and develop a strategy that aligns with the life
-            you want to create.
+            circumstances, shaped around the specific challenges women face.
+            Together, we&rsquo;ll challenge your problem, uncover new opportunities,
+            and develop a strategy that aligns with the life you want to create.
           </p>
           <p className="font-body text-sm sm:text-base leading-relaxed text-cream/80">
             You&rsquo;ll leave with greater clarity, honest feedback, and three
@@ -284,7 +284,7 @@ const ABOUT_PARAGRAPHS = [
   "She chose the name Puja Foundation because her name means \u201Cto pray,\u201D and she wanted the organization to represent the belief that prayers can be answered through compassion, generosity, and action.",
   "Since its founding, the foundation has supported families across companies including Cicis Pizza, Applebee\u2019s, Sonic Drive-In, Roy\u2019s Restaurants, Corner Bakery, and Logan\u2019s Roadhouse.",
   "Through her experience in business, investing, real estate, marketing, leadership, and philanthropy, Puja has developed a strong ability to identify opportunities, negotiate effectively, build brands, evaluate risk, solve complex problems, and guide others through important decisions.",
-  "As a Business & Life Strategy Consultant, Puja brings that real-world experience into every session. Her approach is honest, practical, and personal. She helps clients gain clarity, recognize their blind spots, make stronger decisions, and create realistic strategies for moving forward in business, career, financial freedom, confidence, personal growth, and life.",
+  "As a Business & Life Strategy Consultant, Puja brings that real-world experience into every session. Her approach is honest, practical, and personal. She helps women gain clarity, recognize their blind spots, make stronger decisions, and create realistic strategies for moving forward in business, career, financial freedom, confidence, personal growth, and life.",
 ];
 
 function AboutSection() {

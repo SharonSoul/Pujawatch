@@ -66,11 +66,14 @@ export function HeroSection() {
       >
         {/* Top block: Dot & Logo — completely independent, at top on mobile */}
         <div className="max-w-xl lg:max-w-2xl">
-          {/* Pulsing dot */}
+          {/* Pulsing dot and For Women Only label */}
           <div className="mb-4 sm:mb-6 flex items-center gap-3">
             <div className="relative h-2.5 w-2.5 rounded-full bg-[#cca049]">
               <div className="absolute inset-0 animate-ping rounded-full bg-[#cca049] opacity-30" />
             </div>
+            <span className="font-accent text-[10px] uppercase tracking-[0.24em] text-[#cca049]">
+              For women only.
+            </span>
           </div>
 
           {/* Big Logo — nudged downwards more on mobile */}
@@ -94,7 +97,7 @@ export function HeroSection() {
 
           <p className="mt-4 sm:mt-5 max-w-md font-body text-sm sm:text-base leading-relaxed text-cream/65">
             Puja offers personalized one-on-one strategy<br className="sm:hidden" />
-            {" "}sessions for individuals who are ready to<br className="sm:hidden" />
+            {" "}sessions for women who are ready to<br className="sm:hidden" />
             {" "}think bigger, make stronger decisions, and<br className="sm:hidden" />
             {" "}move forward with confidence.
           </p>
