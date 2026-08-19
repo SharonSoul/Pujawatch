@@ -66,24 +66,24 @@ export function HeroSection() {
       >
         {/* Top block: Dot & Logo — completely independent, at top on mobile */}
         <div className="max-w-xl lg:max-w-2xl">
-          {/* Pulsing dot and For Women Only label */}
+          {/* Pulsing dot */}
           <div className="mb-4 sm:mb-6 flex items-center gap-3">
             <div className="relative h-2.5 w-2.5 rounded-full bg-[#cca049]">
               <div className="absolute inset-0 animate-ping rounded-full bg-[#cca049] opacity-30" />
             </div>
-            <span className="font-accent text-[10px] uppercase tracking-[0.24em] text-[#cca049]">
-              For women only.
-            </span>
           </div>
 
           {/* Big Logo — nudged downwards more on mobile */}
           <div className="mb-0 sm:mb-6 mt-7 sm:mt-0 "> 
-            
             <img
               src="/wings_logo.png"
               alt="PujaWatch"
               className="h-20 w-auto sm:h-16 md:h-20 lg:h-24 object-contain"
             />
+            {/* For Women Only label under logo */}
+            <p className="mt-2 text-[9px] uppercase tracking-[0.2em] text-[#cca049] font-accent">
+              For women only.
+            </p>
           </div>
         </div>
 
@@ -93,6 +93,10 @@ export function HeroSection() {
             GAIN CLARITY.<br />
             OVERCOME YOURSELF.<br />
             CREATE THE LIFE YOU&rsquo;RE CAPABLE OF.
+          </p>
+          {/* Duplicate label under uppercase subhead */}
+          <p className="mt-2 text-[9px] uppercase tracking-[0.2em] text-[#cca049] font-accent">
+            For women only.
           </p>
 
           <p className="mt-4 sm:mt-5 max-w-md font-body text-sm sm:text-base leading-relaxed text-cream/65">
