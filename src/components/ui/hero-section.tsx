@@ -64,40 +64,45 @@ export function HeroSection() {
         ref={revealRef}
         className="relative z-10 mx-auto flex min-h-dvh w-full max-w-7xl flex-col justify-between pt-28 pb-10 px-6 sm:justify-center sm:py-0 lg:px-8 sm:pl-12 md:pl-20 lg:pl-28 xl:pl-36"
       >
-        {/* Top block: Dot & Logo — completely independent, at top on mobile */}
+        {/* Top block: Logo — completely independent, at top on mobile */}
         <div className="max-w-xl lg:max-w-2xl">
-          {/* Pulsing dot */}
-          <div className="mb-4 sm:mb-6 flex items-center gap-3">
-            <div className="relative h-2.5 w-2.5 rounded-full bg-[#cca049]">
-              <div className="absolute inset-0 animate-ping rounded-full bg-[#cca049] opacity-30" />
-            </div>
-          </div>
-
           {/* Big Logo — nudged downwards more on mobile */}
           <div className="mb-0 sm:mb-6 mt-7 sm:mt-0 "> 
             <img
               src="/wings_logo.png"
               alt="PujaWatch"
-              className="h-20 w-auto sm:h-16 md:h-20 lg:h-24 object-contain"
+              className="h-24 w-auto sm:h-20 md:h-24 lg:h-32 object-contain"
             />
-            {/* For Women Only label under logo */}
-            <p className="mt-2 text-[9px] uppercase tracking-[0.2em] text-[#cca049] font-accent">
-              For women only.
-            </p>
           </div>
         </div>
 
         {/* Bottom block: Text & CTA — completely independent, anchored to bottom on mobile */}
         <div className="max-w-xl lg:max-w-2xl mt-auto sm:mt-0">
+          {/* For Women Only label with inline pulsing dot */}
+          <div className="flex items-center gap-2 mb-3 sm:mb-4">
+            <div className="relative h-1.5 w-1.5 rounded-full bg-[#cca049] shrink-0">
+              <div className="absolute inset-0 animate-ping rounded-full bg-[#cca049] opacity-35" />
+            </div>
+            <span className="text-[9px] uppercase tracking-[0.2em] text-[#cca049] font-accent leading-none">
+              For women only.
+            </span>
+          </div>
+
           <p className="max-w-lg font-body text-xs sm:text-sm uppercase leading-relaxed tracking-[0.2em] sm:tracking-[0.28em] text-cream/80 md:text-[14px]">
             GAIN CLARITY.<br />
             OVERCOME YOURSELF.<br />
             CREATE THE LIFE YOU&rsquo;RE CAPABLE OF.
           </p>
-          {/* Duplicate label under uppercase subhead */}
-          <p className="mt-2 text-[9px] uppercase tracking-[0.2em] text-[#cca049] font-accent">
-            For women only.
-          </p>
+
+          {/* Duplicate label with inline pulsing dot */}
+          <div className="flex items-center gap-2 mt-3 sm:mt-4">
+            <div className="relative h-1.5 w-1.5 rounded-full bg-[#cca049] shrink-0">
+              <div className="absolute inset-0 animate-ping rounded-full bg-[#cca049] opacity-35" />
+            </div>
+            <span className="text-[9px] uppercase tracking-[0.2em] text-[#cca049] font-accent leading-none">
+              For women only.
+            </span>
+          </div>
 
           <p className="mt-4 sm:mt-5 max-w-md font-body text-sm sm:text-base leading-relaxed text-cream/65">
             Puja offers personalized one-on-one strategy<br className="sm:hidden" />
