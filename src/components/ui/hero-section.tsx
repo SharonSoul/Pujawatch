@@ -64,24 +64,22 @@ export function HeroSection() {
         ref={revealRef}
         className="relative z-10 mx-auto flex min-h-dvh w-full max-w-7xl flex-col justify-between pt-28 pb-10 px-6 sm:justify-center sm:py-0 lg:px-8 sm:pl-12 md:pl-20 lg:pl-28 xl:pl-36"
       >
-        {/* Top block: Logo — completely independent, at top on mobile */}
+        {/* Top block: Dot & Logo — completely independent, at top on mobile */}
         <div className="max-w-xl lg:max-w-2xl">
+          {/* Pulsing dot */}
+          <div className="mb-4 sm:mb-6 flex items-center gap-3">
+            <div className="relative h-2.5 w-2.5 rounded-full bg-[#cca049]">
+              <div className="absolute inset-0 animate-ping rounded-full bg-[#cca049] opacity-30" />
+            </div>
+          </div>
+
           {/* Big Logo — nudged downwards more on mobile */}
-          <div className="mb-0 sm:mb-6 mt-7 sm:mt-0 "> 
+          <div className="mb-0 sm:mb-6 mt-7 sm:mt-0"> 
             <img
               src="/wings_logo.png"
               alt="PujaWatch"
               className="h-24 w-auto sm:h-20 md:h-24 lg:h-32 object-contain"
             />
-            {/* For Women Only label with inline pulsing dot */}
-            <div className="flex items-center gap-2 mt-3 sm:mt-4">
-              <div className="relative h-1.5 w-1.5 rounded-full bg-[#cca049] shrink-0">
-                <div className="absolute inset-0 animate-ping rounded-full bg-[#cca049] opacity-35" />
-              </div>
-              <span className="text-[9px] uppercase tracking-[0.2em] text-[#cca049] font-accent leading-none">
-                For women only.
-              </span>
-            </div>
           </div>
         </div>
 
@@ -100,11 +98,21 @@ export function HeroSection() {
             {" "}move forward with confidence.
           </p>
 
+          {/* For Women Only label with inline pulsing dot */}
+          <div className="flex items-center gap-2 mt-4 sm:mt-5">
+            <div className="relative h-1.5 w-1.5 rounded-full bg-[#cca049] shrink-0">
+              <div className="absolute inset-0 animate-ping rounded-full bg-[#cca049] opacity-35" />
+            </div>
+            <span className="text-[9px] uppercase tracking-[0.2em] text-[#cca049] font-accent leading-none">
+              For women only.
+            </span>
+          </div>
+
           {/* Magnetic CTA */}
           <Link
             href="/book"
             ref={ctaRef}
-            className="group mt-6 sm:mt-10 inline-flex w-fit items-center gap-5 sm:gap-6"
+            className="group mt-5 sm:mt-7 inline-flex w-fit items-center gap-5 sm:gap-6"
           >
             <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full border border-cream/20 transition-all duration-500 group-hover:bg-cream">
               <svg
