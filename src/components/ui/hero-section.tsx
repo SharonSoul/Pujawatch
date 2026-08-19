@@ -73,36 +73,25 @@ export function HeroSection() {
               alt="PujaWatch"
               className="h-24 w-auto sm:h-20 md:h-24 lg:h-32 object-contain"
             />
+            {/* For Women Only label with inline pulsing dot */}
+            <div className="flex items-center gap-2 mt-3 sm:mt-4">
+              <div className="relative h-1.5 w-1.5 rounded-full bg-[#cca049] shrink-0">
+                <div className="absolute inset-0 animate-ping rounded-full bg-[#cca049] opacity-35" />
+              </div>
+              <span className="text-[9px] uppercase tracking-[0.2em] text-[#cca049] font-accent leading-none">
+                For women only.
+              </span>
+            </div>
           </div>
         </div>
 
         {/* Bottom block: Text & CTA — completely independent, anchored to bottom on mobile */}
         <div className="max-w-xl lg:max-w-2xl mt-auto sm:mt-0">
-          {/* For Women Only label with inline pulsing dot */}
-          <div className="flex items-center gap-2 mb-3 sm:mb-4">
-            <div className="relative h-1.5 w-1.5 rounded-full bg-[#cca049] shrink-0">
-              <div className="absolute inset-0 animate-ping rounded-full bg-[#cca049] opacity-35" />
-            </div>
-            <span className="text-[9px] uppercase tracking-[0.2em] text-[#cca049] font-accent leading-none">
-              For women only.
-            </span>
-          </div>
-
           <p className="max-w-lg font-body text-xs sm:text-sm uppercase leading-relaxed tracking-[0.2em] sm:tracking-[0.28em] text-cream/80 md:text-[14px]">
             GAIN CLARITY.<br />
             OVERCOME YOURSELF.<br />
             CREATE THE LIFE YOU&rsquo;RE CAPABLE OF.
           </p>
-
-          {/* Duplicate label with inline pulsing dot */}
-          <div className="flex items-center gap-2 mt-3 sm:mt-4">
-            <div className="relative h-1.5 w-1.5 rounded-full bg-[#cca049] shrink-0">
-              <div className="absolute inset-0 animate-ping rounded-full bg-[#cca049] opacity-35" />
-            </div>
-            <span className="text-[9px] uppercase tracking-[0.2em] text-[#cca049] font-accent leading-none">
-              For women only.
-            </span>
-          </div>
 
           <p className="mt-4 sm:mt-5 max-w-md font-body text-sm sm:text-base leading-relaxed text-cream/65">
             Puja offers personalized one-on-one strategy<br className="sm:hidden" />
